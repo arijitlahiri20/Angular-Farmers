@@ -1,1 +1,23 @@
-<p>contact-us works!</p>
+
+  <h2>Contact Us</h2>
+  <p>Write to us and keep upto date with the latest information.</p>
+    <form (ngSubmit)="submitForm()">
+      
+      <div class="mb-3">
+      <label for="email">Email</label>
+      <input type="text" id="email" name="email"  [(ngModel)]="email" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="contact_no">Contact Number</label>
+      <input type="text" id="contact_no" name="contactnumber"  [(ngModel)]="contactnumber" required>
+  </div>
+
+  <div class="mb-3">
+      <label for="message">Message</label>
+      <textarea id="message" name="message"  style="height:200px" [(ngModel)]="message" required></textarea>
+    </div>
+      <input type="submit" value="Submit">
+  
+    </form>
+ 
