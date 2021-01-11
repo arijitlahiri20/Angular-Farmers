@@ -18,8 +18,8 @@ const routes: Routes = [
   {path:"/contact-us", component:ContactUsComponent},
   {path:"/login", component:LoginPageComponent},
   {path:"/signup", component:SignupHomeComponent},
-  {path:"/sigup-farmer", component:SignupFarmerComponent},
-  {path:"/sigup-bidder", component:SignupBidderComponent},
+  {path:"/signup-farmer", component:SignupFarmerComponent},
+  {path:"/signup-bidder", component:SignupBidderComponent},
   {path:"/farmer-home", component:FarmerHomePageComponent},
   {path:"/bidder-home", component:BidderHomePageComponent},
   {path:"/admin-home", component:AdminHomePageComponent}
