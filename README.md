@@ -5,7 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Starting Steps
 
 ```shell
-git clone https://github.com/arijitlahiri20/Angular-Farmers.git
+git clone https://github.com/arijitlahiri20/Angular-Farmers
 cd Angular-Farmers
 npm install
 ```
