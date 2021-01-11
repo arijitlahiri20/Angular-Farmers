@@ -13,16 +13,16 @@ import { SignupHomeComponent } from './signup-home/signup-home.component';
 
 
 const routes: Routes = [
-  {path:"/", component:HomePageComponent},
-  {path:"/about-us", component:AboutUsComponent},
-  {path:"/contact-us", component:ContactUsComponent},
-  {path:"/login", component:LoginPageComponent},
-  {path:"/signup", component:SignupHomeComponent},
-  {path:"/signup-farmer", component:SignupFarmerComponent},
-  {path:"/signup-bidder", component:SignupBidderComponent},
-  {path:"/farmer-home", component:FarmerHomePageComponent},
-  {path:"/bidder-home", component:BidderHomePageComponent},
-  {path:"/admin-home", component:AdminHomePageComponent}
+  {path:"", component:HomePageComponent},
+  {path:"about-us", component:AboutUsComponent},
+  {path:"contact-us", component:ContactUsComponent},
+  {path:"login", component:LoginPageComponent},
+  {path:"signup", component:SignupHomeComponent},
+  {path:"signup-farmer", component:SignupFarmerComponent},
+  {path:"signup-bidder", component:SignupBidderComponent},
+  {path:"farmer-home", component:FarmerHomePageComponent},
+  {path:"bidder-home", component:BidderHomePageComponent},
+  {path:"admin-home", component:AdminHomePageComponent}
 
 ];
 
