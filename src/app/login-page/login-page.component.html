@@ -1,1 +1,18 @@
-<p>login-page works!</p>
+<form (ngSubmit)="loginCheck()">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email </label>
+      <input type="email" class="form-control" id="email" [(ngModel)]=login.email>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" [(ngModel)]=login.password >
+    </div>
+    <a href="">Forgot Password ?</a>
+    
+    <button type="submit" class="btn btn-primary">Log In</button>
+
+   <a routerLink="/signup" routerLinkActive="active">New user ? Register here</a>
+  </form>
+
+
+  

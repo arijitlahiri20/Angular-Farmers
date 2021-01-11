@@ -1,1 +1,94 @@
-<p>signup-farmer works!</p>
+<div>
+<h2>Farmer Registration</h2>
+</div>
+
+<form oninput='password2.setCustomValidity(password2.value != password1.value ? "Passwords do not match" :"" )'>
+    <h3>Personal Details</h3><br>
+
+    <div class="mb-3">
+      <label for="fullname" class="form-label">Full Name</label>
+      <input type="text" class="form-control" id="fullname">
+    </div>
+
+    <div class="mb-3">
+        <label for="contactno" class="form-label">Contact Number</label>
+        <input type="number" class="form-control" id="contactno">
+    </div>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Email Id</label>
+        <input type="email" class="form-control" id="email">
+    </div>
+
+    <h3>Address Details</h3><br>
+
+    <div class="mb-3">
+        <label for="addressline1" class="form-label">Address Line 1</label>
+        <input type="textarea" class="form-control" id="addressline1">
+    </div>
+
+    <div class="mb-3">
+        <label for="addressline2" class="form-label">Address Line 2</label>
+        <input type="textarea" class="form-control" id="addressline2">
+    </div>
+
+    <div class="mb-3">
+        <label for="city" class="form-label">City</label>
+        <input type="text" class="form-control" id="city">
+    </div>
+
+    <div class="mb-3">
+        <label for="state" class="form-label">State</label>
+        <input type="text" class="form-control" id="state">
+    </div>
+
+    <div class="mb-3">
+        <label for="pin" class="form-label">Pin Code</label>
+        <input type="number" class="form-control" id="pin">
+    </div>
+
+    <h3>Land Details</h3><br>
+
+    <div class="mb-3">
+        <label for="landarea" class="form-label">Land Area</label>
+        <input type="textarea" class="form-control" id="landarea">
+    </div>
+
+    <div class="mb-3">
+        <label for="landaddress" class="form-label">Land Address</label>
+        <input type="textarea" class="form-control" id="landaddress">
+    </div>
+
+    <div class="mb-3">
+        <label for="landpin" class="form-label">Pin Code</label>
+        <input type="number" class="form-control" id="landpin">
+    </div>
+
+    <h3>Bank Details</h3><br>
+
+    <div class="mb-3">
+        <label for="accountnumber" class="form-label">Account Number</label>
+        <input type="number" class="form-control" id="accountnumber">
+    </div>
+
+    <div class="mb-3">
+        <label for="ifsccode" class="form-label">IFSC Code</label>
+        <input type="text" class="form-control" id="ifsccode">
+    </div>
+
+    <h3>Document Upload</h3><br>
+    
+
+    <div class="mb-3">
+      <label for="password1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password1" name="password1">
+    </div>
+    
+    <div class="mb-3">
+        <label for="password2" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="password2" name="password2">
+    </div>
+
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
