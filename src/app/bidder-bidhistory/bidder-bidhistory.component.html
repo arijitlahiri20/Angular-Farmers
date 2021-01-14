@@ -1,1 +1,35 @@
-<p>bidder-bidhistory works!</p>
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there is no sell request -->
+    <div class="no-data text-center" *ngIf="bidhistory.length == 0">
+        <p>YOUR PURCHASE HISTORY IS EMPTY !</p>
+    </div>
+  
+    <div *ngIf="bidhistory.length !== 0">
+        <h3 class="mb-3 text-center">HISTORY</h3>
+  
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                
+                    <tr>
+                        <th scope="col">Bid Id</th>
+                        <th scope="col">Bid Amount</th>
+                    </tr>
+                
+             
+                    <tr *ngFor="let item of bidhistory">
+                        <td>{{item.bid_id}}</td>
+                        <td>{{item.bid_amount}}</td>
+                      
+                    </tr>
+                
+            </table>
+        </div>
+  
+    </div>
+  </div>
+  
+  
+  
+  

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Bids } from '../models/bids.model';
+import { BidderService } from '../services/bidder.service';
 
 @Component({
   selector: 'app-bidder-bidrequest',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BidderBidrequestComponent implements OnInit {
 
-  constructor() { }
+  bid: Bids = new Bids();
+
+  constructor(private service: BidderService, private router: Router) { }
 
   ngOnInit() {
   }
 
+  placebid() {
+    this.bid.user_id=22;
+    this.bid.sell_id=1;
+
+    this.bid.status='PENDING';
+   // this.bid.user_id=JSON.parse(localStorage.getItem('userid'));
+   // this.bid.user_id=sessionStorage.getItem('user_id');
+    console.log(JSON.stringify(this.bid));
+    this.service.placebid(this.bid).subscribe(response => {
+      alert(JSON.stringify(response));
+    })
+
+  }
 }
