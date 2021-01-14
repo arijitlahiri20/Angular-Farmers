@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,17 @@ import { AdminHomePageComponent } from './admin-home-page/admin-home-page.compon
 import { SignupHomeComponent } from './signup-home/signup-home.component';
 import { SignupFarmerComponent } from './signup-farmer/signup-farmer.component';
 import { SignupBidderComponent } from './signup-bidder/signup-bidder.component';
+import { FarmerMarketplaceComponent } from './farmer-marketplace/farmer-marketplace.component';
+import { BidderMarketplaceComponent } from './bidder-marketplace/bidder-marketplace.component';
+import { InsuranceHomeComponent } from './insurance-home/insurance-home.component';
+import { FarmerSellrequestComponent } from './farmer-sellrequest/farmer-sellrequest.component';
+import { BidderBidrequestComponent } from './bidder-bidrequest/bidder-bidrequest.component';
+import { BidderBidhistoryComponent } from './bidder-bidhistory/bidder-bidhistory.component';
+import { InsurancePolicyComponent } from './insurance-policy/insurance-policy.component';
+import { InsuranceClaimComponent } from './insurance-claim/insurance-claim.component';
+import { InsuranceHistoryComponent } from './insurance-history/insurance-history.component';
+import { ClaimHistoryComponent } from './claim-history/claim-history.component';
+import { FarmerSoldhistoryComponent } from './farmer-soldhistory/farmer-soldhistory.component';
 
 @NgModule({
   declarations: [
@@ -28,12 +39,24 @@ import { SignupBidderComponent } from './signup-bidder/signup-bidder.component';
     AdminHomePageComponent,
     SignupHomeComponent,
     SignupFarmerComponent,
-    SignupBidderComponent
+    SignupBidderComponent,
+    FarmerMarketplaceComponent,
+    BidderMarketplaceComponent,
+    InsuranceHomeComponent,
+    FarmerSellrequestComponent,
+    BidderBidrequestComponent,
+    BidderBidhistoryComponent,
+    InsurancePolicyComponent,
+    InsuranceClaimComponent,
+    InsuranceHistoryComponent,
+    ClaimHistoryComponent,
+    FarmerSoldhistoryComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
