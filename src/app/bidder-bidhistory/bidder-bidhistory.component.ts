@@ -22,7 +22,7 @@ export class BidderBidhistoryComponent implements OnInit {
 
   loadhistory(){
 
-    this.user.user_id=22;
+    this.user.user_id=10;
     
     this.service.bidhistory(this.user).subscribe(data=>{
       console.log(JSON.stringify(data));

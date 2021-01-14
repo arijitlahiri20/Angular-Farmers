@@ -1,9 +1,33 @@
-<p>farmer-marketplace works!</p>
-<tr *ngFor="let item of Bids">
-    <td>{{item.bid_id}}</td>
-    <td>{{item.sell_id}}</td>
-    <td>{{item.user_id}}</td>
-    <td>{{item.bid_amount}}</td>
-    
-  
-</tr>
+<div class="no-data text-center" *ngIf="Sellrequests.length == 0">
+    <p>There are no crops in market yet ! Please wait.</p>
+</div>
+<div *ngIf="Sellrequests.length !== 0">
+    <h3 class="mb-3 text-center">Welcome To Marketplace</h3>
+
+    <div class="col-md-12">
+        <table class="table table-bordered">
+            
+                <tr>
+                    <th scope="col">Sell Id</th>
+                    <th scope="col">Crop Type</th>
+                    <th scope="col">Crop Name</th>
+                    <th scope="col">Fertilizer Type</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Mininum Price</th>
+                    <th scope="col">Bids</th>
+                </tr>
+            
+         
+                <tr *ngFor="let item of Sellrequests">
+                    <td>{{item.sell_id}}</td>
+                    <td>{{item.crop_type}}</td>
+                    <td>{{item.crop_name}}</td>
+                    <td>{{item.fertilizer_type}}</td>
+                    <td>{{item.quantity}}</td>
+                    <td>{{item.msp}}</td>
+                    <td><button type="button" class="btn btn-primary"><a routerLink="/farmer-marketplace" routerLinkActive="active">View Bids</a></button></td>
+                  
+                </tr>
+            
+        </table>
+    </div>

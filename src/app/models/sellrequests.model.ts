@@ -7,5 +7,4 @@ export class Sellrequests {
   ph_certificate:String;
   msp:number;
   status:String;
-  
 }

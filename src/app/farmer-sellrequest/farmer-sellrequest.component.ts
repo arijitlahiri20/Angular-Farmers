@@ -26,7 +26,7 @@ export class FarmerSellrequestComponent implements OnInit {
   }
 
   placeRequest(){
-    this.sellrequests.user_id=2;
+    this.sellrequests.user_id=9;
     alert(JSON.stringify(this.sellrequests));
     this.farmerService.placeRequest(this.sellrequests).subscribe(response => {
     alert(JSON.stringify(response));

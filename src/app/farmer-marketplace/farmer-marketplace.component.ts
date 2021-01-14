@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../models/user.model';
 import { FarmerService } from '../services/farmer.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { FarmerService } from '../services/farmer.service';
 })
 export class FarmerMarketplaceComponent implements OnInit {
 
-  Bids: any[];
+  Sellrequests: any[];
+  user : any = {
+    user_id:9
+  };
 
   constructor(private service:FarmerService, private router:Router) { }
 
@@ -18,9 +22,10 @@ export class FarmerMarketplaceComponent implements OnInit {
   }
 
   market(){
-    this.service.farmermarket().subscribe(data => {
+    this.user.user_id=9;
+    this.service.farmermarket(this.user).subscribe(data => {
       console.log(JSON.stringify(data));
-      this.Bids=data.list;
+      this.Sellrequests=data.list;
     })
   }
 }
