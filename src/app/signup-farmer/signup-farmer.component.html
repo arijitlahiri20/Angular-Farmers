@@ -1,79 +1,80 @@
 <div>
+<div class="col d-flex justify-content-center">
 <h2>Farmer Registration</h2>
 </div>
-
-<form oninput='password2.setCustomValidity(password2.value != password1.value ? "Passwords do not match" :"" )'>
+<div class="col d-flex justify-content-center">
+<form (ngSubmit)="SignupfarmerCheck()" oninput='password2.setCustomValidity(password2.value != password1.value ? "Passwords do not match" :"" )'>
     <h3>Personal Details</h3><br>
 
     <div class="mb-3">
       <label for="fullname" class="form-label">Full Name</label>
-      <input type="text" class="form-control" id="fullname">
+      <input type="text" class="form-control" id="fullname" name="t1" [(ngModel)]=user.full_name >
     </div>
 
     <div class="mb-3">
         <label for="contactno" class="form-label">Contact Number</label>
-        <input type="number" class="form-control" id="contactno">
+        <input type="number" class="form-control" id="contactno" name="t2"  [(ngModel)]=user.contact_no>
     </div>
 
     <div class="mb-3">
         <label for="email" class="form-label">Email Id</label>
-        <input type="email" class="form-control" id="email">
+        <input type="email" class="form-control" id="email" name="t3"  [(ngModel)]=user.email>
     </div>
 
     <h3>Address Details</h3><br>
 
     <div class="mb-3">
         <label for="addressline1" class="form-label">Address Line 1</label>
-        <input type="textarea" class="form-control" id="addressline1">
+        <input type="textarea" class="form-control" id="addressline1" name="t4"  [(ngModel)]=user.addr_1>
     </div>
 
     <div class="mb-3">
         <label for="addressline2" class="form-label">Address Line 2</label>
-        <input type="textarea" class="form-control" id="addressline2">
+        <input type="textarea" class="form-control" id="addressline2"  name="t5" [(ngModel)]=user.addr_2>
     </div>
 
     <div class="mb-3">
         <label for="city" class="form-label">City</label>
-        <input type="text" class="form-control" id="city">
+        <input type="text" class="form-control" id="city" name="t6"  [(ngModel)]=user.city>
     </div>
 
     <div class="mb-3">
         <label for="state" class="form-label">State</label>
-        <input type="text" class="form-control" id="state">
+        <input type="text" class="form-control" id="state" name="t7"  [(ngModel)]=user.state>
     </div>
 
     <div class="mb-3">
         <label for="pin" class="form-label">Pin Code</label>
-        <input type="number" class="form-control" id="pin">
+        <input type="number" class="form-control" id="pin" name="t8"  [(ngModel)]=user.pincode>
     </div>
 
     <h3>Land Details</h3><br>
 
     <div class="mb-3">
         <label for="landarea" class="form-label">Land Area</label>
-        <input type="textarea" class="form-control" id="landarea">
+        <input type="textarea" class="form-control" id="landarea" name="t9"  [(ngModel)]=user.land_area>
     </div>
 
     <div class="mb-3">
         <label for="landaddress" class="form-label">Land Address</label>
-        <input type="textarea" class="form-control" id="landaddress">
+        <input type="textarea" class="form-control" id="landaddress" name="t10"  [(ngModel)]=user.land_addr>
     </div>
 
     <div class="mb-3">
         <label for="landpin" class="form-label">Pin Code</label>
-        <input type="number" class="form-control" id="landpin">
+        <input type="number" class="form-control" id="landpin" name="t11"  [(ngModel)]=user.land_pincode>
     </div>
 
     <h3>Bank Details</h3><br>
 
     <div class="mb-3">
         <label for="accountnumber" class="form-label">Account Number</label>
-        <input type="number" class="form-control" id="accountnumber">
+        <input type="number" class="form-control" id="accountnumber" name="t12"  [(ngModel)]=user.account_no>
     </div>
 
     <div class="mb-3">
         <label for="ifsccode" class="form-label">IFSC Code</label>
-        <input type="text" class="form-control" id="ifsccode">
+        <input type="text" class="form-control" id="ifsccode" name="t13"  [(ngModel)]=user.ifsc_no>
     </div>
 
     <h3>Document Upload</h3><br>
@@ -81,14 +82,16 @@
 
     <div class="mb-3">
       <label for="password1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password1" name="password1">
+      <input type="password" class="form-control" id="password1" name="password1" [(ngModel)]=user.password>
     </div>
     
     <div class="mb-3">
         <label for="password2" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="password2" name="password2">
+        <input type="password" class="form-control" id="password2" name="password2"  #password2="ngModel" [(ngModel)]=user.password>
     </div>
 
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="col d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary">Submit</button></div>
   </form>
+</div>
+</div>

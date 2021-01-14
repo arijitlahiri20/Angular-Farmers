@@ -1,22 +1,24 @@
+<div class="mx-auto" style="width: 200px;">
+<h3>Welcome {{username}}</h3>
+</div>
 
-<form (ngSubmit)="BidderhomeCheck()">
-    <div class="topnav">
-        
-        <div class="topnav">
-            <a routerLink="/Marketplace" class="nav-link" routerLinkActive="active">  
-                Marketplace</a>
+<hr>
+<div class="card-deck" class="mx-auto" style="width: 400px; ">
+    <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">MarketPlace</h5>
+            <p class="card-text">Place Bids and purchase variety of crops</p>
+            <button type="button" class="btn btn-primary"><a routerLink="/bidder-marketplace" routerLinkActive="active">View</a></button>
         </div>
-
-        <div class="topnav">
-            <a routerLink="/BidRequest" class="nav-link" routerLinkActive="active">  
-                Bid Request</a>
-        </div>
-
-        <div class="topnav">
-            <a routerLink="/CompletedBids" class="nav-link" routerLinkActive="active">  
-                Completed Bids</a>
-        </div>
-
-
     </div>
-</form>
+
+    <div class="card">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">History</h5>
+            <p class="card-text">Check and inventory your purchases</p>
+            <button type="button" class="btn btn-primary"><a routerLink="/bidder-bidhistory" routerLinkActive="active">View</a></button>
+        </div>
+    </div>
+</div>

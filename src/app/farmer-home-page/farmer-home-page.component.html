@@ -1,4 +1,4 @@
-<form (ngSubmit)="FarmerhomeCheck()">
+<!-- <form (ngSubmit)="FarmerhomeCheck()">
     <div class="topnav">
         
         <div class="topnav">
@@ -22,4 +22,46 @@
         </div>
 
     </div>
-</form>
+</form> -->
+
+
+        
+
+  <div class="navbar-nav" display="inline">
+    <a class="nav-item nav-link" routerLink="/farmer-home">Home</a>
+    <a class="nav-item nav-link" routerLink="/insurance-home">Insurance</a>
+    <a class="nav-item nav-link" routerLink="/login">Logout</a>
+  </div>
+
+  <div>
+    <h2>Welcome! You have successfully logged in.</h2>
+</div>
+
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card Image">
+      <div class="card-body">
+        <h4 class="card-title">Place Sell Request</h4>
+        <p class="card-text"> Efficient way of selling your crops is here. So lets get started with placing your first Sell Request.</p>
+        <button mdbBtn color="primary" routerLink='/farmer-sellrequest'>Click to place a Sell Request</button>
+    </div>
+    </div>
+   
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card Image">
+      <div class="card-body">
+        <h4 class="card-title">View Sold Crop History</h4>
+        <p class="card-text">This will redirect you to your past crop history which had successful bids.</p>
+        <button mdbBtn color="primary" routerLink='/farmer-soldhistory'>Click here to view</button>
+    </div>
+    </div>
+
+    <div class="card">
+      <img class="card-img-top" src="..." alt="Card Image">
+      <div class="card-body">
+        <h4 class="card-title">View Marketplace</h4>
+        <p class="card-text"> View the bids placed on your approved crops right here.</p>
+        <button mdbBtn color="primary" routerLink='/farmer-marketplace'>Marketplace</button>
+    </div>
+    </div>
+  </div>
