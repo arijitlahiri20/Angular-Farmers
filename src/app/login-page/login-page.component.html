@@ -1,4 +1,6 @@
 <div class="mb-3">
+  <div class="col d-flex justify-content-center">
+
   <form (ngSubmit)="loginCheck()">
     <div class="mb-6">
       <label for="email" class="form-label">Email </label>
@@ -8,10 +10,19 @@
       <label for="password" class="form-label">Password</label>
       <input type="password" class="form-control" id="password" name="password" [(ngModel)]=login.password>
     </div>
-    <a href="">Forgot Password ?</a>
 
-    <button type="submit" class="btn btn-primary">Log In</button>
+    <div class="col d-flex justify-content-center">
+    <button type="submit" class="btn btn-primary">Log In</button></div>
 
-    <a routerLink="/signup" routerLinkActive="active">New user ? Register here</a>
+    <div class="card-footer">
+      <div class="d-flex justify-content-center links">
+        Don't have an account?<a href="/signup">New user?Sign Up</a>
+      </div>
+      <div class="d-flex justify-content-center">
+        <a href="">Forgot your password?</a>
+      </div>
+    </div>
   </form>
+</div> 
 </div>
+
