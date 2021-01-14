@@ -4,27 +4,32 @@
       
     <div class="container">
     <label for="croptype">Crop Type</label>
-    <input type="text" id="croptype" name="croptype"  [(ngModel)]="croptype" required>
+    <input type="text" id="croptype" name="croptype"  [(ngModel)]="sellrequests.crop_type" required>
   </div>
 
   <div class="container">
     <label for="cropname">Crop Name</label>
-    <input type="text" id="cropname" name="cropname"  [(ngModel)]="cropname" required>
+    <input type="text" id="cropname" name="cropname"  [(ngModel)]="sellrequests.crop_name" required>
 </div>
 
 <div class="container">
     <label for="fertilizer">Fertilizer Type</label>
-    <input type="text" id="fertilizer" name="fertilizer"  [(ngModel)]="fertilizer" required>
+    <input type="text" id="fertilizer" name="fertilizer"  [(ngModel)]="sellrequests.fertilizer_type" required>
 </div>
 
 <div class="container">
     <label for="quantity">Quantity</label>
-    <input type="text" id="quantity" name="quantity"  [(ngModel)]="quantity" required>
+    <input type="text" id="quantity" name="quantity"  [(ngModel)]="sellrequests.quantity" required>
+</div>
+
+<div class="container">
+    <label for="msp">MSP</label>
+    <input type="text" id="msp" name="msp"  [(ngModel)]="sellrequests.msp" required>
 </div>
 
 <div class="container">
     <label for="soilph">Soil ph Certificate</label>
-    <input type="text" id="soilph" name="soilph"  [(ngModel)]="soilph" required>
+    <input type="text" id="soilph" name="soilph"  [(ngModel)]="sellrequests.ph_certificate" required>
 </div>
     <input type="submit" value="Place Request">
 

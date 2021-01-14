@@ -9,7 +9,7 @@ import { FarmerService } from '../services/farmer.service';
 })
 export class FarmerSellrequestComponent implements OnInit {
 
-  sellrequests : Sellrequests=new Sellrequests;
+  sellrequests : Sellrequests=new Sellrequests();
 
   // data:any = 
   // {"user_id":1,
@@ -26,9 +26,10 @@ export class FarmerSellrequestComponent implements OnInit {
   }
 
   placeRequest(){
+    this.sellrequests.user_id=2;
     alert(JSON.stringify(this.sellrequests));
     this.farmerService.placeRequest(this.sellrequests).subscribe(response => {
-      alert(JSON.stringify(response));
+    alert(JSON.stringify(response));
     })
   }
 

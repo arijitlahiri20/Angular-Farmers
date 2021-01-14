@@ -14,6 +14,11 @@ export class FarmerService {
   placeRequest(sellrequests: Sellrequests) : Observable <any> {
     let url = "http://localhost:8181/farmer/place-sell-request";
     return this.http.post(url, sellrequests);
-
   }
+
+  farmermarket() : Observable<any>{
+  let url = "http://localhost:8181/farmer/marketplace";
+    return this.http.get(url);
+}
+
 }

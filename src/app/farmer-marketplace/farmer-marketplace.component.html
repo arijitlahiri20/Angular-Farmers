@@ -1,11 +1,9 @@
 <p>farmer-marketplace works!</p>
-<tr *ngFor="let item of Sellrequests">
+<tr *ngFor="let item of Bids">
+    <td>{{item.bid_id}}</td>
     <td>{{item.sell_id}}</td>
-    <td>{{item.crop_type}}</td>
-    <td>{{item.crop_name}}</td>
-    <td>{{item.fertilizer_type}}</td>
-    <td>{{item.quantity}}</td>
-    <td>{{item.msp}}</td>
-    <td><button type="button" class="btn btn-primary"><a routerLink="/bidder-bidrequest" routerLinkActive="active">Place Bid</a></button></td>
+    <td>{{item.user_id}}</td>
+    <td>{{item.bid_amount}}</td>
+    
   
 </tr>
