@@ -28,6 +28,8 @@ export class SignupFarmerComponent implements OnInit {
         
         //this.message=data.message;
         alert(JSON.stringify(data));
+        if(data.status=="SUCCESS")
+          this.router.navigate(['/']);
   })
 }
 
