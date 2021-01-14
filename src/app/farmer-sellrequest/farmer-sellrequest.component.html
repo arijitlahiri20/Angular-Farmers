@@ -1,1 +1,30 @@
-<p>farmer-sellrequest works!</p>
+
+
+<form (ngSubmit)="placeRequest()">
+      
+    <div class="container">
+    <label for="croptype">Crop Type</label>
+    <input type="text" id="croptype" name="croptype"  [(ngModel)]="croptype" required>
+  </div>
+
+  <div class="container">
+    <label for="cropname">Crop Name</label>
+    <input type="text" id="cropname" name="cropname"  [(ngModel)]="cropname" required>
+</div>
+
+<div class="container">
+    <label for="fertilizer">Fertilizer Type</label>
+    <input type="text" id="fertilizer" name="fertilizer"  [(ngModel)]="fertilizer" required>
+</div>
+
+<div class="container">
+    <label for="quantity">Quantity</label>
+    <input type="text" id="quantity" name="quantity"  [(ngModel)]="quantity" required>
+</div>
+
+<div class="container">
+    <label for="soilph">Soil ph Certificate</label>
+    <input type="text" id="soilph" name="soilph"  [(ngModel)]="soilph" required>
+</div>
+    <input type="submit" value="Place Request">
+
