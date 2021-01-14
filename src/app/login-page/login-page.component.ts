@@ -35,28 +35,28 @@ export class LoginPageComponent implements OnInit {
     //     this.message = response.message;
     // })
 
-    this.service.userLogin(this.login).subscribe(data=>{
+    this.service.login(this.login).subscribe(data=>{
       // alert(JSON.stringify(data));
    
        if(data.status=="SUCCESS"){
          //console.log(data.message);
-         sessionStorage.setItem('UserId',String(data.user_id));
-         sessionStorage.setItem('name',String(data.full_name));
-         sessionStorage.setItem('userRole',String(data.user_type));
+         sessionStorage.setItem('user_id',(data.user_id));
+         sessionStorage.setItem('full_name',String(data.full_name));
+         sessionStorage.setItem('user_type',String(data.user_type));
   
          this.message=data.message;
          //alert(data.role);          //farmer/bidder/admin
-         if(data.user_type=='BIDDER'){
+         if(data.userType=='BIDDER'){
         alert("Welcome Bidder");
          this.router.navigate(['/bidder-home']);
    
           }
-       else if(data.user_type=='ADMIN'){
+       else if(data.userType=='ADMIN'){
          alert("Welcome Admin");
          this.router.navigate(['/admin-home']);
          
           }
-          else if(data.user_type=='FARMER'){
+          else if(data.userType=='FARMER'){
            alert("Welcome Farmer");
              this.router.navigate(['/farmer-home']); 
             
