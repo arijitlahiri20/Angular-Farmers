@@ -36,7 +36,7 @@
           <table class="table table-bordered">
               
                   <tr>
-                      <th scope="col">Sell Id</th>
+                      <!-- <th scope="col">Sell Id</th> -->
                       <th scope="col">Crop Type</th>
                       <th scope="col">Crop Name</th>
                       <th scope="col">Fertilizer Type</th>
@@ -47,13 +47,13 @@
               
            
                   <tr *ngFor="let item of Sellrequests">
-                      <td>{{item.sell_id}}</td>
+                      <!-- <td>{{item.sell_id}}</td> -->
                       <td>{{item.crop_type}}</td>
                       <td>{{item.crop_name}}</td>
                       <td>{{item.fertilizer_type}}</td>
                       <td>{{item.quantity}}</td>
                       <td>{{item.msp}}</td>
-                      <td><button type="button" class="btn btn-primary"><a routerLink="/bidder-bidrequest" routerLinkActive="active">Place Bid</a></button></td>
+                      <td><button type="button" class="btn btn-primary"><a (click)="placebid(item.sell_id)" routerLinkActive="active">Place Bid</a></button></td>
                     
                   </tr>
               

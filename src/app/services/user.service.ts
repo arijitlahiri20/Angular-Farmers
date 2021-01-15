@@ -31,5 +31,9 @@ export class UserService {
    return this.http.post(url, user); 
   } 
 
+  documentupload(formData:FormData):Observable<any>{
+    let url = this.baseURL + "/document-upload";
+    return this.http.post(url,formData);
+  }
 
 }

@@ -19,7 +19,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   loginCheck() {
-    console.log("Logged in successfully")
+    //console.log("Logged in successfully")
     
     this.service.login(this.login).subscribe(data=>{
       // alert(JSON.stringify(data));
@@ -34,17 +34,17 @@ export class LoginPageComponent implements OnInit {
          this.message=data.message;
 
          if(data.userType=='BIDDER'){
-        alert("Welcome Bidder");
+        
          this.router.navigate(['/bidder-home']);
    
           }
        else if(data.userType=='ADMIN'){
-         alert("Welcome Admin");
+         
          this.router.navigate(['/admin-home']);
          
           }
           else if(data.userType=='FARMER'){
-           alert("Welcome Farmer");
+           
              this.router.navigate(['/farmer-home']); 
             
           }
