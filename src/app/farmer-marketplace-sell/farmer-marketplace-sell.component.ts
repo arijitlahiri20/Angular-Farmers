@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Bids } from '../models/bids.model';
+import { Sellrequests } from '../models/sellrequests.model';
+import { FarmerService } from '../services/farmer.service';
 
 @Component({
   selector: 'app-farmer-marketplace-sell',
@@ -8,12 +11,17 @@ import { Router } from '@angular/router';
 })
 export class FarmerMarketplaceSellComponent implements OnInit {
 
+  bids:any=[];
   sell_id = localStorage.getItem('sell_id');
-
-  constructor(private router: Router) { }
+  sr:any={
+    sell_id:0
+  };
+  
+  constructor(private service:FarmerService, private router: Router) { }
 
   ngOnInit() {
     alert(this.sell_id);
+    this.getBids();
   }
 
   back(){
@@ -21,4 +29,11 @@ export class FarmerMarketplaceSellComponent implements OnInit {
     this.router.navigate(['/farmer-marketplace']);
   }
 
+  getBids(){
+    this.sr.sell_id=localStorage.getItem('sell_id');
+    this.service.bid(this.sr).subscribe(data => {
+      console.log(JSON.stringify(data));
+      this.bids=data.list;
+    })
+  }
 }

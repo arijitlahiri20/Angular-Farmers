@@ -1,3 +1,35 @@
 <p>farmer-marketplace-sell works!</p>
 
 <a (click)="back()">Go Back</a>
+
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there are no bids placed -->
+    <div class="no-data text-center" *ngIf="bids.length == 0">
+        <p>THERE ARE NO BIDS PLACED YET !</p>
+    </div>
+  
+    <div *ngIf="bids.length !== 0">
+        <h3 class="mb-3 text-center">Current Active Bids</h3>
+  
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                
+                    <tr>
+                        <th scope="col">Bid Id</th>
+                        <th scope="col">Bid Amount</th>
+                    </tr>
+                
+             
+                    <tr *ngFor="let item of bids">
+                        <td>{{item.bid_id}}</td>
+                        <td>{{item.bid_amount}}</td>
+                      
+                    </tr>
+                
+            </table>
+        </div>
+  
+    </div>
+  </div>
