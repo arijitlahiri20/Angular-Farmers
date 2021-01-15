@@ -1,1 +1,67 @@
-<p>insurance-policy works!</p>
+
+<div>
+    <div class="col d-flex justify-content-center">
+    <h2>Insurance Application</h2>
+    </div>
+    <div class="col d-flex justify-content-center">
+    <form (ngSubmit)="InsurancePolicyCheck()">
+        <h3> </h3><br>
+    
+        <div class="mb-3">
+          <label for="season" class="form-label">Season</label>
+          <input type="season" class="form-control" id="season" name="t1" [(ngModel)]=insurance.season >
+        </div>
+    
+        <div class="mb-3">
+            <label for="year" class="form-label">Year</label>
+            <input type="year" class="form-control" id="year" name="t2"  [(ngModel)]=insurance.year>
+        </div>
+    
+        <div class="mb-3">
+            <label for="crop" class="form-label">Crop</label>
+            <input type="crop" class="form-control" id="crop" name="t3"  [(ngModel)]=insurance.crop>
+        </div>
+    
+        <div class="mb-3">
+            <label for="sum_insured" class="form-label">Sum Insured</label>
+            <input type="sum_insured" class="form-control" id="sum_insured" name="t4"  [(ngModel)]=insurance.sum_insured>
+        </div>
+
+        <div class="mb-3">
+            <label for="area" class="form-label">Area</label>
+            <input type="area" class="form-control" id="area" name="t3"  [(ngModel)]=insurance.area>
+        </div>
+    
+        <div class="col d-flex justify-content-center">
+        <button type="submit"  class="btn btn-primary">Calculate</button></div>
+    </form>
+    </div>
+</div>
+
+<table style="width:100%">
+    <tr>
+      <th>Insurance Company</th>
+      <th>Sum insured(per hec)</th> 
+      <th>Share premium</th>
+      <th>Premium amount</th>
+      <th>Crop Name</th>
+      <th>Area</th>
+      <th>Sum insured</th>
+    </tr>
+
+    <tr>
+
+        <td>{{result.insurance_company}}</td>
+        <td>{{result.sum_insured}}</td>
+        <td>{{result.premium_amount}}</td>
+        <td>{{result.premium_amount}}</td>
+        <td>{{result.crop}}</td>
+        <td>{{result.area}}</td>
+        <td>{{result.sum_insured}}</td>
+        
+    </tr>
+    
+</table>
+<div class="col d-flex justify-content-center">
+    <a (click)="ApplyInsurance()">Apply</a>
+    </div>

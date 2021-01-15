@@ -1,1 +1,47 @@
-<p>insurance-claim works!</p>
+
+
+<div>
+    <div class="col d-flex justify-content-center">
+    <h2>Insurance Claim Application</h2>
+    </div>
+    <div class="col d-flex justify-content-center">
+    <form (ngSubmit)="InsuranceClaimCheck()">
+        <h3> </h3><br>
+    
+        <div class="mb-3">
+          <label for="policyno" class="form-label">Policy number</label>
+          <input type="policyno" class="form-control" id="policyno" name="t1" [(ngModel)]=claims.policy_no >
+        </div>
+    
+        <div class="mb-3">
+            <label for="insuranceCom" class="form-label">Insurance Company name</label>
+            <input type="insuranceCom" class="form-control" id="insuranceCom" name="t2"  [(ngModel)]=claims.insurance_company>
+        </div>
+    
+        <div class="mb-3">
+            <label for="insureeName" class="form-label">Insuree Name</label>
+            <input type="insureeName" class="form-control" id="insureeName" name="t3"  [(ngModel)]=claims.full_name>
+        </div>
+    
+        <div class="mb-3">
+            <label for="suminsured" class="form-label">Sum Insured</label>
+            <input type="suminsured" class="form-control" id="suminsured" name="t4"  [(ngModel)]=claims.sum_insured>
+        </div>
+
+        <h2>Details for loss cause</h2>
+
+        <div class="mb-3">
+            <label for="Cause" class="form-label">Cause of loss</label>
+            <input type="Cause" class="form-control" id="Cause" name="t3"  [(ngModel)]=claims.loss_cause>
+        </div>
+
+        <div class="mb-3">
+            <label for="Date" class="form-label">Date of loss</label>
+            <input type="Date" class="form-control" id="Date" name="t3"  [(ngModel)]=claims.loss_date>
+        </div>
+    
+        <div class="col d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary">Calculate</button></div>
+      </form>
+    </div>
+    </div>
