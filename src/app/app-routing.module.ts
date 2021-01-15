@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { AdminClaimComponent } from './admin-claim/admin-claim.component';
+import { AdminContactusComponent } from './admin-contactus/admin-contactus.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
 import { AdminInsuranceComponent } from './admin-insurance/admin-insurance.component';
 import { AdminMarkeplaceBidsComponent } from './admin-markeplace-bids/admin-markeplace-bids.component';
 import { AdminMarketplaceComponent } from './admin-marketplace/admin-marketplace.component';
+import { AdminSellrequestsComponent } from './admin-sellrequests/admin-sellrequests.component';
 import { AdminUserApprovalComponent } from './admin-user-approval/admin-user-approval.component';
 import { AdminUserDocumentComponent } from './admin-user-document/admin-user-document.component';
 import { BidderBidhistoryComponent } from './bidder-bidhistory/bidder-bidhistory.component';
@@ -60,7 +62,9 @@ const routes: Routes = [
   {path:"admin-marketplace" , component:AdminMarketplaceComponent},
   {path:"admin-marketplace-bids" , component:AdminMarkeplaceBidsComponent},
   {path:"admin-insurance" , component:AdminInsuranceComponent},
-  {path:"admin-claim" , component:AdminClaimComponent}
+  {path:"admin-claim" , component:AdminClaimComponent},
+  {path:"admin-contactus" , component:AdminContactusComponent},
+  {path:"admin-sellrequests", component:AdminSellrequestsComponent}
 ];
 
 @NgModule({

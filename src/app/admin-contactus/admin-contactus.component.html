@@ -1,1 +1,29 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+        <div class="container">
+          <a class="navbar-brand" >
+                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/admin-home" >Hello, {{full_name}}
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+              <li class="nav-item active">
+                <a class="nav-link" (click)="logout()">Logout
+                    <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br><br>
 <p>admin-contactus works!</p>
