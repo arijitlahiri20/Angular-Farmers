@@ -1,1 +1,66 @@
-<p>signup-documents works!</p>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+        <div class="container">
+          <a class="navbar-brand" >
+                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/">Home
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" routerLink="/about-us">About Us
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" routerLink="/contact-us">Contact Us
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+              <li class="nav-item ">
+                <a class="nav-link" routerLink="/login">Login
+                    <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br><br>
+
+<div class="container" style="width:500px; margin:auto;">
+    <div>
+        <h4>Upload Documents for Verfification :</h4>
+    </div>
+    <br>
+    <form (ngSubmit)="upload()">
+        <div>
+            Aadhar Card: <input type="file" name="aadhar" (change)="onAadharChange($event)" />
+        </div>
+        <br>
+        <div>
+            PAN Card: <input type="file" name="pan" (change)="onPanChange($event)" />
+        </div>
+        <br>
+        <div *ngIf= "userType == 'FARMER'" >
+            Certificate: <input type="file" name="certificate" (change)="onCertificateChange($event)" />
+            <input type="file" name="traderlicense" (change)="onTraderLicenseChange($event)" hidden />
+        </div>
+        <br>
+        <div *ngIf="userType == 'BIDDER'">
+            <input type="file" name="certificate" (change)="onCertificateChange($event)" hidden/>
+            Trader License: <input type="file" name="traderlicense" (change)="onTraderLicenseChange($event)" />
+        </div>
+        <br>
+        <button type="submit">Upload</button>
+    </form>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 
 @Component({
@@ -7,13 +8,19 @@ import { User } from '../models/user.model';
   styleUrls: ['./bidder-home-page.component.css']
 })
 export class BidderHomePageComponent implements OnInit {
-  user:User;
-  username: string;
-  constructor() { }
+  username = sessionStorage.getItem('full_name');
+  constructor(private router : Router) { }
 
   ngOnInit() : void{
-    // localStorage.setItem('userid', JSON.stringify(this.user.user_id));
-   // this.username=sessionStorage.getItem('userid');
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
   }
 
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }

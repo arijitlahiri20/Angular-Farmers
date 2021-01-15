@@ -33,6 +33,12 @@ export class FarmerMarketplaceComponent implements OnInit {
     localStorage.setItem('sell_id', sell_id);
     this.router.navigate(['/farmer-marketplace-sell']);
   }
+  
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }
 
 

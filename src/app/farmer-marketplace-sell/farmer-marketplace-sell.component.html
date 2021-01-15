@@ -1,3 +1,67 @@
-<p>farmer-marketplace-sell works!</p>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+        <div class="container">
+          <a class="navbar-brand" >
+                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/farmer-home">Home
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" routerLink="/insurance-home">Insurance
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+              <li class="nav-item ">
+                <a class="nav-link" (click)="logout()">Logout
+                    <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br><br>
 
 <a (click)="back()">Go Back</a>
+
+
+<div class="container custom-container-2">
+
+    <!-- Show it when there are no bids placed -->
+    <div class="no-data text-center" *ngIf="bids.length == 0">
+        <p>THERE ARE NO BIDS PLACED YET !</p>
+    </div>
+  
+    <div *ngIf="bids.length !== 0">
+        <h3 class="mb-3 text-center">Current Active Bids</h3>
+  
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                
+                    <tr>
+                        <th scope="col">Bid Id</th>
+                        <th scope="col">Bid Amount</th>
+                    </tr>
+                
+             
+                    <tr *ngFor="let item of bids">
+                        <td>{{item.bid_id}}</td>
+                        <td>{{item.bid_amount}}</td>
+                      
+                    </tr>
+                
+            </table>
+        </div>
+  
+    </div>
+  </div>

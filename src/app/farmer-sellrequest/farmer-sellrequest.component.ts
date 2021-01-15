@@ -27,12 +27,18 @@ export class FarmerSellrequestComponent implements OnInit {
   }
 
   placeRequest(){
-    this.sellrequests.user_id=9;
+    this.sellrequests.user_id=2;
     alert(JSON.stringify(this.sellrequests));
     this.farmerService.placeRequest(this.sellrequests).subscribe(response => {
     alert(JSON.stringify(response));
     this.router.navigate(['/farmer-home']);
     })
+  }
+
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

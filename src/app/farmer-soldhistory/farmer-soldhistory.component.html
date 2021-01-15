@@ -1,13 +1,68 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+        <div class="container">
+          <a class="navbar-brand" >
+                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ">
+                    <a class="nav-link" routerLink="/farmer-home">Home
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" routerLink="/insurance-home">Insurance
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+              <li class="nav-item ">
+                <a class="nav-link" (click)="logout()">Logout
+                    <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br><br>
 
+<div class="container custom-container-2">
 
-<h2>Your Sold History:  </h2>
+  <!-- Show it when there is no sell request placed -->
+  <div class="no-data text-center" *ngIf="soldhistory.length == 0">
+      <p>YOU HAVEN'T PLACED ANY SELL REQUESTS YET</p>
+  </div>
 
-<table style="width:100%">
-    <tr>
-      <th>Date</th>
-      <th>CropName</th> 
-      <th>Quantity</th>
-      <th>MSP</th>
-      <th>Sold Price</th>
-      <th>Total Price</th>
-    </tr>
+  <div *ngIf="soldhistory.length !== 0">
+      <h3 class="mb-3 text-center">HISTORY</h3>
+
+      <div class="col-md-12">
+          <table class="table table-bordered">
+              
+                  <tr>
+                      <!-- <th scope="col">Date</th> -->
+                      <th scope="col">Sell Id</th>
+                      <th scope="col">CropName</th>
+                      <th scope="col">Quantity</th>
+                      <th scope="col">Sold Price</th>
+                  </tr>
+              
+           
+                  <tr *ngFor="let item of soldhistory">
+                      <td>{{item.sell_id}}</td>
+                      <td>{{item.crop_name}}</td>
+                      <td>{{item.quantity}}</td>
+                      <td>{{item.sold_price}}</td>                        
+                  </tr>
+              
+          </table>
+      </div>
+
+  </div>
+</div>

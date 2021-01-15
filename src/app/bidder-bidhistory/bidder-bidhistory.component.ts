@@ -22,13 +22,18 @@ export class BidderBidhistoryComponent implements OnInit {
 
   loadhistory(){
 
-    this.user.user_id=10;
+    this.user.user_id=JSON.parse(sessionStorage.getItem('user_id'));
     
     this.service.bidhistory(this.user).subscribe(data=>{
       console.log(JSON.stringify(data));
       this.bidhistory=data.list;
 
     })
+  }
+
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

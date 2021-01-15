@@ -1,34 +1,75 @@
-<form (ngSubmit)="AdminhomeCheck()">
-    <div class="topnav">
-        
-        <div class="topnav">
-            <a routerLink="/UserSignupApprovals" class="nav-link" routerLinkActive="active">  
-                User Signup Approvals</a>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+        <div class="container">
+          <a class="navbar-brand" >
+                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/admin-home" >Hello, {{full_name}}
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+              <li class="nav-item active">
+                <a class="nav-link" (click)="logout()">Logout
+                    <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div class="topnav">
-            <a routerLink="/SellRequestApprovals" class="nav-link" routerLinkActive="active">  
-                Sell Request Approvals</a>
-        </div>
-
-        <div class="topnav">
-            <a routerLink="/ApprovedSellRequest" class="nav-link" routerLinkActive="active">  
-                Approved Sell Request</a>
-        </div>
-
-        <div class="topnav">
-            <a routerLink="/BidList" class="nav-link" routerLinkActive="active">  
-                Bid List</a>
-        </div>
-
-        <div class="topnav">
-            <a routerLink="/InsuranceClaimApprovals" class="nav-link" routerLinkActive="active">  
-                Insurance Claim Approvals</a>
-        </div>
-
-        <div class="topnav">
-            <a routerLink="/ContactUsMessages" class="nav-link" routerLinkActive="active">  
-                Contact Us Messages</a>
-        </div>
+      </nav>
+    </header>
+    <br><br>
+    <div class="container">
+            <div class="card-columns">
+                <div class="card">
+                    <div class="card-body text-center">
+                    <a routerLink="/admin-user-approval" class="card-link" routerLinkActive="active">  
+                        User Signup Approvals</a>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-body text-center">
+                    <a routerLink="/admin-sellrequests" class="card-link" routerLinkActive="active">  
+                        Sell Request Approvals</a>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-body text-center">
+                    <a routerLink="/admin-marketplace" class="card-link" routerLinkActive="active">  
+                        View Marketplace</a>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-body text-center">
+                    <a routerLink="/admin-insurance" class="card-link" routerLinkActive="active">  
+                        Insurance Approvals</a>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-body text-center">
+                    <a routerLink="/admin-claim" class="card-link" routerLinkActive="active">  
+                        Claim Approvals</a>
+                    </div>
+                </div>
+    
+                <div class="card">
+                    <div class="card-body text-center">
+                    <a routerLink="/admin-contactus" class="card-link" routerLinkActive="active">  
+                        Contact Us Messages</a>
+                    </div>
+                </div>
+            </div>
     </div>
-</form>
+    
+    
