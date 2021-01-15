@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-farmer-home-page',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FarmerHomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router : Router) { }
 
   ngOnInit() {
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
   }
 
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }

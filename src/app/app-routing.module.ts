@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { AdminClaimComponent } from './admin-claim/admin-claim.component';
 import { AdminHomePageComponent } from './admin-home-page/admin-home-page.component';
+import { AdminInsuranceComponent } from './admin-insurance/admin-insurance.component';
+import { AdminMarkeplaceBidsComponent } from './admin-markeplace-bids/admin-markeplace-bids.component';
+import { AdminMarketplaceComponent } from './admin-marketplace/admin-marketplace.component';
+import { AdminUserApprovalComponent } from './admin-user-approval/admin-user-approval.component';
+import { AdminUserDocumentComponent } from './admin-user-document/admin-user-document.component';
 import { BidderBidhistoryComponent } from './bidder-bidhistory/bidder-bidhistory.component';
 import { BidderBidrequestComponent } from './bidder-bidrequest/bidder-bidrequest.component';
 import { BidderHomePageComponent } from './bidder-home-page/bidder-home-page.component';
@@ -9,6 +15,7 @@ import { BidderMarketplaceComponent } from './bidder-marketplace/bidder-marketpl
 import { ClaimHistoryComponent } from './claim-history/claim-history.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FarmerHomePageComponent } from './farmer-home-page/farmer-home-page.component';
+import { FarmerMarketplaceSellComponent } from './farmer-marketplace-sell/farmer-marketplace-sell.component';
 import { FarmerMarketplaceComponent } from './farmer-marketplace/farmer-marketplace.component';
 import { FarmerSellrequestComponent } from './farmer-sellrequest/farmer-sellrequest.component';
 import { FarmerSoldhistoryComponent } from './farmer-soldhistory/farmer-soldhistory.component';
@@ -35,6 +42,7 @@ const routes: Routes = [
   {path:"bidder-home", component:BidderHomePageComponent},
   {path:"admin-home", component:AdminHomePageComponent},
   {path:"farmer-marketplace", component:FarmerMarketplaceComponent},
+  {path:"farmer-marketplace-sell" , component:FarmerMarketplaceSellComponent},
   {path:"farmer-sellrequest", component:FarmerSellrequestComponent},
   {path:"farmer-soldhistory", component:FarmerSoldhistoryComponent},
   {path:"bidder-marketplace", component:BidderMarketplaceComponent},
@@ -44,7 +52,13 @@ const routes: Routes = [
   {path:"insurance-policy", component:InsurancePolicyComponent},
   {path:"insurance-claim", component:InsuranceClaimComponent},
   {path:"insurance-history", component:InsuranceHistoryComponent},
-  {path:"claim-history", component:ClaimHistoryComponent}
+  {path:"claim-history", component:ClaimHistoryComponent},
+  {path:"admin-user-approval" , component:AdminUserApprovalComponent},
+  {path:"admin-user-document" , component:AdminUserDocumentComponent},
+  {path:"admin-marketplace" , component:AdminMarketplaceComponent},
+  {path:"admin-marketplace-bids" , component:AdminMarkeplaceBidsComponent},
+  {path:"admin-insurance" , component:AdminInsuranceComponent},
+  {path:"admin-claim" , component:AdminClaimComponent}
 ];
 
 @NgModule({

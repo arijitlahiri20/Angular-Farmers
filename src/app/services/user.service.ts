@@ -11,22 +11,23 @@ import { User} from '../models/user.model';
 })
 export class UserService {
 
+  baseURL: string = "http://localhost:8181";
 
   constructor(private http: HttpClient) { } //create instance
   //constructor() { }
 
   login(login: Login) : Observable<any> {
-    let url = "http://localhost:8181/login";
+    let url = this.baseURL + "/login";
    return this.http.post(url, login); 
   }
 
   signupfarmer(user: User) : Observable<any> {
-    let url = "http://localhost:8181/signup-farmer";
+    let url = this.baseURL + "/signup-farmer";
    return this.http.post(url, user); 
   } 
     
   signupbidder(user: User) : Observable<any> {
-    let url = "http://localhost:8181/signup-bidder";
+    let url = this.baseURL + "/signup-bidder";
    return this.http.post(url, user); 
   } 
 

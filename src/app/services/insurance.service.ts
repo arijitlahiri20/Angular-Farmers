@@ -5,5 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class InsuranceService {
 
+  baseURL: string = "http://localhost:8181";
+  
   constructor() { }
 }
