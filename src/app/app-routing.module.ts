@@ -26,6 +26,7 @@ import { InsuranceHomeComponent } from './insurance-home/insurance-home.componen
 import { InsurancePolicyComponent } from './insurance-policy/insurance-policy.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupBidderComponent } from './signup-bidder/signup-bidder.component';
+import { SignupDocumentsComponent } from './signup-documents/signup-documents.component';
 import { SignupFarmerComponent } from './signup-farmer/signup-farmer.component';
 import { SignupHomeComponent } from './signup-home/signup-home.component';
 
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path:"signup", component:SignupHomeComponent},
   {path:"signup-farmer", component:SignupFarmerComponent},
   {path:"signup-bidder", component:SignupBidderComponent},
+  {path:"signup-documents", component:SignupDocumentsComponent},
   {path:"farmer-home", component:FarmerHomePageComponent},
   {path:"bidder-home", component:BidderHomePageComponent},
   {path:"admin-home", component:AdminHomePageComponent},

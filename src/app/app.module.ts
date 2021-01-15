@@ -34,6 +34,7 @@ import { AdminInsuranceComponent } from './admin-insurance/admin-insurance.compo
 import { AdminClaimComponent } from './admin-claim/admin-claim.component';
 import { AdminContactusComponent } from './admin-contactus/admin-contactus.component';
 import { AdminMarkeplaceBidsComponent } from './admin-markeplace-bids/admin-markeplace-bids.component';
+import { SignupDocumentsComponent } from './signup-documents/signup-documents.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { AdminMarkeplaceBidsComponent } from './admin-markeplace-bids/admin-mark
     AdminInsuranceComponent,
     AdminClaimComponent,
     AdminContactusComponent,
-    AdminMarkeplaceBidsComponent
+    AdminMarkeplaceBidsComponent,
+    SignupDocumentsComponent
   ],
   imports: [
     BrowserModule,
