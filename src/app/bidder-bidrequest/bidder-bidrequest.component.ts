@@ -27,6 +27,7 @@ export class BidderBidrequestComponent implements OnInit {
 
   placebid() {
 
+
     this.bid.user_id=JSON.parse(sessionStorage.getItem('user_id'));
     this.bid.sell_id=JSON.parse(this.sell_id);
    // this.bid.user_id=JSON.parse(localStorage.getItem('userid'));
@@ -35,7 +36,7 @@ export class BidderBidrequestComponent implements OnInit {
 
     this.service.placebid(this.bid).subscribe(response => {
       alert(JSON.stringify(response));
-      this.router.navigate(['/bidder-home']);
+      this.router.navigate(['/bidder-marketplace']);
     })
 
   }

@@ -34,4 +34,5 @@ export class BidderService {
    return this.http.post(url, sell); 
   }
 
+  
 }
