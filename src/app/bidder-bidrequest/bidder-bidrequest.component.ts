@@ -11,16 +11,15 @@ import { BidderService } from '../services/bidder.service';
 export class BidderBidrequestComponent implements OnInit {
 
   bid: Bids = new Bids();
-
+  sell_id = localStorage.getItem('sell_id');
   constructor(private service: BidderService, private router: Router) { }
 
   ngOnInit() {
   }
 
   placebid() {
-    this.bid.user_id=10;
-    this.bid.sell_id=2;
-
+    this.bid.user_id=JSON.parse(sessionStorage.getItem('user_id'));
+    this.bid.sell_id=JSON.parse(this.sell_id);
     this.bid.status='PENDING';
    // this.bid.user_id=JSON.parse(localStorage.getItem('userid'));
    // this.bid.user_id=sessionStorage.getItem('user_id');

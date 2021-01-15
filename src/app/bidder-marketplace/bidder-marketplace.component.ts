@@ -27,5 +27,11 @@ export class BidderMarketplaceComponent implements OnInit {
     })
   }
 
+  placebid(sell_id){
+
+    localStorage.setItem('sell_id', sell_id);
+    this.router.navigate(['/bidder-bidrequest']);
+  }
+
   }
 

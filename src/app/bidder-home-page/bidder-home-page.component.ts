@@ -8,7 +8,7 @@ import { User } from '../models/user.model';
   styleUrls: ['./bidder-home-page.component.css']
 })
 export class BidderHomePageComponent implements OnInit {
-  
+  username = sessionStorage.getItem('full_name');
   constructor(private router : Router) { }
 
   ngOnInit() : void{
