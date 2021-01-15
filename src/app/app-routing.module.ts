@@ -21,6 +21,7 @@ import { FarmerMarketplaceSellComponent } from './farmer-marketplace-sell/farmer
 import { FarmerMarketplaceComponent } from './farmer-marketplace/farmer-marketplace.component';
 import { FarmerSellrequestComponent } from './farmer-sellrequest/farmer-sellrequest.component';
 import { FarmerSoldhistoryComponent } from './farmer-soldhistory/farmer-soldhistory.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { InsuranceClaimComponent } from './insurance-claim/insurance-claim.component';
 import { InsuranceHistoryComponent } from './insurance-history/insurance-history.component';
@@ -38,6 +39,7 @@ const routes: Routes = [
   {path:"about-us", component:AboutUsComponent},
   {path:"contact-us", component:ContactUsComponent},
   {path:"login", component:LoginPageComponent},
+  {path:"forgot-password", component:ForgotPasswordComponent},
   {path:"signup", component:SignupHomeComponent},
   {path:"signup-farmer", component:SignupFarmerComponent},
   {path:"signup-bidder", component:SignupBidderComponent},

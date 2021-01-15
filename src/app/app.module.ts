@@ -36,6 +36,7 @@ import { AdminContactusComponent } from './admin-contactus/admin-contactus.compo
 import { AdminMarkeplaceBidsComponent } from './admin-markeplace-bids/admin-markeplace-bids.component';
 import { SignupDocumentsComponent } from './signup-documents/signup-documents.component';
 import { AdminSellrequestsComponent } from './admin-sellrequests/admin-sellrequests.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { AdminSellrequestsComponent } from './admin-sellrequests/admin-sellreque
     AdminContactusComponent,
     AdminMarkeplaceBidsComponent,
     SignupDocumentsComponent,
-    AdminSellrequestsComponent 
+    AdminSellrequestsComponent,
+    ForgotPasswordComponent 
   ],
   imports: [
     BrowserModule,
