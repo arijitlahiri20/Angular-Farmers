@@ -19,45 +19,32 @@ export class LoginPageComponent implements OnInit {
   }
 
   loginCheck() {
-    console.log("Logged in successfully")
-    // console.log(this.login);
-    // this.userService.login(this.login).subscribe(response => {
-    //   alert(JSON.stringify(response));
-    //   console.log(response);
-    //   if(response.status == 'SUCCESS') {
-    //     let userId = response.userId;
-    //     let userName = response.userName;
-    //     sessionStorage.setItem('userId', String(userId));
-    //     sessionStorage.setItem('userName', userName);
-    //     this.router.navigate(['/farmer-home']);
-    //   }
-    //   else
-    //     this.message = response.message;
-    // })
-
+    //console.log("Logged in successfully")
+    
     this.service.login(this.login).subscribe(data=>{
       // alert(JSON.stringify(data));
    
        if(data.status=="SUCCESS"){
          //console.log(data.message);
-         sessionStorage.setItem('user_id',(data.user_id));
-         sessionStorage.setItem('full_name',String(data.full_name));
-         sessionStorage.setItem('user_type',String(data.user_type));
+         sessionStorage.setItem('user_id',data.userid);
+         sessionStorage.setItem('full_name',data.userName);
+         sessionStorage.setItem('user_type',data.userType);
+         sessionStorage.setItem('email', data.userEmail);
   
          this.message=data.message;
-         //alert(data.role);          //farmer/bidder/admin
+
          if(data.userType=='BIDDER'){
-        alert("Welcome Bidder");
+        
          this.router.navigate(['/bidder-home']);
    
           }
        else if(data.userType=='ADMIN'){
-         alert("Welcome Admin");
+         
          this.router.navigate(['/admin-home']);
          
           }
           else if(data.userType=='FARMER'){
-           alert("Welcome Farmer");
+           
              this.router.navigate(['/farmer-home']); 
             
           }

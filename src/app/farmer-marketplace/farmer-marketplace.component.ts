@@ -22,11 +22,16 @@ export class FarmerMarketplaceComponent implements OnInit {
   }
 
   market(){
-    this.user.user_id=9;
+    this.user.user_id=sessionStorage.getItem('user_id');
     this.service.farmermarket(this.user).subscribe(data => {
       console.log(JSON.stringify(data));
       this.Sellrequests=data.list;
     })
+  }
+
+  viewBids(sell_id){
+    localStorage.setItem('sell_id', sell_id);
+    this.router.navigate(['/farmer-marketplace-sell']);
   }
 }
 

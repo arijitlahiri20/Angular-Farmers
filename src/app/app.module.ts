@@ -26,6 +26,16 @@ import { InsuranceClaimComponent } from './insurance-claim/insurance-claim.compo
 import { InsuranceHistoryComponent } from './insurance-history/insurance-history.component';
 import { ClaimHistoryComponent } from './claim-history/claim-history.component';
 import { FarmerSoldhistoryComponent } from './farmer-soldhistory/farmer-soldhistory.component';
+import { FarmerMarketplaceSellComponent } from './farmer-marketplace-sell/farmer-marketplace-sell.component';
+import { AdminMarketplaceComponent } from './admin-marketplace/admin-marketplace.component';
+import { AdminUserApprovalComponent } from './admin-user-approval/admin-user-approval.component';
+import { AdminUserDocumentComponent } from './admin-user-document/admin-user-document.component';
+import { AdminInsuranceComponent } from './admin-insurance/admin-insurance.component';
+import { AdminClaimComponent } from './admin-claim/admin-claim.component';
+import { AdminContactusComponent } from './admin-contactus/admin-contactus.component';
+import { AdminMarkeplaceBidsComponent } from './admin-markeplace-bids/admin-markeplace-bids.component';
+import { SignupDocumentsComponent } from './signup-documents/signup-documents.component';
+import { AdminSellrequestsComponent } from './admin-sellrequests/admin-sellrequests.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +60,17 @@ import { FarmerSoldhistoryComponent } from './farmer-soldhistory/farmer-soldhist
     InsuranceClaimComponent,
     InsuranceHistoryComponent,
     ClaimHistoryComponent,
-    FarmerSoldhistoryComponent
+    FarmerSoldhistoryComponent,
+    FarmerMarketplaceSellComponent,
+    AdminMarketplaceComponent,
+    AdminUserApprovalComponent,
+    AdminUserDocumentComponent,
+    AdminInsuranceComponent,
+    AdminClaimComponent,
+    AdminContactusComponent,
+    AdminMarkeplaceBidsComponent,
+    SignupDocumentsComponent,
+    AdminSellrequestsComponent 
   ],
   imports: [
     BrowserModule,

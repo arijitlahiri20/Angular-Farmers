@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Sellrequests } from '../models/sellrequests.model';
 import { FarmerService } from '../services/farmer.service';
 
@@ -20,16 +21,17 @@ export class FarmerSellrequestComponent implements OnInit {
   // "ph_certificate":"1_ph_certificate",
   // "msp":1000,
   // "status":"PENDING"}
-  constructor(private farmerService: FarmerService) { }
+  constructor(private farmerService: FarmerService, private router: Router) { }
 
   ngOnInit() {
   }
 
   placeRequest(){
-    this.sellrequests.user_id=9;
+    this.sellrequests.user_id=2;
     alert(JSON.stringify(this.sellrequests));
     this.farmerService.placeRequest(this.sellrequests).subscribe(response => {
     alert(JSON.stringify(response));
+    this.router.navigate(['/farmer-home']);
     })
   }
 

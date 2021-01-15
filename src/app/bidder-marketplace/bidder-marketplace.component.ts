@@ -11,6 +11,7 @@ import { BidderService } from '../services/bidder.service';
 export class BidderMarketplaceComponent implements OnInit {
 
   Sellrequests: any=[];
+  sell_id :any;
   constructor(private service:BidderService, private router:Router) { }
 
   ngOnInit() {
@@ -22,9 +23,14 @@ export class BidderMarketplaceComponent implements OnInit {
     this.service.biddermarket().subscribe(data => {
       console.log(JSON.stringify(data));
       this.Sellrequests=data.list;
-
-
     })
+
+  }
+
+  placebid(sell_id){
+
+    localStorage.setItem('sell_id', sell_id);
+    this.router.navigate(['/bidder-bidrequest']);
   }
 
   }

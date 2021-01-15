@@ -1,18 +1,80 @@
-<form (ngSubmit)="homeCheck()">
-    <div class="topnav">
-        <a routerLink="/login" class="nav-link" routerLinkActive="active">  
-        login</a>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+        <div class="container">
+          <a class="navbar-brand" >
+                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+          </a>
+          
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/">Home
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" routerLink="/about-us">About Us
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link" routerLink="/contact-us">Contact Us
+                          <span class="sr-only">(current)</span>
+                        </a>
+                  </li>
+              <li class="nav-item ">
+                <a class="nav-link" routerLink="/login">Login
+                    <span class="sr-only">(current)</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <br><br>
+    <div class="container">
+          <div class="ml-auto text-center">
+             <h1>Welocme to Schemes for Farmers</h1>
+          </div>
+          <br>
+          <div>
+            <img src="/assets/home-1.jpg" class="img-fluid">
+          </div>
+          <br>
+          <div class="ml-auto text-center">
+            <h2>Services</h2>
+         </div>
+         <br>
+          <div class="card-deck text-center">
+            <div class="card" style="width:400px">
+              <img class="card-img-top" src="/assets/crop-auction.png" alt="Card image" style="width:100%">
+              <div class="card-body">
+                <h5 class="card-title">Crop Auction</h5>
+              </div>
+            </div>
+            <div class="card" style="width:400px">
+              <img class="card-img-top" src="/assets/farmer-marketplace.jpg" alt="Card image" style="width:100%">
+              <div class="card-body">
+                <h5 class="card-title">Farmer Marketplace</h5>
+              </div>
+            </div>
+            <div class="card" style="width:400px">
+              <img class="card-img-top" src="/assets/bidder-marketplace.jpg" alt="Card image" style="width:100%">
+              <div class="card-body">
+                <h5 class="card-title">Bidder Marketplace</h5>
+              </div>
+            </div>
+            <div class="card" style="width:400px">
+              <img class="card-img-top" src="/assets/insurance.jpeg" alt="Card image" style="width:100%">
+              <div class="card-body">
+                <h5 class="card-title">Crop Insurance</h5>
+              </div>
+            </div>
+          </div>
     </div>
-
-    <div class="topnav">
-        
-        <a routerLink="/about-us" class="nav-link" routerLinkActive="active">  
-            About us</a>
-    </div>
-
-    <div class="topnav">
-
-        <a routerLink="/contact-us" class="nav-link" routerLinkActive="active">  
-            Contact us</a>
-    </div>
-</form>
+    
+    

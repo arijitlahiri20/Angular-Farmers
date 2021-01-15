@@ -1,0 +1,18 @@
+<form (ngSubmit)="upload()">
+<div>
+    Aadhar Card: <input type="file" name="aadhar" (change)="onAadharChange($event)" />
+    PAN Card: <input type="file" name="pan" (change)="onPanChange($event)" />
+</div>
+<hr>
+<div *ngIf= "userType == 'FARMER'" >
+    Certificate: <input type="file" name="certificate" (change)="onCertificateChange($event)" />
+     <input type="file" name="traderlicense" (change)="onTraderLicenseChange($event)" hidden />
+</div>
+<hr>
+<div *ngIf="userType == 'BIDDER'">
+    <input type="file" name="certificate" (change)="onCertificateChange($event)" hidden/>
+    Trader License: <input type="file" name="traderlicense" (change)="onTraderLicenseChange($event)" />
+</div>
+<hr>
+<button type="submit">Upload</button>
+</form>

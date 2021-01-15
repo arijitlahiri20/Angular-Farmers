@@ -25,7 +25,7 @@
                     <td>{{item.fertilizer_type}}</td>
                     <td>{{item.quantity}}</td>
                     <td>{{item.msp}}</td>
-                    <td><button type="button" class="btn btn-primary"><a routerLink="/farmer-marketplace" routerLinkActive="active">View Bids</a></button></td>
+                    <td><button type="button" class="btn btn-primary"><a (click)="viewBids(item.sell_id)" routerLinkActive="active">View Bids</a></button></td>
                   
                 </tr>
             

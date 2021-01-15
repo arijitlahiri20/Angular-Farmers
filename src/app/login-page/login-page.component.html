@@ -1,3 +1,42 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+      <div class="container">
+        <a class="navbar-brand" >
+              <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item ">
+                  <a class="nav-link" routerLink="/">Home
+                        <span class="sr-only">(current)</span>
+                      </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" routerLink="/about-us">About Us
+                        <span class="sr-only">(current)</span>
+                      </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" routerLink="/contact-us">Contact Us
+                        <span class="sr-only">(current)</span>
+                      </a>
+                </li>
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/login">Login
+                  <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+<br><br>
+
 <div class="mb-3">
   <div class="col d-flex justify-content-center">
 
@@ -10,7 +49,6 @@
       <label for="password" class="form-label">Password</label>
       <input type="password" class="form-control" id="password" name="password" [(ngModel)]=login.password>
     </div>
-
     <div class="col d-flex justify-content-center">
     <button type="submit" class="btn btn-primary">Log In</button></div>
 
