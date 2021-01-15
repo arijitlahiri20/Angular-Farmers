@@ -32,6 +32,12 @@ export class BidderMarketplaceComponent implements OnInit {
     localStorage.setItem('sell_id', sell_id);
     this.router.navigate(['/bidder-bidrequest']);
   }
+  
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
   }
 

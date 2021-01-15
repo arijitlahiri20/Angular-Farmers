@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { InsuranceService } from '../services/insurance.service';
 
 @Component({
   selector: 'app-insurance-history',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InsuranceHistoryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:InsuranceService,private router: Router) { }
 
   ngOnInit() {
   }
 
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }

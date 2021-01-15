@@ -35,4 +35,10 @@ export class FarmerSellrequestComponent implements OnInit {
     })
   }
 
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

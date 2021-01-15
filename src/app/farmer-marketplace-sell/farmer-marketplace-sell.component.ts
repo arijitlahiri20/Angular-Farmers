@@ -36,4 +36,10 @@ export class FarmerMarketplaceSellComponent implements OnInit {
       this.bids=data.list;
     })
   }
+
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }

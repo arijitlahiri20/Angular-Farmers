@@ -1,37 +1,36 @@
-<!-- <form (ngSubmit)="FarmerhomeCheck()">
-    <div class="topnav">
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+      <div class="container">
+        <a class="navbar-brand" >
+              <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+        </a>
         
-        <div class="topnav">
-            <a routerLink="/Marketplace" class="nav-link" routerLinkActive="active">  
-                Marketplace</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" routerLink="/farmer-home">Home
+                        <span class="sr-only">(current)</span>
+                      </a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" routerLink="/insurance-home">Insurance
+                        <span class="sr-only">(current)</span>
+                      </a>
+                </li>
+            <li class="nav-item ">
+              <a class="nav-link" (click)="logout()">Logout
+                  <span class="sr-only">(current)</span>
+              </a>
+            </li>
+          </ul>
         </div>
-
-        <div class="topnav">
-            <a routerLink="/SellRequest" class="nav-link" routerLinkActive="active">  
-                Sell Request</a>
-        </div>
-
-        <div class="topnav">
-            <a routerLink="/SoldHistory" class="nav-link" routerLinkActive="active">  
-                Sold History</a>
-        </div>
-
-        <div class="topnav">
-            <a routerLink="/InsuranceModule" class="nav-link" routerLinkActive="active">  
-                Insurance Module</a>
-        </div>
-
-    </div>
-</form> -->
-
-
-        
-
-  <div class="navbar-nav" display="inline">
-    <a class="nav-item nav-link" routerLink="/farmer-home">Home</a>
-    <a class="nav-item nav-link" routerLink="/insurance-home">Insurance</a>
-    <a class="nav-item nav-link" (click)="logout()">Logout</a>
-  </div>
+      </div>
+    </nav>
+  </header>
+  <br><br>
 
   <div>
     <h2>Welcome! You have successfully logged in.</h2>

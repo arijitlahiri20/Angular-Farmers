@@ -43,8 +43,13 @@ InsurancePolicyCheck(){
         if(data.status=="SUCCESS")
           this.result=data.object;
 
-   })
-}
+    })
+  }
+  logout(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
 }
 

@@ -27,3 +27,4 @@ export class InsuranceService {
     let url = this.baseURL+ "farmer/insurance/registerClaim";
    return this.http.post(url, claims); 
   }
+}

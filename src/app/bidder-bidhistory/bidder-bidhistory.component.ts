@@ -31,4 +31,9 @@ export class BidderBidhistoryComponent implements OnInit {
     })
   }
 
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
+
 }

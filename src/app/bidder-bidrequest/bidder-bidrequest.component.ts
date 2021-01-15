@@ -21,11 +21,12 @@ export class BidderBidrequestComponent implements OnInit {
   constructor(private service: BidderService, private router: Router) { }
 
   ngOnInit() :void {
-  //  this.sell_id = localStorage.getItem('sell_id');
+    this.sell_id = localStorage.getItem('sell_id');
     this.loadBid();
   }
 
   placebid() {
+
     this.bid.user_id=JSON.parse(sessionStorage.getItem('user_id'));
     this.bid.sell_id=JSON.parse(this.sell_id);
    // this.bid.user_id=JSON.parse(localStorage.getItem('userid'));
@@ -48,4 +49,8 @@ export class BidderBidrequestComponent implements OnInit {
     
   }
 
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
 }
