@@ -36,4 +36,9 @@ export class UserService {
     return this.http.post(url,formData);
   }
 
+  getNewPassword(user):Observable<any>{
+    let url = this.baseURL + "/send-email"
+    return this.http.post(url,user);
+  }
+
 }

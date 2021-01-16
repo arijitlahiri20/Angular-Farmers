@@ -23,4 +23,12 @@ export class BidderHomePageComponent implements OnInit {
     localStorage.clear();
     this.router.navigate(['/login']);
   }
+
+  market(){
+    this.router.navigate(['/bidder-marketplace']);
+  }
+
+  history(){
+    this.router.navigate(['/bidder-bidhistory']);
+  }
 }

@@ -25,44 +25,25 @@
       </div>
     </nav>
   </header>
-  <br><br>
-<!-- <div class="card-deck" class="mx-auto" style="width: 400px; ">
-  <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Crop 1</h5>
-        <h6 class="card-text">{{crop_type}}</h6>
-        <h6 class="card-text">{{crop_name}}</h6>
-        <h6 class="card-text">{{fertilizer_type}}</h6>
-        <button type="button" class="btn btn-primary"><a routerLink="/bidder-bidrequest" routerLinkActive="active">Place Bid</a></button>
-      </div>
-  </div>
+  
 
-  <div class="card">
-      <img class="card-img-top" src="..." alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title">Crop 2</h5>
-        <h6 class="card-text">{{crop_type}}</h6>
-        <h6 class="card-text">{{crop_name}}</h6>
-        <h6 class="card-text">{{fertilizer_type}}</h6>
-        <button type="button" class="btn btn-primary"><a routerLink="/bidder-bidrequest" routerLinkActive="active">Place Bid</a></button>
-      </div>
-  </div>
-</div> -->
-
+<div class="bg-img">
+  
 <div class="container custom-container-2">
 
   <!-- Show it when there is no sell request -->
   <div class="no-data text-center" *ngIf="Sellrequests.length == 0">
-      <p>There are no crops in market yet ! Please wait.</p>
+      <p style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">There are no crops in market yet ! Please wait.</p>
   </div>
 
-  <div *ngIf="Sellrequests.length !== 0">
-      <h3 class="mb-3 text-center">Welcome To Marketplace</h3>
+  <div *ngIf="Sellrequests.length !== 0" class="container bg-light p-2 mt-2 rounded" style="width: 900px;">
+      <h3 class="mb-6 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">BIDDER MARKETPLACE</h3>
+      <br>
+      <br>
 
       <div class="col-md-12">
           <table class="table table-bordered">
-              
+            <thead class="thead-dark">
                   <tr>
                       <!-- <th scope="col">Sell Id</th> -->
                       <th scope="col">Crop Type</th>
@@ -72,7 +53,7 @@
                       <th scope="col">Mininum Price</th>
                       <th scope="col">Place</th>
                   </tr>
-              
+              </thead>
            
                   <tr *ngFor="let item of Sellrequests">
                       <!-- <td>{{item.sell_id}}</td> -->
@@ -81,7 +62,7 @@
                       <td>{{item.fertilizer_type}}</td>
                       <td>{{item.quantity}}</td>
                       <td>{{item.msp}}</td>
-                      <td><button type="button" class="btn btn-primary"><a (click)="placebid(item.sell_id)" routerLinkActive="active">Place Bid</a></button></td>
+                      <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="placebid(item.sell_id , item.msp)" routerLinkActive="active">Place Bid</a></button></td>
                     
                   </tr>
               
@@ -91,5 +72,5 @@
   </div>
 </div>
 
-
+</div>
 

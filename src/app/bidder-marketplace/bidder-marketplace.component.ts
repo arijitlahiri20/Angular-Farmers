@@ -12,6 +12,7 @@ export class BidderMarketplaceComponent implements OnInit {
 
   Sellrequests: any=[];
   sell_id :any;
+  msp:any;
   constructor(private service:BidderService, private router:Router) { }
 
   ngOnInit() {
@@ -27,9 +28,10 @@ export class BidderMarketplaceComponent implements OnInit {
 
   }
 
-  placebid(sell_id){
+  placebid(sell_id ,msp){
 
     localStorage.setItem('sell_id', sell_id);
+    localStorage.setItem('msp',msp);
     this.router.navigate(['/bidder-bidrequest']);
   }
   
