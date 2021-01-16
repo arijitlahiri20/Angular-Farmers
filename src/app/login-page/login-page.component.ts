@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from '../models/login.model';
 import { UserService } from '../services/user.service';
@@ -13,14 +14,30 @@ export class LoginPageComponent implements OnInit {
   login: Login = new Login();
   message: string;
 
-  constructor(private service:UserService,private router: Router) { }
+  constructor(private service:UserService,private router: Router, private formBuilder: FormBuilder) { }
+
+  loginform: FormGroup;
+  submitted = false;
+  email: string;
 
   ngOnInit() {
+    this.loginform = this.formBuilder.group({
+
+      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      password: ['', [Validators.required]]
+    });
   }
+
+  get f() { return this.loginform.controls; }
 
   loginCheck() {
     //console.log("Logged in successfully")
-    
+    this.submitted = true;
+    if (this.loginform.invalid) {
+      return;
+  }
+
+
     this.service.login(this.login).subscribe(data=>{
       // alert(JSON.stringify(data));
    

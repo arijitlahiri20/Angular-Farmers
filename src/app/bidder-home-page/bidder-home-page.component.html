@@ -1,100 +1,60 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
-        <div class="container">
-          <a class="navbar-brand" >
-                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" routerLink="/bidder-home">Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-              <li class="nav-item ">
-                <a class="nav-link" (click)="logout()">Logout
-                    <span class="sr-only">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <br><br>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+    <div class="container">
+      <a class="navbar-brand">
+        <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+      </a>
 
-<div class="mx-auto" style="width: 200px;">
-    <h3>Welcome {{username}}</h3>
-</div>
-
-<br>
-<div class="card-deck" style="width:800px; margin: auto;">
-    <div class="card" >
-        <img class="card-img-top" src="/assets/bidder-marketplace.jpg" alt="Card image cap" style="width:100%">
-        <div class="card-body">
-            <h5 class="card-title">MarketPlace</h5>
-            <p class="card-text">Place Bids and purchase variety of crops</p>
-            <button type="button" class="btn btn-primary"><a routerLink="/bidder-marketplace"
-                    routerLinkActive="active">View</a></button>
-        </div>
-    </div>
-    <div class="card" >
-        <img class="card-img-top" src="/assets/history.png" alt="Card image cap" style="width:100%">
-        <div class="card-body">
-            <h5 class="card-title">History</h5>
-            <p class="card-text">Check and inventory your purchases</p>
-            <button type="button" class="btn btn-primary"><a routerLink="/bidder-bidhistory"
-                routerLinkActive="active">View</a></button>
-        </div>
-    </div>
-</div>
-
-<!-- <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
-        <div class="container">
-            <a class="navbar-brand">
-                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/bidder-home">Home
+              <span class="sr-only">(current)</span>
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link">Hello, {​​​​​{​​​​​username}​​​​​}​​​​​
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" (click)="logout()">Logout
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
-<br><br>
-<div class="container">
-    <div class="card-columns">
-        <div class="card">
-            <div class="card-body text-center">
-                <a routerLink="/bidder-marketplace" class="card-link" routerLinkActive="active">
-                    View MarketPlace</a>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body text-center">
-                <a routerLink="/bidder-bidhistory" class="card-link" routerLinkActive="active">
-                    History</a>
-            </div>
-        </div>
-
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" (click)="logout()">Logout
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-</div> -->
+  </nav>
+</header>
+
+<div class="bg-img">
+  <br><br>
+  <!-- <div class=" auto" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;"> -->
+    <h2 style="font-family: 'Brush Script MT', cursive; text-align: center;">Welcome {{username}}</h2>
+  <!-- </div> -->
+
+  <br>
+  <div class="card-deck" style="width:800px; margin: auto;">
+    <div class="card">
+      <img class="card-img-top" src="/assets/bidder-marketplace.jpg" alt="Card image cap"
+        style="width:100%; height:15vw; object-fit: cover;">
+      <div class="card-body">
+        <h5 class="card-title">MarketPlace</h5>
+        <p class="card-text">Place Bids and purchase variety of crops</p>
+        <button type="button" class="btn btn-success btn-lg mx-auto"><a (click)="market()"
+            routerLinkActive="active">View</a></button>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="/assets/historypic.jpg" alt="Card image cap"
+        style="width:100%; height:15vw; object-fit: cover;">
+      <div class="card-body">
+        <h5 class="card-title">History</h5>
+        <p class="card-text">Check and inventory your purchases</p>
+        <button type="button" class="btn btn-success btn-lg mx-auto"><a (click)="history()"
+            routerLinkActive="active">View</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+
