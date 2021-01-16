@@ -26,4 +26,50 @@
       </nav>
     </header>
     <br><br>
-<p>admin-sellrequests works!</p>
+    <div class="container custom-container-2">
+
+      <!-- Show it when there is no sell request -->
+      <div class="no-data text-center" *ngIf="sell.length == 0">
+          <p>There are no pending Sell Request Approvals ! Please wait.</p>
+      </div>
+    
+      <div *ngIf="sell.length !== 0">
+          <h3 class="mb-6 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">Pending Sell Request Approvals</h3>
+          <br>
+          <br>
+    
+          <div class="col-md-12">
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                      <tr>
+                          <!-- <th scope="col">Sell Id</th> -->
+                          <th scope="col">Sell ID</th>
+                          <th scope="col">User ID</th>
+                          <th scope="col">Crop Type</th>
+                          <th scope="col">Crop Name</th>
+                          <th scope="col">Fertilizer Type</th>
+                          <th scope="col">Qty (in Kgs)</th>
+                          <th scope="col">Min Price</th>
+                          <th scope="col">Ph Certificate</th>
+                          <th scope="col">Action</th>
+                      </tr>
+                  </thead>
+               
+                      <tr *ngFor="let item of sell">
+                          <!-- <td>{{item.sell_id}}</td> -->
+                          <td>{{item.sell_id}}</td>
+                          <td>{{item.user_id}}</td>
+                          <td>{{item.crop_type}}</td>
+                          <td>{{item.crop_name}}</td>
+                          <td>{{item.fertilizer_type}}</td>
+                          <td>{{item.quantity}}</td>
+                          <td>{{item.msp}}</td>
+                          <td>{{item.ph_certificate}}</td>
+                          <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="approve(item.sell_id , item.user_id)" routerLinkActive="active">Approve</a></button></td>
+                        
+                      </tr>
+                  
+              </table>
+          </div>
+      </div>
+    </div>

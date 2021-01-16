@@ -10,6 +10,13 @@ import { AdminService } from '../services/admin.service';
 export class AdminMarketplaceComponent implements OnInit {
 
   full_name = sessionStorage.getItem("full_name");  
+
+  sell: any = [];
+
+  sl :any = {
+    sell_id:0
+  };
+
   constructor(private adminService: AdminService, private router:Router) { }
   
   ngOnInit() {
@@ -17,6 +24,18 @@ export class AdminMarketplaceComponent implements OnInit {
       alert("You are Logged Out, Login again!");
       this.router.navigate(['/login']);
     }
+
+    this.adminService.getSellMarketplace().subscribe(data => {
+      console.log(JSON.stringify(data));
+      this.sell=data.list;
+    })
+  }
+
+  viewBids(sell_id, user_id){
+    localStorage.setItem("sell_id", sell_id);
+    alert("Routing to bids list for sell_id = " + sell_id );
+    this.router.navigate(['/admin-marketplace-bids']);
+    
   }
 
   logout(){

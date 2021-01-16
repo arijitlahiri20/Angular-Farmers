@@ -10,6 +10,7 @@ import { AdminService } from '../services/admin.service';
 export class AdminMarkeplaceBidsComponent implements OnInit {
 
   full_name = sessionStorage.getItem("full_name");  
+  sell_id = localStorage.getItem("sell_id");
   constructor(private adminService: AdminService, private router:Router) { }
   
   ngOnInit() {
@@ -21,6 +22,7 @@ export class AdminMarkeplaceBidsComponent implements OnInit {
 
   logout(){
     sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
 
