@@ -21,4 +21,5 @@ export class FarmerHomePageComponent implements OnInit {
     sessionStorage.clear();
     this.router.navigate(['/login']);
   }
+  
 }

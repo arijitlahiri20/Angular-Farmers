@@ -83,7 +83,7 @@
   <div class="container register">
                   <div class="row">
                       <div class="col-md-3 register-left">
-                          <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                          <img src="/assets/logo.png" class="rounded-circle" width="50px" height="50px" alt=""/>
                           <h3>Welcome</h3>
                           <p>You are 30 seconds away from earning your own money!</p>
                           
@@ -93,19 +93,32 @@
                           <div class="tab-content" id="myTabContent">
                               <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                   <h3 class="register-heading">Crop Sell Request</h3>
+                                  <form [formGroup]="form1">
                                   <div class="row register-form">
                                       <div class="col-md-6">
                                           <div class="form-group">
                                             <label for="croptype" class="form-label">Crop Type</label>
-                                            <input type="text" class="form-control" id="croptype" name="croptype"  [(ngModel)]="sellrequests.crop_type" required>
+                                            <input type="text" class="form-control" id="croptype" name="croptype" required formControlName="croptype" [ngClass]="{ 'is-invalid': submitted && f.croptype.errors }" [(ngModel)]="sellrequests.crop_type" required minlength="1">
+                                            <div *ngIf="form1.get('croptype').touched && form1.get('croptype').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('croptype').hasError('required')">Crop Type is required</div>
+                                              <div *ngIf="form1.get('croptype').hasError('pattern')"> You can enter only Alphabets</div>
+                                              </div>
                                           </div>
                                           <div class="form-group">
                                             <label for="fertilizer" class="form-label">Fertilizer Type</label>
-                                            <input type="text" class="form-control" id="fertilizer" name="fertilizer"  [(ngModel)]="sellrequests.fertilizer_type" required>
+                                            <input type="text" class="form-control" id="fertilizer" name="fertilizer" formControlName="fertilizer" [ngClass]="{ 'is-invalid': submitted && f.fertilizer.errors }" [(ngModel)]="sellrequests.fertilizer_type" required>
+                                            <div *ngIf="form1.get('fertilizer').touched && form1.get('fertilizer').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('fertilizer').hasError('required')">Fertilizer Type is required</div>
+                                              <div *ngIf="form1.get('fertilizer').hasError('pattern')"> You can enter only Alphabets</div>
+                                              </div>
                                           </div>
                                           <div class="form-group">
                                             <label for="msp" class="form-label">MSP</label>
-                                            <input type="text" class="form-control" id="msp" name="msp"  [(ngModel)]="sellrequests.msp" required>
+                                            <input type="text" class="form-control" id="msp" name="msp" formControlName="msp" [ngClass]="{ 'is-invalid': submitted && f.msp.errors }" [(ngModel)]="sellrequests.msp" required>
+                                            <div *ngIf="form1.get('msp').touched && form1.get('msp').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('msp').hasError('required')">MSP is required</div>
+                                              <div *ngIf="form1.get('msp').hasError('pattern')"> You can enter only numbers</div>
+                                              </div>
                                           </div>
                                           
                                          
@@ -113,41 +126,38 @@
                                       <div class="col-md-6">
                                           <div class="form-group">
                                             <label for="cropname" class="form-label">Crop Name</label>
-                                            <input type="text" class="form-control" id="cropname" name="cropname"  [(ngModel)]="sellrequests.crop_name" required>
+                                            <input type="text" class="form-control" id="cropname" name="cropname" formControlName="cropname" [ngClass]="{ 'is-invalid': submitted && f.cropname.errors }" [(ngModel)]="sellrequests.crop_name" required>
+                                            <div *ngIf="form1.get('cropname').touched && form1.get('cropname').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('cropname').hasError('required')">Crop Name is required</div>
+                                              <div *ngIf="form1.get('cropname').hasError('pattern')"> You can enter only Alphabets</div>
+                                              </div>
                                           </div>
                                           <div class="form-group">
                                             <label for="quantity"  class="form-label">Quantity</label>
-                                            <input type="text" class="form-control" id="quantity" name="quantity"  [(ngModel)]="sellrequests.quantity" required>
+                                            <input type="text" class="form-control" id="quantity" name="quantity" formControlName="quantity" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }" [(ngModel)]="sellrequests.quantity" required>
+                                            <div *ngIf="form1.get('quantity').touched && form1.get('quantity').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('quantity').hasError('required')">Quantity is required</div>
+                                              <div *ngIf="form1.get('quantity').hasError('pattern')"> You can enter only numbers</div>
+                                              </div>
                                           </div>
                                           <div class="form-group">
-                                            <label for="soilph" class="form-label">Soil ph Certificate</label>
-                                            <input type="text" class="form-control" id="soilph" name="soilph"  [(ngModel)]="sellrequests.ph_certificate" required>
+                                            <label for="soilph" class="form-label">Soil pH Certificate</label>
+                                            <input type="text" class="form-control" id="soilph" name="soilph" formControlName="soilph" [ngClass]="{ 'is-invalid': submitted && f.soilph.errors }" [(ngModel)]="sellrequests.ph_certificate" required>
+                                            <div *ngIf="form1.get('soilph').touched && form1.get('soilph').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('soilph').hasError('required')">Soil pH Certificate is required</div>
+                                              <div *ngIf="form1.get('soilph').hasError('pattern')"> You can enter only numbers</div>
+                                              </div>
                                           </div>
                                           
-                                          <button type="submit"  class="btn btn-primary" (click)="placeRequest()">Place Request</button>
+                                          
+                                      </div>
+                                      <div class="mx-auto">
+                                        <button type="submit"  class="btn btn-primary" (click)="placeRequest()">Place Request</button>
                                       </div>
                                   </div>
+                                </form>
                               </div>
-                              <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                  <h3  class="register-heading">Apply as a Hirer</h3>
-                                  <div class="row register-form">
-                                      <div class="col-md-6">
-                                          <div class="form-group">
-                                              <input type="text" class="form-control" placeholder="First Name *" value="" />
-                                          </div>
-                                          <div class="form-group">
-                                              <input type="text" class="form-control" placeholder="Last Name *" value="" />
-                                          </div>
-                                          <div class="form-group">
-                                              <input type="email" class="form-control" placeholder="Email *" value="" />
-                                          </div>
-                                        </div>
-                                                                           
-                                          
-                                        
-                                      
-                                  </div>
-                              </div>
+                             
                           </div>
                       </div>
                   </div>
