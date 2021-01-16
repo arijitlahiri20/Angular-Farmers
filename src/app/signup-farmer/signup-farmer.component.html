@@ -38,96 +38,154 @@
     <br><br>
 
 <div>
-<div class="col d-flex justify-content-center">
+<!--<div class="col d-flex justify-content-center">
 <h2>Farmer Registration</h2>
 </div>
-<div class="col d-flex justify-content-center" >
-<form (ngSubmit)="SignupfarmerCheck()" oninput='password2.setCustomValidity(password2.value != password1.value ? "Passwords do not match" :"" )'>
-    <h3>Personal Details</h3><br>
+<div class="col d-flex justify-content-center" >-->
+<main class="my-form " style="width:800px; margin:auto;" >
+    <div class="cotainer">
+        <div class="row justify-content-center">
+            <div class="col-md-8 p-3 bg-success rounded">
+                    <div class="card">
+                        <div class="card-header text-center" ><h3>Farmer Registration</h3></div>
+                        <div class="card-body">
+<form (ngSubmit)="SignupfarmerCheck()" [formGroup]="form2" oninput='password2.setCustomValidity(password2.value != password1.value ? "Passwords do not match" :"" )'>
+    <h4>Personal Details</h4><br>
 
+    <div class="form-group" >
     <div class="mb-3">
       <label for="fullname" class="form-label">Full Name</label>
-      <input type="text" class="form-control" id="fullname" name="t1" [(ngModel)]=user.full_name >
-    </div>
+      <input type="text" class="form-control" placeholder="full_name" formControlName="full_name" id="fullname" name="t1" [(ngModel)]=user.full_name >
+    </div></div>
+    <div *ngIf="form2.get('full_name').touched && form2.get('full_name').invalid" class="alert alert-danger">Please fill full name </div>   
+    <div style="color:red" *ngIf="form2.get('full_name').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
+    
+     
 
     <div class="mb-3">
+      <div class="form-group">
         <label for="contactno" class="form-label">Contact Number</label>
-        <input type="number" class="form-control" id="contactno" name="t2"  [(ngModel)]=user.contact_no>
-    </div>
+        <input type="number" class="form-control" placeholder="Enter Phone Number" formControlName="contact_no" id="contactno" name="t2"  [(ngModel)]=user.contact_no>
+    </div></div>
+    <div *ngIf="form2.get('contact_no').touched && form2.get('contact_no').invalid" class="alert alert-danger">Please fill contact number</div>
+      <div *ngIf="form2.get('contact_no').hasError('pattern')" class="alert alert-danger"> You have to enter 10 digits</div>
+    
 
     <div class="mb-3">
         <label for="email" class="form-label">Email Id</label>
-        <input type="email" class="form-control" id="email" name="t3"  [(ngModel)]=user.email>
+        <input type="email" class="form-control" id="email" formControlName="email" name="t3"  [(ngModel)]=user.email>
     </div>
+    <div *ngIf="form2.get('email').touched && form2.get('email').invalid" class="alert alert-danger">Please fill valid email id </div>
+      <!-- <div *ngIf = "form2.get('email').hasError('required')">Phone number is required</div>  -->
+      <div *ngIf="form2.get('email').hasError('pattern')" class="alert alert-danger"> Please fill valid email id</div>
 
-    <h3>Address Details</h3><br>
+    <h4>Address Details</h4><br>
 
     <div class="mb-3">
         <label for="addressline1" class="form-label">Address Line 1</label>
-        <input type="textarea" class="form-control" id="addressline1" name="t4"  [(ngModel)]=user.addr_1>
+        <input type="textarea" class="form-control" id="addressline1" formControlName="addr_1"  name="t4"  [(ngModel)]=user.addr_1>
     </div>
+    <div *ngIf="form2.get('addr_1').touched && form2.get('addr_1').invalid" class="alert alert-danger">Please fill address details </div>
 
     <div class="mb-3">
         <label for="addressline2" class="form-label">Address Line 2</label>
-        <input type="textarea" class="form-control" id="addressline2"  name="t5" [(ngModel)]=user.addr_2>
+        <input type="textarea" class="form-control" id="addressline2" formControlName="addr_2" name="t5" [(ngModel)]=user.addr_2>
     </div>
+    <div *ngIf="form2.get('addr_2').touched && form2.get('addr_2').invalid" class="alert alert-danger">Please fill address details </div>
+
 
     <div class="mb-3">
         <label for="city" class="form-label">City</label>
-        <input type="text" class="form-control" id="city" name="t6"  [(ngModel)]=user.city>
+        <input type="text" class="form-control" id="city" formControlName="city" name="t6"  [(ngModel)]=user.city>
     </div>
+    <div *ngIf="form2.get('city').touched && form2.get('city').invalid" class="alert alert-danger">Please fill city name </div>
+    <div style="color:red" *ngIf="form2.get('city').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
+
+
 
     <div class="mb-3">
         <label for="state" class="form-label">State</label>
-        <input type="text" class="form-control" id="state" name="t7"  [(ngModel)]=user.state>
+        <input type="text" class="form-control" id="state" formControlName="state" name="t7"  [(ngModel)]=user.state>
     </div>
+    <div *ngIf="form2.get('state').touched && form2.get('state').invalid" class="alert alert-danger">Please fill state name </div>
+    <div style="color:red" *ngIf="form2.get('state').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
 
     <div class="mb-3">
         <label for="pin" class="form-label">Pin Code</label>
-        <input type="number" class="form-control" id="pin" name="t8"  [(ngModel)]=user.pincode>
+        <input type="number" class="form-control" id="pin" formControlName="pincode" name="t8"  [(ngModel)]=user.pincode>
     </div>
+    <div *ngIf="form2.get('pincode').touched && form2.get('pincode').invalid" class="alert alert-danger">Please fill pincode number</div>
+      <div *ngIf="form2.get('pincode').hasError('pattern')" class="alert alert-danger"> You have to enter 6 digits</div>
 
-    <h3>Land Details</h3><br>
+
+    <h4>Land Details</h4><br>
 
     <div class="mb-3">
         <label for="landarea" class="form-label">Land Area</label>
-        <input type="textarea" class="form-control" id="landarea" name="t9"  [(ngModel)]=user.land_area>
+        <input type="textarea" class="form-control" id="landarea" formControlName="land_area" name="t9"  [(ngModel)]=user.land_area>
     </div>
+    <div *ngIf="form2.get('land_area').touched && form2.get('land_area').invalid" class="alert alert-danger">Please fill land name </div>
+    <div style="color:red" *ngIf="form2.get('land_area').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
 
     <div class="mb-3">
         <label for="landaddress" class="form-label">Land Address</label>
-        <input type="textarea" class="form-control" id="landaddress" name="t10"  [(ngModel)]=user.land_addr>
+        <input type="textarea" class="form-control" id="landaddress" formControlName="land_addr" name="t10"  [(ngModel)]=user.land_addr>
     </div>
+    <div *ngIf="form2.get('land_addr').touched && form2.get('land_addr').invalid" class="alert alert-danger">Please fill address details </div>
+    
 
     <div class="mb-3">
         <label for="landpin" class="form-label">Pin Code</label>
-        <input type="number" class="form-control" id="landpin" name="t11"  [(ngModel)]=user.land_pincode>
+        <input type="number" class="form-control" id="landpin"  formControlName="land_pincode" name="t11"  [(ngModel)]=user.land_pincode>
     </div>
+    <div *ngIf="form2.get('land_pincode').touched && form2.get('land_pincode').invalid" class="alert alert-danger">Please fill pincode number</div>
+      <div *ngIf="form2.get('land_pincode').hasError('pattern')" class="alert alert-danger"> You have to enter 6 digits</div>
 
-    <h3>Bank Details</h3><br>
+    <h4>Bank Details</h4><br>
 
     <div class="mb-3">
         <label for="accountnumber" class="form-label">Account Number</label>
-        <input type="number" class="form-control" id="accountnumber" name="t12"  [(ngModel)]=user.account_no>
+        <input type="number" class="form-control" id="accountnumber" formControlName="account_no" name="t12"  [(ngModel)]=user.account_no>
     </div>
+    <div *ngIf="form2.get('account_no').touched && form2.get('account_no').invalid" class="alert alert-danger">Please fill bank account number</div>
+      <div *ngIf="form2.get('account_no').hasError('pattern')" class="alert alert-danger"> You have to enter 13 digits</div>
+
+
 
     <div class="mb-3">
         <label for="ifsccode" class="form-label">IFSC Code</label>
-        <input type="text" class="form-control" id="ifsccode" name="t13"  [(ngModel)]=user.ifsc_no>
+        <input type="text" class="form-control" id="ifsccode" formControlName="ifsc_no" name="t13"  [(ngModel)]=user.ifsc_no>
     </div>
+    <div *ngIf="form2.get('ifsc_no').touched && form2.get('ifsc_no').invalid" class="alert alert-danger">Please fill bank ifsc number</div>
+      <div *ngIf="form2.get('ifsc_no').hasError('pattern')" class="alert alert-danger"> You have to enter 6 digits</div>
+
+
 
     <div class="mb-3">
       <label for="password1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="password1" name="password1" [(ngModel)]=user.password>
+      <input type="password" class="form-control" id="password1" name="password1"  required #password="ngModel" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" [(ngModel)]=user.password>
     </div>
+    <div *ngIf="password.invalid && (myform.submitted || password.touched)" class="alert alert-danger">
+      <div *ngIf="password.errors.required"> Password is required. </div>
+      <div *ngIf="password.errors.pattern"> Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters.</div>
+    </div>
+
+
+
     
     <div class="mb-3">
         <label for="password2" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="password2" name="password2"  #password2="ngModel" [(ngModel)]=user.password>
+        <input type="password" class="form-control" id="password2" name="password2"  required #confirmpassword="ngModel" pattern="{{ password.value }}"  [(ngModel)]=user.password>
     </div>
+    <div *ngIf=" confirmpassword.invalid && (myform.submitted || confirmpassword.touched)" class="alert alert-danger">
+      <div *ngIf="confirmpassword.errors.required"> Confirm password is required. </div>
+      <div *ngIf="confirmpassword.errors.pattern"> Password & Confirm Password does not match.</div>
+    </div>
+
 
     <div class="col d-flex justify-content-center">
     <button type="submit" class="btn btn-primary">Submit</button></div>
   </form>
 </div>
 </div>
+</div></div></div></main>
