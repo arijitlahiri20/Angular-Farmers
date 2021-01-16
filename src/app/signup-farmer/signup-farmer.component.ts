@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
+import { FormGroup, FormControl , Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-signup-farmer',
@@ -11,13 +13,33 @@ import { UserService } from '../services/user.service';
 export class SignupFarmerComponent implements OnInit {
 
   user = new User();
+  form2 : FormGroup;
   message: string;
 
   constructor(private service:UserService,private router: Router) { }
 
   ngOnInit() {
+
+      this.form2=new FormGroup({
+      full_name: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      email: new FormControl('',[Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$')]),
+      contact_no: new FormControl('',[Validators.required, Validators.pattern('[0-9]{10}')]),
+      addr_1: new FormControl('',[Validators.required]),
+      addr_2: new FormControl('',[Validators.required]),
+      city: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      state:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      pincode:new FormControl('',[Validators.required, Validators.pattern('[0-9]{6}')]),
+      land_pincode:new FormControl('',[Validators.required, Validators.pattern('[0-9]{6}')]),
+      land_addr:new FormControl('',[Validators.required]),
+      land_area:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      account_no:new FormControl('',[Validators.required, Validators.pattern('[0-9]{13}')]),
+      ifsc_no:new FormControl('',[Validators.required, Validators.pattern('[0-9]{6}')]),
+
+
+    })
   }
 
+  
   SignupfarmerCheck(){
 
     this.user.status="PENDING";

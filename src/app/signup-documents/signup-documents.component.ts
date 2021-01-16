@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
+import { FormGroup, FormControl , Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-signup-documents',
@@ -16,6 +18,8 @@ certificate:any;
 traderLicense:any;
 userId:any;
 userType:any;
+form2 : FormGroup;
+
   
 
   constructor(private service :UserService, private router:Router) { }
@@ -23,6 +27,11 @@ userType:any;
   ngOnInit() :void {
     this.userType=localStorage.getItem('usertype');
     this.userId=localStorage.getItem('user_id');
+
+    this.form2=new FormGroup({
+      
+    })
+
   }
 
   onAadharChange(event){

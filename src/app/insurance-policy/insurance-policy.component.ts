@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Insurance } from '../models/insurance.model';
 import { InsuranceService } from '../services/insurance.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl , Validators } from '@angular/forms';
+
 
 
 @Component({
@@ -13,10 +15,20 @@ export class InsurancePolicyComponent implements OnInit {
 
   insurance = new Insurance();
   result = new Insurance();
+  form2 : FormGroup;
+
 
   constructor(private service:InsuranceService,private router: Router) { }
 
   ngOnInit() {
+
+    this.form2=new FormGroup({
+    season:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]) ,
+    crop:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]) ,
+    area:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+    sum_insured:new FormControl('',[Validators.required, Validators.pattern('[0-9]')]),
+    year:new FormControl('',[Validators.required, Validators.pattern('[0-9]{4}')])
+  })
   }
 
 ApplyInsurance(){
