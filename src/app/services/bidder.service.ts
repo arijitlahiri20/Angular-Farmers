@@ -34,5 +34,8 @@ export class BidderService {
    return this.http.post(url, sell); 
   }
 
-  
+  getActiveBids(user:User):Observable<any>{
+    let url = this.baseURL + "/bidder/active-bids";
+    return this.http.post(url,user);
+  }
 }
