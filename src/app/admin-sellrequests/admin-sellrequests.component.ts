@@ -17,6 +17,10 @@ export class AdminSellrequestsComponent implements OnInit {
     sell_id:0
   };
 
+  
+  picUrl:string = null; 
+  showPic = 0;
+
   constructor(private adminService: AdminService, private router:Router) { }
   
   ngOnInit() {
@@ -29,6 +33,22 @@ export class AdminSellrequestsComponent implements OnInit {
       console.log(JSON.stringify(data));
       this.sell=data.list;
     })
+  }
+
+  viewPh(sell_id, user_id){
+
+    
+    this.adminService.getPhCertificate(sell_id).subscribe(data => {
+      console.log(JSON.stringify(data.object.ph_certificate));
+      this.picUrl = data.object.ph_certificate;
+      console.log(this.picUrl);
+    })
+  }
+
+  closePh(){
+    this.showPic = 0;
+    this.picUrl = null;
+    this.ngOnInit();
   }
 
   approve(sell_id, user_id){
@@ -45,6 +65,10 @@ export class AdminSellrequestsComponent implements OnInit {
     })
   }
 
+  goback(){
+    this.router.navigate(['/admin-home']);
+  }
+  
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login']);

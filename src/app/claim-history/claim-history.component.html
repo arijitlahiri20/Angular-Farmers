@@ -32,6 +32,44 @@
     </header>
     <br><br>
 
-    <div class="ml-auto text-center">
-        <h2>Claim History</h2>
+    <div class="container custom-container-2">
+
+      <!-- Show it when there is no sell request -->
+      <div class="no-data text-center" *ngIf="claim.length == 0">
+          <p>There are no Approves Claims yet ! Please wait.</p>
       </div>
+    
+      <div *ngIf="claim.length !== 0">
+          <h3 class="mb-6 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">Approves Insurance Claims</h3>
+          <br>
+          <br>
+    
+          <div class="col-md-12">
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                      <tr>
+                          <th scope="col">Policy No.</th>
+                          <th scope="col">Ins. Company</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Sum Insured</th>
+                          <th scope="col">Loss Cause</th>
+                          <th scope="col">Loss Date</th>
+                      </tr>
+                  </thead>
+               
+                      <tr *ngFor="let item of claim">
+                          <td>{{item.policy_no}}</td>
+                          <td>{{item.insurance_company}}</td>
+                          <td>{{item.full_name}}</td>
+                          <td>{{item.sum_insured}}</td>
+                          <td>{{item.loss_cause}}</td>
+                          <td>{{item.loss_date}}</td>                        
+                      </tr>
+                  
+              </table>
+          </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-success mx-auto" ><a (click)="goback()" routerLinkActive="active">Go Back</a></button>
+    </div>

@@ -51,6 +51,10 @@ export class AdminUserApprovalComponent implements OnInit {
     })
   }
 
+  goback(){
+    this.router.navigate(['/admin-home']);
+  }
+
   logout(){
     sessionStorage.clear();
     localStorage.clear();

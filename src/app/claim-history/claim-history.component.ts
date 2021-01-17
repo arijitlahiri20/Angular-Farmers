@@ -9,14 +9,36 @@ import { InsuranceService } from '../services/insurance.service';
 })
 export class ClaimHistoryComponent implements OnInit {
 
-  constructor(private service:InsuranceService,private router: Router) { }
+  full_name = sessionStorage.getItem("full_name");  
+  user_id = sessionStorage.getItem("user_id");
 
-  ngOnInit() {
+  claim: any = [];
+
+  user : any = {
+    user_id: 0
   }
 
+
+  constructor(private insuranceService: InsuranceService, private router:Router) { }
+  
+  ngOnInit() {
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
+    this.user.user_id = this.user_id;
+    this.insuranceService.getClaimHistory(this.user).subscribe(data => {
+      console.log(JSON.stringify(data));
+      this.claim=data.list;
+    })
+  }
+
+  goback(){
+    this.router.navigate(['/insurance-home']);
+  }
+  
   logout(){
     sessionStorage.clear();
-    localStorage.clear();
     this.router.navigate(['/login']);
   }
 

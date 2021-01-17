@@ -46,6 +46,10 @@ export class AdminInsuranceComponent implements OnInit {
     })
   }
 
+  goback(){
+    this.router.navigate(['/admin-home']);
+  }
+
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login']);
