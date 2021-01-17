@@ -1,64 +1,103 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
-        <div class="container">
-          <a class="navbar-brand" >
-                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" routerLink="/bidder-home">Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-              <li class="nav-item ">
-                <a class="nav-link" (click)="logout()">Logout
-                    <span class="sr-only">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-   
-<div class="bg-img">
-<br><br>
-<div class="container custom-container-2">
+  <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+    <div class="container">
+      <a class="navbar-brand">
+        <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+      </a>
 
-    <!-- Show it when there is no sell request -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="/bidder-home">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" (click)="logout()">Logout
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- <div class="bg-img"> -->
+  <br><br>
+  <div class="container custom-container-2">
+
+    <!-- Show it when there is no bid history -->
+
     <div class="no-data text-center" *ngIf="bidhistory.length == 0">
-        <p style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">YOUR PURCHASE HISTORY IS EMPTY !</p>
+      <p style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">YOUR PURCHASE HISTORY IS EMPTY !</p>
     </div>
-  
-    <div *ngIf="bidhistory.length !== 0" class="container bg-light p-2 mt-2 rounded" style="width: 600px;">
-        <h3 class="mb-3 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">HISTORY</h3>
-  
-        <div class="container bg-light p-2 mt-2 rounded" style="width: 600px;">
-            <table class="table table-bordered"  >
-              <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Bid Id</th>
-                        <th scope="col">Bid Amount</th>
-                    </tr>
-                </thead>
-             
-                    <tr *ngFor="let item of bidhistory" style="color: black; font-weight: bolder;">
-                        <td>{{item.bid_id}}</td>
-                        <td>{{item.bid_amount}}</td>
-                      
-                    </tr>
-                
-            </table>
-        </div>
-  
+
+    <div *ngIf="bidhistory.length !== 0" class="container bg-light p-2 mt-2 rounded" style="width: 700px;">
+      <h3 class="mb-3 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">BID HISTORY
+      </h3>
+
+      <div class="container bg-light p-2 mt-2 rounded" style="width: 600px;">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Bid Id</th>
+              <th scope="col">Sell Id</th>
+              <th scope="col">Bid Amount</th>
+            </tr>
+          </thead>
+
+          <tr *ngFor="let item of bidhistory" style="color: black; font-weight: bolder;">
+            <td>{{item.bid_id}}</td>
+            <td>{{item.sell_id}}</td>
+            <td>{{item.bid_amount}}</td>
+
+          </tr>
+
+        </table>
+      </div>
+
     </div>
+
+    <br>
+    <br>
+
+    
+    <!-- <div class="no-data text-center" *ngIf="activeBids.length == 0">
+      <p style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">YOUR CURRENT BID HISTORY IS EMPTY !
+      </p>
+    </div>
+
+    <div *ngIf="activeBids.length !== 0" class="container bg-light p-2 mt-2 rounded" style="width: 700px;">
+      <h3 class="mb-3 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">ACTIVE BIDS
+      </h3>
+
+      <div class="container bg-light p-2 mt-2 rounded" style="width: 600px;">
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Bid Id</th>
+              <th scope="col">Sell Id</th>
+              <th scope="col">Bid Amount</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+
+          <tr *ngFor="let item of activeBids" style="color: black; font-weight: bolder;">
+            <td>{{item.bid_id}}</td>
+            <td>{{item.sell_id}}</td>
+            <td>{{item.bid_amount}}</td>
+            <td>{{item.status}}</td>
+
+          </tr>
+
+        </table>
+      </div>
+
+    </div> -->
   </div>
-  
-</div>
-  
-  
+<!-- </div> -->
