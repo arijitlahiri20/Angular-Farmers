@@ -1,128 +1,158 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
-        <div class="container">
-          <a class="navbar-brand" >
-                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" routerLink="/farmer-home">Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" routerLink="/insurance-home">Insurance
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-              <li class="nav-item ">
-                <a class="nav-link" (click)="logout()">Logout
-                    <span class="sr-only">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <br><br>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+    <div class="container">
+      <a class="navbar-brand">
+        <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="/farmer-home">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/insurance-home">Insurance
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" (click)="logout()">Logout
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<br><br>
 <div>
-   <!---- <div class="col d-flex justify-content-center">
+  <!---- <div class="col d-flex justify-content-center">
     <h2>Insurance Application</h2>
     </div>
     <div class="col d-flex justify-content-center">-->
-      <main class="my-form " style="width:800px; margin:auto;" >
-        <div class="cotainer">
-            <div class="row justify-content-center">
-                <div class="col-md-8 p-3 bg-success rounded">
-                        <div class="card">
-                            <div class="card-header text-center" ><h3>Insurance Application</h3></div>
-                            <div class="card-body">
-    <form (ngSubmit)="InsurancePolicyCheck()" [formGroup]="form2">
-        <h3> </h3><br>
-    
-        <div class="mb-3">
-          <label for="season" class="form-label">Season</label>
-          <input type="season" class="form-control" id="season" formControlName="season" name="t1" [(ngModel)]=insurance.season >
-        </div>
-        <div *ngIf="form2.get('season').touched && form2.get('season').invalid" class="alert alert-danger">Please fill full name </div>   
-         <div style="color:red" *ngIf="form2.get('season').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
-    
-        <div class="mb-3">
-            <label for="year" class="form-label">Year</label>
-            <input type="year" class="form-control" id="year " formControlName="year" name="t2"  [(ngModel)]=insurance.year>
-        </div>
-        <div *ngIf="form2.get('year').touched && form2.get('year').invalid" class="alert alert-danger">Please fill year</div>
-        <div *ngIf="form2.get('year').hasError('pattern')" class="alert alert-danger"> You have to enter 4 digits</div>
-
-    
-        <div class="mb-3">
-            <label for="crop" class="form-label">Crop</label>
-            <input type="crop" class="form-control" id="crop" formControlName="crop" name="t3"  [(ngModel)]=insurance.crop>
-        </div>
-        <div *ngIf="form2.get('crop').touched && form2.get('crop').invalid" class="alert alert-danger">Please fill crop name </div>   
-        <div style="color:red" *ngIf="form2.get('crop').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
-    
-        <div class="mb-3">
-            <label for="sum_insured" class="form-label">Sum Insured</label>
-            <input type="sum_insured" class="form-control" formControlName="sum_insured" id="sum_insured" name="t4"  [(ngModel)]=insurance.sum_insured>
-        </div>
-        <div *ngIf="form2.get('sum_insured').touched && form2.get('sum_insured').invalid" class="alert alert-danger">Please fill year</div>
-        <div *ngIf="form2.get('sum_insured').hasError('pattern')" class="alert alert-danger"> You have to enter digits</div>
-
-        <div class="mb-3">
-            <label for="area" class="form-label">Area</label>
-            <input type="area" class="form-control" id="area" formControlName="area" name="t3"  [(ngModel)]=insurance.area>
-        </div>
-        <div *ngIf="form2.get('area').touched && form2.get('area').invalid" class="alert alert-danger">Please fill full name </div>   
-        <div style="color:red" *ngIf="form2.get('area').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
-    
-        <div class="col d-flex justify-content-center">
-        <button type="submit" onclick="$('#target').toggle();" class="btn btn-primary">Calculate</button></div>
-    </form>
-    </div>
-</div>
-</div>
-</div></div></main>
-
-<div id="target" style="display: none">
-<main class="my-form " style="width:1150px; margin:auto; margin-top:30px; margin-bottom:20px;" >
-  <div class="cotainer">
+  <main class="my-form " style="width:800px; margin:auto;">
+    <div class="cotainer">
       <div class="row justify-content-center">
+        <div class="col-md-8 p-3 bg-success rounded">
+          <div class="card">
+            <div class="card-header text-center">
+              <h3>Insurance Application</h3>
+            </div>
+            <div class="card-body">
+              <form (ngSubmit)="InsurancePolicyCheck()" [formGroup]="form2">
+                <h3> </h3><br>
+
+                <div class="mb-3 form-group">
+                  <label for="season" class="form-label">Season</label>
+                  <input type="season" class="form-control" id="season" formControlName="season" [ngClass]="{ 'is-invalid': submitted && f.season.errors } " name="t1"
+                    [(ngModel)]=insurance.season>
+                    <div *ngIf="submitted && f.season.errors" class="invalid-feedback">
+                      <div *ngIf="f.season.errors.required">Season is required</div>
+                      <div *ngIf="f.season.errors.season">You can enter only Alphabets</div>
+                    </div> 
+                </div>
+               
+
+                <div class="mb-3">
+                  <label for="year" class="form-label">Year</label>
+                  <input type="year" class="form-control" id="year " [ngClass]="{ 'is-invalid': submitted && f.year.errors } " formControlName="year" name="t2"
+                    [(ngModel)]=insurance.year>
+                    <div *ngIf="submitted && f.year.errors" class="invalid-feedback">
+                      <div *ngIf="f.year.errors.required">Year is required</div>
+                      <div *ngIf="f.year.errors.year">You can enter only digits</div>
+                    </div> 
+                </div>
+                
+
+                <div class="mb-3">
+                  <label for="crop" class="form-label">Crop type</label>
+                  <input type="crop" class="form-control" id="crop" [ngClass]="{ 'is-invalid': submitted && f.crop.errors } " formControlName="crop" name="t3"
+                    [(ngModel)]=insurance.crop>
+                  <div *ngIf="submitted && f.crop.errors" class="invalid-feedback">
+                      <div *ngIf="f.crop.errors.required">Crop type is required</div>
+                      <div *ngIf="f.crop.errors.crop">You can enter only Alphabets</div>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                  <label for="sum_insured" class="form-label">Sum Insured</label>
+                  <input type="sum_insured" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sum_insured.errors } " formControlName="sum_insured" id="sum_insured"
+                    name="t4" [(ngModel)]=insurance.sum_insured>
+                    <div *ngIf="submitted && f.sum_insured.errors" class="invalid-feedback">
+                      <div *ngIf="f.sum_insured.errors.required">Sum Insured is required</div>
+                      <div *ngIf="f.sum_insured.errors.sum_insured">You can enter only digits</div>
+                    </div> 
+                </div>
+                
+
+                <div class="mb-3">
+                  <label for="area" class="form-label">Area(in hec)</label>
+                  <input type="area" class="form-control" id="area" [ngClass]="{ 'is-invalid': submitted && f.area.errors } " formControlName="area" name="t3"
+                    [(ngModel)]=insurance.area>
+                    <div *ngIf="submitted && f.area.errors" class="invalid-feedback">
+                      <div *ngIf="f.area.errors.required">Area is required</div>
+                      <div *ngIf="f.area.errors.area">You can enter only Alphabets</div>
+                    </div>
+                </div>
+              
+
+                <div class="col d-flex justify-content-center">
+                  <button type="submit" onclick="$('#target').toggle();" class="btn btn-primary">Calculate</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="target" style="display: none">
+    <main class="my-form " style="width:1150px; margin:auto; margin-top:30px; margin-bottom:20px;">
+      <div class="cotainer">
+        <div class="row justify-content-center">
           <div class="col-md-8 p-3 bg-success rounded">
-                  <div class="card">
-                      <!-- <div class="card-header text-center" ><h3>Farmer Registration</h3></div> -->
-                      <div class="card-body">
-<table style="width:100%">
-    <tr>
-      <th>Insurance Company</th>
-      <th>Sum insured(per hec)</th> 
-      <th>Share premium</th>
-      <th>Premium amount</th>
-      <th>Crop Name</th>
-      <th>Area</th>
-      <th>Sum insured</th>
-    </tr>
+            <div class="card">
+              <!-- <div class="card-header text-center" ><h3>Farmer Registration</h3></div> -->
+              <div class="col-md-12">
+                <table class="table table-bordered" style="width:100%">
+                  <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Insurance Company</th>
+                    <th  scope="col">Sum insured(per hec)</th>
+                    <th  scope="col">Share premium</th>
+                    <th  scope="col">Premium amount</th>
+                    <th  scope="col">Crop Name</th>
+                    <th  scope="col">Area</th>
+                    <th  scope="col">Sum insured</th>
+                  </tr>
+                  </thead>
+                  <tr>
 
-    <tr>
+                    <td>{{result.insurance_company}}</td>
+                    <td>{{result.sum_insured}}</td>
+                    <td>{{result.share_premium}}</td>
+                    <td>{{result.premium_amount}}</td>
+                    <td>{{result.crop}}</td>
+                    <td>{{result.area}}</td>
+                    <td>{{result.sum_insured}}</td>
 
-        <td>{{result.insurance_company}}</td>
-        <td>{{result.sum_insured}}</td>
-        <td>{{result.premium_amount}}</td>
-        <td>{{result.premium_amount}}</td>
-        <td>{{result.crop}}</td>
-        <td>{{result.area}}</td>
-        <td>{{result.sum_insured}}</td>
-        
-    </tr>
-    
-</table>
-<div class="col d-flex justify-content-center">
-  <button type="submit"  class="btn btn-primary"><a (click)="ApplyInsurance()">Apply</a></button>
-     </div>
-</div></div></div></div></div></main>
+                  </tr>
+
+                </table>
+                <div class="col d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary"><a (click)="ApplyInsurance()">Apply</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>

@@ -32,12 +32,25 @@
       <div class="no-data text-center" *ngIf="sell.length == 0">
           <p>There are no pending Sell Request Approvals ! Please wait.</p>
       </div>
+
+      
     
       <div *ngIf="sell.length !== 0">
           <h3 class="mb-6 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">Pending Sell Request Approvals</h3>
+          
+          <div *ngIf="picUrl" class="card-deck text-center" style="max-width:400px; margin:auto;">
+            <div class="card" >
+              <div class="card-header">
+                <h5 >pH Certificate</h5>
+              </div>
+              <img src="http://localhost:8181/downloads/{{picUrl}}" style="max-height:350px" class="card-img-top" alt="...">
+              <div class="card-footer">
+                <button type="button" class="btn btn-success  mx-auto" ><a (click)="closePh()" routerLinkActive="active">Close</a></button>
+              </div>
+            </div>
+          </div>
           <br>
           <br>
-    
           <div class="col-md-12">
               <table class="table table-bordered">
                 <thead class="thead-dark">
@@ -64,12 +77,13 @@
                           <td>{{item.fertilizer_type}}</td>
                           <td>{{item.quantity}}</td>
                           <td>{{item.msp}}</td>
-                          <td>{{item.ph_certificate}}</td>
-                          <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="approve(item.sell_id , item.user_id)" routerLinkActive="active">Approve</a></button></td>
-                        
-                      </tr>
-                  
+                          <td><a [routerLink]="" (click)="viewPh(item.sell_id , item.user_id)" routerLinkActive="active">View</a></td>
+                          <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="approve(item.sell_id , item.user_id)" routerLinkActive="active">Approve</a></button></td>                  
+                      </tr> 
               </table>
           </div>
       </div>
+    </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-success mx-auto" ><a (click)="goback()" routerLinkActive="active">Go Back</a></button>
     </div>

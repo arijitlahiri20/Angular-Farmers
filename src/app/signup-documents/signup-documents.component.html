@@ -37,13 +37,37 @@
     </header>
     <br><br>
 
-<div class="container" style="width:500px; margin:auto;">
-    <div>
+<div class="card" style="width:500px; margin:auto;">
+    <div class="card-header">
         <h4>Upload Documents for Verfification :</h4>
     </div>
     <br>
+    <div class="card-body">
     <form (ngSubmit)="upload()" [formGroup]="form2">
-        <div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          Aadhar Card :
+          <input type="file" name="aadhar" (change)="onAadharChange($event)" />
+        </li>
+        <li class="list-group-item">
+          Pan Card :
+          <input type="file" name="pan" (change)="onPanChange($event)" />
+        </li>
+        <li *ngIf= "userType == 'FARMER'" class="list-group-item" >
+          Certificate :
+          <input type="file" name="certificate" (change)="onCertificateChange($event)" />
+          <input type="file" name="traderlicense" (change)="onTraderLicenseChange($event)" hidden />
+        </li>
+        <li *ngIf= "userType == 'BIDDER'" class="list-group-item" >
+          Trader License :
+          <input type="file" name="certificate" (change)="onCertificateChange($event)" hidden/>
+          <input type="file" name="traderlicense" (change)="onTraderLicenseChange($event)"  />
+        </li>
+        <li class="list-group-item text-center" >
+          <button class="btn btn-success mx-auto" type="submit">Upload</button>        
+        </li>
+      </ul>
+        <!-- <div>
             Aadhar Card: <input type="file" name="aadhar" (change)="onAadharChange($event)" />
         </div>
         <br>
@@ -61,6 +85,7 @@
             Trader License: <input type="file" name="traderlicense" (change)="onTraderLicenseChange($event)" />
         </div>
         <br>
-        <button type="submit">Upload</button>
+        <button type="submit">Upload</button> -->
     </form>
+  </div>
 </div>

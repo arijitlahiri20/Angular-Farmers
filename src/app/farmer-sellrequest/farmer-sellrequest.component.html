@@ -1,36 +1,37 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
-        <div class="container">
-          <a class="navbar-brand" >
-                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" routerLink="/farmer-home">Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-                  <li class="nav-item ">
-                    <a class="nav-link" routerLink="/insurance-home">Insurance
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-              <li class="nav-item ">
-                <a class="nav-link" (click)="logout()">Logout
-                    <span class="sr-only">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <br><br>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+    <div class="container">
+      <a class="navbar-brand">
+        <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="/farmer-home">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="/insurance-home">Insurance
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" (click)="logout()">Logout
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<br><br>
 <!-- <div>
 <div class="col d-flex justify-content-center">
       <h2>Crop Sell Request</h2>
@@ -74,93 +75,111 @@
     </div>
   </div> -->
 
-<header>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script></header>
-  <!------ Include the above in your HEAD tag ---------->
-  
-  <div class="container register">
-                  <div class="row">
-                      <div class="col-md-3 register-left">
-                          <img src="/assets/logo.png" class="rounded-circle" width="50px" height="50px" alt=""/>
-                          <h3>Welcome</h3>
-                          <p>You are 30 seconds away from earning your own money!</p>
-                          
-                      </div>
-                      <div class="col-md-9 register-right">
-                          
-                          <div class="tab-content" id="myTabContent">
-                              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                  <h3 class="register-heading">Crop Sell Request</h3>
-                                  <form [formGroup]="form1">
-                                  <div class="row register-form">
-                                      <div class="col-md-6">
-                                          <div class="form-group">
-                                            <label for="croptype" class="form-label">Crop Type</label>
-                                            <input type="text" class="form-control" id="croptype" name="croptype" required formControlName="croptype" [ngClass]="{ 'is-invalid': submitted && f.croptype.errors }" [(ngModel)]="sellrequests.crop_type" required minlength="1">
-                                            <div *ngIf="form1.get('croptype').touched && form1.get('croptype').invalid" class="alert alert-danger">
-                                              <div *ngIf = "form1.get('croptype').hasError('required')">Crop Type is required</div>
-                                              <div *ngIf="form1.get('croptype').hasError('pattern')"> You can enter only Alphabets</div>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                            <label for="fertilizer" class="form-label">Fertilizer Type</label>
-                                            <input type="text" class="form-control" id="fertilizer" name="fertilizer" formControlName="fertilizer" [ngClass]="{ 'is-invalid': submitted && f.fertilizer.errors }" [(ngModel)]="sellrequests.fertilizer_type" required>
-                                            <div *ngIf="form1.get('fertilizer').touched && form1.get('fertilizer').invalid" class="alert alert-danger">
-                                              <div *ngIf = "form1.get('fertilizer').hasError('required')">Fertilizer Type is required</div>
-                                              <div *ngIf="form1.get('fertilizer').hasError('pattern')"> You can enter only Alphabets</div>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                            <label for="msp" class="form-label">MSP</label>
-                                            <input type="text" class="form-control" id="msp" name="msp" formControlName="msp" [ngClass]="{ 'is-invalid': submitted && f.msp.errors }" [(ngModel)]="sellrequests.msp" required>
-                                            <div *ngIf="form1.get('msp').touched && form1.get('msp').invalid" class="alert alert-danger">
-                                              <div *ngIf = "form1.get('msp').hasError('required')">MSP is required</div>
-                                              <div *ngIf="form1.get('msp').hasError('pattern')"> You can enter only numbers</div>
-                                              </div>
-                                          </div>
-                                          
-                                         
-                                      </div>
-                                      <div class="col-md-6">
-                                          <div class="form-group">
-                                            <label for="cropname" class="form-label">Crop Name</label>
-                                            <input type="text" class="form-control" id="cropname" name="cropname" formControlName="cropname" [ngClass]="{ 'is-invalid': submitted && f.cropname.errors }" [(ngModel)]="sellrequests.crop_name" required>
-                                            <div *ngIf="form1.get('cropname').touched && form1.get('cropname').invalid" class="alert alert-danger">
-                                              <div *ngIf = "form1.get('cropname').hasError('required')">Crop Name is required</div>
-                                              <div *ngIf="form1.get('cropname').hasError('pattern')"> You can enter only Alphabets</div>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                            <label for="quantity"  class="form-label">Quantity</label>
-                                            <input type="text" class="form-control" id="quantity" name="quantity" formControlName="quantity" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }" [(ngModel)]="sellrequests.quantity" required>
-                                            <div *ngIf="form1.get('quantity').touched && form1.get('quantity').invalid" class="alert alert-danger">
-                                              <div *ngIf = "form1.get('quantity').hasError('required')">Quantity is required</div>
-                                              <div *ngIf="form1.get('quantity').hasError('pattern')"> You can enter only numbers</div>
-                                              </div>
-                                          </div>
-                                          <div class="form-group">
-                                            <label for="soilph" class="form-label">Soil pH Certificate</label>
-                                            <input type="text" class="form-control" id="soilph" name="soilph" formControlName="soilph" [ngClass]="{ 'is-invalid': submitted && f.soilph.errors }" [(ngModel)]="sellrequests.ph_certificate" required>
-                                            <div *ngIf="form1.get('soilph').touched && form1.get('soilph').invalid" class="alert alert-danger">
-                                              <div *ngIf = "form1.get('soilph').hasError('required')">Soil pH Certificate is required</div>
-                                              <div *ngIf="form1.get('soilph').hasError('pattern')"> You can enter only numbers</div>
-                                              </div>
-                                          </div>
-                                          
-                                          
-                                      </div>
-                                      <div class="mx-auto">
-                                        <button type="submit"  class="btn btn-primary" (click)="placeRequest()">Place Request</button>
-                                      </div>
-                                  </div>
-                                </form>
-                              </div>
-                             
-                          </div>
-                      </div>
-                  </div>
-  
+
+
+
+<main class="my-form " style="width:800px; margin:auto;">
+  <div class="cotainer">
+    <div class="row justify-content-center">
+      <div class="col-md-8 p-3 bg-success rounded">
+        <div class="card">
+          <div class="card-header text-center">
+            <h3>Crop Sell Request</h3>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="placeRequest()" [formGroup]="form1">
+              <h3> </h3><br>
+
+              <div class="form-group">
+                <label for="croptype" class="form-label">Crop Type</label>
+                <input required type="text" class="form-control" id="croptype" name="croptype"
+                  formControlName="croptype" [ngClass]="{ 'is-invalid': submitted && f.croptype.errors }"
+                  [(ngModel)]="sellrequests.crop_type" required minlength="1">
+                <div *ngIf="submitted && f.croptype.errors" class="invalid-feedback">
+                  <div *ngIf="f.croptype.errors.required">Crop Type is required</div>
+                  <div *ngIf="f.croptype.errors.croptype">You can enter only Alphabets</div>
+                </div>
               </div>
 
+
+              <div class="form-group">
+                <label for="fertilizer" class="form-label">Fertilizer Type</label>
+                <input type="text" class="form-control" id="fertilizer" name="fertilizer" formControlName="fertilizer"
+                  [ngClass]="{ 'is-invalid': submitted && f.fertilizer.errors }"
+                  [(ngModel)]="sellrequests.fertilizer_type" required>
+                <div *ngIf="submitted && f.fertilizer.errors" class="invalid-feedback">
+                  <div *ngIf="f.fertilizer.errors.required">Fertilizer Type is required</div>
+                  <div *ngIf="f.fertilizer.errors.fertilizer">You can enter only Alphabets</div>
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="msp" class="form-label">MSP</label>
+                <input type="text" class="form-control" id="msp" name="msp" formControlName="msp"
+                  [ngClass]="{ 'is-invalid': submitted && f.msp.errors }" [(ngModel)]="sellrequests.msp" required>
+                <div *ngIf="submitted && f.msp.errors" class="invalid-feedback">
+                  <div *ngIf="f.msp.errors.required">MSP is required</div>
+                  <div *ngIf="f.msp.errors.msp">You can enter only numbers</div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="cropname" class="form-label">Crop Name</label>
+                <input type="text" class="form-control" id="cropname" name="cropname" formControlName="cropname"
+                  [ngClass]="{ 'is-invalid': submitted && f.cropname.errors }" [(ngModel)]="sellrequests.crop_name"
+                  required>
+                <div *ngIf="submitted && f.cropname.errors" class="invalid-feedback">
+                  <div *ngIf="f.cropname.errors.required">Crop Name is required</div>
+                  <div *ngIf="f.cropname.errors.cropname">You can enter only Alphabets</div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="text" class="form-control" id="quantity" name="quantity" formControlName="quantity"
+                  [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }" [(ngModel)]="sellrequests.quantity"
+                  required>
+                <div *ngIf="submitted && f.quantity.errors" class="invalid-feedback">
+                  <div *ngIf="f.quantity.errors.required">Quantity is required</div>
+                  <div *ngIf="f.quantity.errors.quantity">You can enter only numbers</div>
+                </div>
+              </div>
+
+
+
+              <div class="col d-flex justify-content-center">
+                <button type="submit" onclick="$('#target').toggle();" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+
+
+            <div id="target" style="display: none; margin:auto;">
+              <main class="my-form text-center" style="margin:auto; margin-top:30px; margin-bottom:20px;">
+                <div class="cotainer">
+                  <div text-center>
+                    <h4>Upload Documents for Verification :</h4>
+                  </div>
+                  <br>
+                  <form [formGroup]="form2">
+
+                    <div class="form-group">
+                      <label for="msp" class="form-label">Soil pH Certificate</label>
+                      <input type="file" class="form-control" name="soilpH"
+                        (change)="onSoilPhCertificateChange($event)" />
+
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary" (click)="upload()">Upload</button>
+                  </form>
+                </div>
+              </main>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

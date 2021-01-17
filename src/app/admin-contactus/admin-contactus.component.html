@@ -26,4 +26,42 @@
       </nav>
     </header>
     <br><br>
-<p>admin-contactus works!</p>
+    <div class="container custom-container-2">
+
+      <!-- Show it when there is no sell request -->
+      <div class="no-data text-center" *ngIf="contact.length == 0">
+          <p>There are no Contact Us Messages yet ! Please Come back later.</p>
+      </div>
+    
+      <div *ngIf="contact.length !== 0">
+          <h3 class="mb-6 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">Contact Us Messages</h3>
+          <br>
+          <br>
+    
+          <div class="col-md-12">
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                      <tr>
+                          <!-- <th scope="col">Sell Id</th> -->
+                          <th scope="col">ID</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Contact No.</th>
+                          <th scope="col">Message</th>
+                      </tr>
+                  </thead>
+               
+                      <tr *ngFor="let item of contact">
+                          <!-- <td>{{item.sell_id}}</td> -->
+                          <td>{{item.c_id}}</td>
+                          <td>{{item.email}}</td>
+                          <td>{{item.contact_no}}</td>
+                          <td>{{item.message}}</td>
+                      </tr>
+                  
+              </table>
+          </div>
+      </div>
+    </div>
+    <div class="text-center">
+      <button type="button" class="btn btn-success mx-auto" ><a (click)="goback()" routerLinkActive="active">Go Back</a></button>
+    </div>

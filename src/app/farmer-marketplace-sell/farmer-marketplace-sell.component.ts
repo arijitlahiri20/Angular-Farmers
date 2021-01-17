@@ -24,7 +24,7 @@ export class FarmerMarketplaceSellComponent implements OnInit {
     this.getBids();
   }
 
-  back(){
+  goback(){
     localStorage.removeItem('sell_id');
     this.router.navigate(['/farmer-marketplace']);
   }

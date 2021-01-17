@@ -31,6 +31,11 @@ export class AdminService {
    return this.http.get(url); 
   }
 
+  getPhCertificate(sell_id:number) : Observable<any> {
+    let url = this.baseURL + "/admin/view-ph?sell_id="+sell_id;
+   return this.http.get(url); 
+  }
+
   approveSellRequest(sell: any) : Observable<any> {
     let url = this.baseURL + "/admin/approve-sell-request";
    return this.http.post(url, sell); 

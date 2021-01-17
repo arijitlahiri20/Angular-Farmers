@@ -39,6 +39,10 @@ export class AdminMarketplaceComponent implements OnInit {
     
   }
 
+  goback(){
+    this.router.navigate(['/admin-home']);
+  }
+
   logout(){
     sessionStorage.clear();
     this.router.navigate(['/login']);

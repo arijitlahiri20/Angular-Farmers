@@ -44,6 +44,10 @@ export class AdminClaimComponent implements OnInit {
       this.ngOnInit();
     })
   }
+  
+  goback(){
+    this.router.navigate(['/admin-home']);
+  }
 
   logout(){
     sessionStorage.clear();

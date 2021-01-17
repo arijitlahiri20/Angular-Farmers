@@ -12,6 +12,8 @@ export class BidderBidhistoryComponent implements OnInit {
 
   bidhistory: any=[];
 
+  activeBids: any=[];
+
   user: User = new User();
 
   constructor(private service:BidderService, private router:Router) { }
@@ -29,6 +31,15 @@ export class BidderBidhistoryComponent implements OnInit {
       this.bidhistory=data.list;
 
     })
+
+    // this.service.getActiveBids(this.user).subscribe(data =>{
+    //   console.log(JSON.stringify(data));
+    //   this.activeBids=data.list;
+    // })
+  }
+  goback(){
+    localStorage.clear();
+    this.router.navigate(['/bidder-home']);
   }
 
   logout(){

@@ -9,7 +9,9 @@ import { AdminService } from '../services/admin.service';
 })
 export class AdminContactusComponent implements OnInit {
 
-  full_name = sessionStorage.getItem("full_name");  
+  full_name = sessionStorage.getItem("full_name");
+  contact : any =[];
+  
   constructor(private adminService: AdminService, private router:Router) { }
   
   ngOnInit() {
@@ -17,6 +19,15 @@ export class AdminContactusComponent implements OnInit {
       alert("You are Logged Out, Login again!");
       this.router.navigate(['/login']);
     }
+
+    this.adminService.getContactUsList().subscribe(data => {
+      console.log(JSON.stringify(data));
+      this.contact = data.list;
+    })
+  }
+
+  goback(){
+    this.router.navigate(['/admin-home']);
   }
 
   logout(){

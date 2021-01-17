@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { InsuranceService } from '../services/insurance.service';
 import { Router } from '@angular/router';
 import { Claims } from '../models/claims.model';
-import { FormGroup, FormControl , Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -15,25 +15,33 @@ export class InsuranceClaimComponent implements OnInit {
 
   claims =new Claims();
   form2 : FormGroup;
+  submitted = false;
 
-
-  constructor(private service:InsuranceService,private router: Router) { }
+  constructor(private service:InsuranceService,private router: Router,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
 
-    this.form2=new FormGroup({
-      insurance_company:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]) ,
-      full_name:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]) ,
-      loss_cause:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]) ,
-      sum_insured:new FormControl('',[Validators.required, Validators.pattern('[0-9]')]),
-      policy_no:new FormControl('',[Validators.required, Validators.pattern('[0-9]')]),
-      loss_date:new FormControl('',[Validators.required])
+    this.form2 = this.formBuilder.group({
+      insurance_company:['',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]] ,
+      full_name:['',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]] ,
+      loss_cause:['',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]] ,
+      sum_insured:['',[Validators.required, Validators.pattern('[0-9]')]],
+      policy_no:['',[Validators.required, Validators.pattern('[0-9]')]],
+      loss_date:['',[Validators.required]]
 
     })
 
   }
 
+  get f() { return this.form2.controls; }
+
+
   InsuranceClaimCheck(){
+
+    this.submitted =true;
+    if(this.form2.invalid){
+      return;
+    }
 
     this.claims.insurance_id= this.claims.policy_no;
     this.claims.status="PENDING";
@@ -45,7 +53,7 @@ export class InsuranceClaimComponent implements OnInit {
         //this.message=data.message;
         alert(JSON.stringify(data));
         if(data.status=="SUCCESS")
-          this.router.navigate(['/insurance-homeApplyInsurance()']);
+          this.router.navigate(['/insurance-home']);
     })
   }
 

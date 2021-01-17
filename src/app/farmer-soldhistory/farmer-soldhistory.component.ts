@@ -35,6 +35,10 @@ export class FarmerSoldhistoryComponent implements OnInit {
     })
   }
 
+  goback(){
+    this.router.navigate(['/farmer-home']);
+  }
+
   logout(){
     sessionStorage.clear();
     localStorage.clear();

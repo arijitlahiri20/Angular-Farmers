@@ -38,33 +38,32 @@
 <br><br>
   
 
-  <div class="mb-3">
-    <div class="col d-flex justify-content-center">
-      <form (ngSubmit)="submitForm()">  
-      <div class="mb-6 text-center">
+  <div class="card" style="width:450px; margin: auto;">
+    <form (ngSubmit)="submitForm()">  
+      <div class="card-header text-center">
         <h2>Contact Us</h2>
         <p>Write to us and keep upto date with the latest information.</p>
       </div>
       
+      <div class="card-body">
+        <div class="mb-6">
+          <label for="email" class="form-label">Email</label>
+          <input type="text" class="form-control" id="email" name="email"  [(ngModel)]="email" required>
+        </div>
 
-      <div class="mb-6">
-        <label for="email" class="form-label">Email</label>
-        <input type="text" class="form-control" id="email" name="email"  [(ngModel)]="email" required>
-      </div>
-
-      <div class="mb-6">
-        <label for="contact_no" class="form-label">Contact Number</label>
-        <input type="text"  class="form-control" id="contact_no" name="contactnumber"  [(ngModel)]="contactnumber" required>
-      </div>
-      <div class="mb-6">
-        <label for="message" class="form-label">Message</label>
-        <textarea id="message" class="form-control" name="message"  style="height:200px" [(ngModel)]="message" required></textarea>
-      </div>  
-      <br>
-      <div class="col d-flex justify-content-center">
-        <input type="submit" class="btn btn-primary" value="Submit">
-      </div>
-      </form>
-  </div>
+        <div class="mb-6">
+          <label for="contact_no" class="form-label">Contact Number</label>
+          <input type="text"  class="form-control" id="contact_no" name="contactnumber"  [(ngModel)]="contactnumber" required>
+        </div>
+        <div class="mb-6">
+          <label for="message" class="form-label">Message</label>
+          <textarea id="message" class="form-control" name="message"  style="height:200px" [(ngModel)]="message" required></textarea>
+        </div>  
+        <br>
+        <div class="col d-flex justify-content-center">
+          <input type="submit" class="btn btn-primary" value="Submit">
+        </div>
+    </div>
+    </form>
  </div>
  
