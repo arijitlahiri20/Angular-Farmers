@@ -1,107 +1,133 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
-        <div class="container">
-          <a class="navbar-brand" >
-                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" routerLink="/farmer-home">Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" routerLink="/insurance-home">Insurance
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-              <li class="nav-item ">
-                <a class="nav-link" (click)="logout()">Logout
-                    <span class="sr-only">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <br><br>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+    <div class="container">
+      <a class="navbar-brand">
+        <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+      </a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="/farmer-home">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/insurance-home">Insurance
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" (click)="logout()">Logout
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<br><br>
 
 <div>
-    <!--<div class="col d-flex justify-content-center">
+  <!--<div class="col d-flex justify-content-center">
     <h2>Insurance Claim Application</h2>
     </div>
     <div class="col d-flex justify-content-center">-->
 
-      <main class="my-form " style="width:800px; margin:auto;" >
-        <div class="cotainer">
-            <div class="row justify-content-center">
-                <div class="col-md-8 p-3 bg-success rounded">
-                        <div class="card">
-                            <div class="card-header text-center" ><h3>Claim application</h3></div>
-                            <div class="card-body">
-    <form (ngSubmit)="InsuranceClaimCheck()" [formGroup]="form2">
-        <h3> </h3><br>
-    
-        <div class="mb-3">
-          <label for="policyno" class="form-label">Policy number</label>
-          <input type="policyno" class="form-control" formControlName="policy_no" id="policyno" name="t1" [(ngModel)]=claims.policy_no >
+  <main class="my-form " style="width:800px; margin:auto;">
+    <div class="cotainer">
+      <div class="row justify-content-center">
+        <div class="col-md-8 p-3 bg-success rounded">
+          <div class="card">
+            <div class="card-header text-center">
+              <h3>Claim application</h3>
+            </div>
+            <div class="card-body">
+              <form (ngSubmit)="InsuranceClaimCheck()" [formGroup]="form2">
+                <h3> </h3><br>
+
+                <div class="mb-3 form-group">
+                  <label for="policyno" class="form-label">Policy number</label>
+                  <input type="policyno" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.policy_no.errors } " formControlName="policy_no" id="policyno" name="t1"
+                    [(ngModel)]=claims.policy_no>
+                    <div *ngIf="submitted && f.policy_no.errors" class="invalid-feedback">
+                      <div *ngIf="f.policy_no.errors.required">Policy number is required</div>
+                      <div *ngIf="f.policy_no.errors.policy_no">You can enter only digits</div>
+                    </div> 
+                </div>
+                
+
+                <div class="mb-3 form-group">
+                  <label for="insuranceCom" class="form-label">Insurance Company name</label>
+                  <input type="insuranceCom" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.insurance_company.errors } " formControlName="insurance_company" id="insuranceCom"
+                    name="t2" [(ngModel)]=claims.insurance_company>
+                    <div *ngIf="submitted && f.insurance_company.errors" class="invalid-feedback">
+                      <div *ngIf="f.insurance_company.errors.required">Insurance Company name is required</div>
+                      <div *ngIf="f.insurance_company.errors.insurance_company">You can enter only Alphabets</div>
+                    </div> 
+                </div>
+                
+
+                <div class="mb-3 form-group">
+                  <label for="insureeName" class="form-label">Insuree Name</label>
+                  <input type="insureeName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.full_name.errors } " formControlName="full_name" id="insureeName" name="t3"
+                    [(ngModel)]=claims.full_name>
+                    <div *ngIf="submitted && f.full_name.errors" class="invalid-feedback">
+                      <div *ngIf="f.full_name.errors.required">Insuree Name is required</div>
+                      <div *ngIf="f.full_name.errors.full_name">You can enter only Alphabets</div>
+                    </div> 
+                </div>
+                
+
+                <div class="mb-3 form-group">
+                  <label for="suminsured" class="form-label">Sum Insured</label>
+                  <input type="suminsured" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.sum_insured.errors } " formControlName="sum_insured" id="suminsured" name="t4"
+                    [(ngModel)]=claims.sum_insured>
+                    <div *ngIf="submitted && f.sum_insured.errors" class="invalid-feedback">
+                      <div *ngIf="f.sum_insured.errors.required">Sum Insured is required</div>
+                      <div *ngIf="f.sum_insured.errors.sum_insured">You can enter only digits</div>
+                    </div> 
+                </div>
+                
+
+                <h2>Details for loss cause</h2>
+
+                <div class="mb-3 form-group">
+                  <label for="Cause" class="form-label">Cause of loss</label>
+                  <input type="Cause" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.loss_cause.errors } " formControlName="loss_cause" id="Cause" name="t3"
+                    [(ngModel)]=claims.loss_cause>
+                    <div *ngIf="submitted && f.loss_cause.errors" class="invalid-feedback">
+                      <div *ngIf="f.loss_cause.errors.required">Cause of loss is required</div>
+                      <div *ngIf="f.loss_cause.errors.loss_cause">You can enter only Alphabets</div>
+                    </div> 
+                </div>
+                
+
+
+                <div class="mb-3 form-group">
+                  <label for="Date" class="form-label">Date of loss</label>
+                  <input type="Date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.loss_date.errors } " formControlName="loss_date" id="Date" name="t3"
+                    [(ngModel)]=claims.loss_date>
+                    <div *ngIf="submitted && f.loss_date.errors" class="invalid-feedback">
+                      <div *ngIf="f.loss_date.errors.required">Date of loss is required</div>
+                      <div *ngIf="f.loss_date.errors.loss_date">You can enter only Alphabets</div>
+                    </div> 
+                </div>
+              
+
+
+                <div class="col d-flex justify-content-center">
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div *ngIf="form2.get('policy_no').touched && form2.get('policy_no').invalid" class="alert alert-danger">Please fill policy number</div>
-        <div *ngIf="form2.get('policy_no').hasError('pattern')" class="alert alert-danger"> You have to enter digits</div>
-    
-        <div class="mb-3">
-            <label for="insuranceCom" class="form-label">Insurance Company name</label>
-            <input type="insuranceCom" class="form-control" formControlName="insurance_company"id="insuranceCom" name="t2"  [(ngModel)]=claims.insurance_company>
-        </div>
-        <div *ngIf="form2.get('insurance_company').touched && form2.get('insurance_company').invalid" class="alert alert-danger">Please fill insurance company name </div>   
-        <div style="color:red" *ngIf="form2.get('insurance_company').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
-
-
-    
-        <div class="mb-3">
-            <label for="insureeName" class="form-label">Insuree Name</label>
-            <input type="insureeName" class="form-control" formControlName="full_name" id="insureeName" name="t3"  [(ngModel)]=claims.full_name>
-        </div>
-        <div *ngIf="form2.get('full_name').touched && form2.get('full_name').invalid" class="alert alert-danger">Please fill full name </div>   
-        <div style="color:red" *ngIf="form2.get('full_name').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
-
-    
-        <div class="mb-3">
-            <label for="suminsured" class="form-label">Sum Insured</label>
-            <input type="suminsured" class="form-control" formControlName="sum_insured" id="suminsured" name="t4"  [(ngModel)]=claims.sum_insured>
-        </div>
-        <div *ngIf="form2.get('sum_insured').touched && form2.get('sum_insured').invalid" class="alert alert-danger">Please fill sum insured</div>
-        <div *ngIf="form2.get('sum_insured').hasError('pattern')" class="alert alert-danger"> You have to enter digits</div>
-
-
-        <h2>Details for loss cause</h2>
-
-        <div class="mb-3">
-            <label for="Cause" class="form-label">Cause of loss</label>
-            <input type="Cause" class="form-control" formControlName="loss_cause" id="Cause" name="t3"  [(ngModel)]=claims.loss_cause>
-        </div>
-        <div *ngIf="form2.get('loss_cause').touched && form2.get('loss_cause').invalid" class="alert alert-danger">Please fill cause of loss </div>   
-        <div style="color:red" *ngIf="form2.get('loss_cause').hasError('pattern')" class="alert alert-danger"> You can enter only Alphabets</div>
-
-
-        <div class="mb-3">
-            <label for="Date" class="form-label">Date of loss</label>
-            <input type="Date" class="form-control" formControlName="loss_date" id="Date" name="t3"  [(ngModel)]=claims.loss_date>
-        </div>
-        <div *ngIf="form2.get('loss_date').touched && form2.get('loss_date').invalid" class="alert alert-danger">Please fill date of loss </div>   
-
-    
-        <div class="col d-flex justify-content-center">
-        <button type="submit" class="btn btn-primary">Submit</button></div>
-      </form>
+      </div>
     </div>
-    </div>
-  </div>
-  </div></div></main>
-
+  </main>
