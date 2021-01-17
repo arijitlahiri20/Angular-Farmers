@@ -19,6 +19,11 @@ export class BidderBidrequestComponent implements OnInit {
     sell_id: 0
   };
 
+  bids: any={
+    sell_id:0,
+    user_id:0
+  };
+  activeBids: any=[];
 
   constructor(private service: BidderService, private router: Router,private formBuilder: FormBuilder) { }
   
@@ -48,7 +53,7 @@ export class BidderBidrequestComponent implements OnInit {
       })
     }
     else {
-      alert("Please Enter an amount greater than minimum selling price");
+      alert("Please Enter an amount greater than or equal to minimum selling price");
     }
 
   }
@@ -60,6 +65,13 @@ export class BidderBidrequestComponent implements OnInit {
       this.Bids = response.list;
     })
 
+
+    this.bids.sell_id=localStorage.getItem('sell_id');
+    this.bids.user_id=sessionStorage.getItem('user_id');
+    this.service.getActiveBids(this.bids).subscribe(data =>{
+      console.log(JSON.stringify(data));
+      this.activeBids=data.list;
+    })
   }
 
   logout() {

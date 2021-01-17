@@ -27,7 +27,7 @@
   </nav>
 </header>
 
-<div class="bg-img">
+<!-- <div class="bg-img"> -->
   <br><br>
   <div class="container custom-container-2">
 
@@ -37,7 +37,7 @@
       <p style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">YOUR PURCHASE HISTORY IS EMPTY !</p>
     </div>
 
-    <div *ngIf="bidhistory.length !== 0" class="container bg-light p-2 mt-2 rounded" style="width: 600px;">
+    <div *ngIf="bidhistory.length !== 0" class="container bg-light p-2 mt-2 rounded" style="width: 700px;">
       <h3 class="mb-3 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">BID HISTORY
       </h3>
 
@@ -46,12 +46,14 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">Bid Id</th>
+              <th scope="col">Sell Id</th>
               <th scope="col">Bid Amount</th>
             </tr>
           </thead>
 
           <tr *ngFor="let item of bidhistory" style="color: black; font-weight: bolder;">
             <td>{{item.bid_id}}</td>
+            <td>{{item.sell_id}}</td>
             <td>{{item.bid_amount}}</td>
 
           </tr>
@@ -64,13 +66,13 @@
     <br>
     <br>
 
-    <!-- Show it when there is no active bids -->
-    <div class="no-data text-center" *ngIf="activeBids.length == 0">
+    
+    <!-- <div class="no-data text-center" *ngIf="activeBids.length == 0">
       <p style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">YOUR CURRENT BID HISTORY IS EMPTY !
       </p>
     </div>
 
-    <div *ngIf="activeBids.length !== 0" class="container bg-light p-2 mt-2 rounded" style="width: 600px;">
+    <div *ngIf="activeBids.length !== 0" class="container bg-light p-2 mt-2 rounded" style="width: 700px;">
       <h3 class="mb-3 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">ACTIVE BIDS
       </h3>
 
@@ -79,6 +81,7 @@
           <thead class="thead-dark">
             <tr>
               <th scope="col">Bid Id</th>
+              <th scope="col">Sell Id</th>
               <th scope="col">Bid Amount</th>
               <th scope="col">Status</th>
             </tr>
@@ -86,6 +89,7 @@
 
           <tr *ngFor="let item of activeBids" style="color: black; font-weight: bolder;">
             <td>{{item.bid_id}}</td>
+            <td>{{item.sell_id}}</td>
             <td>{{item.bid_amount}}</td>
             <td>{{item.status}}</td>
 
@@ -94,6 +98,6 @@
         </table>
       </div>
 
-    </div>
+    </div> -->
   </div>
-</div>
+<!-- </div> -->
