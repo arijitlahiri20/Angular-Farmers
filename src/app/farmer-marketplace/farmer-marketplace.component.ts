@@ -10,7 +10,7 @@ import { FarmerService } from '../services/farmer.service';
 })
 export class FarmerMarketplaceComponent implements OnInit {
 
-  Sellrequests: any[];
+  Sellrequests: any = [];
   user : any = {
     user_id:9
   };
@@ -32,6 +32,10 @@ export class FarmerMarketplaceComponent implements OnInit {
   viewBids(sell_id){
     localStorage.setItem('sell_id', sell_id);
     this.router.navigate(['/farmer-marketplace-sell']);
+  }
+
+  goback(){
+    this.router.navigate(['/farmer-home']);
   }
   
   logout(){

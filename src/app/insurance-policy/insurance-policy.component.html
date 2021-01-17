@@ -93,7 +93,7 @@
                 
 
                 <div class="mb-3">
-                  <label for="area" class="form-label">Area(in sq. km)</label>
+                  <label for="area" class="form-label">Area(in hec)</label>
                   <input type="area" class="form-control" id="area" [ngClass]="{ 'is-invalid': submitted && f.area.errors } " formControlName="area" name="t3"
                     [(ngModel)]=insurance.area>
                     <div *ngIf="submitted && f.area.errors" class="invalid-feedback">
@@ -127,7 +127,6 @@
                   <tr>
                     <th scope="col">Insurance Company</th>
                     <th  scope="col">Sum insured(per hec)</th>
-                    <th  scope="col">Sum insured(per hec)</th>
                     <th  scope="col">Share premium</th>
                     <th  scope="col">Premium amount</th>
                     <th  scope="col">Crop Name</th>
@@ -139,7 +138,7 @@
 
                     <td>{{result.insurance_company}}</td>
                     <td>{{result.sum_insured}}</td>
-                    <td>{{result.premium_amount}}</td>
+                    <td>{{result.share_premium}}</td>
                     <td>{{result.premium_amount}}</td>
                     <td>{{result.crop}}</td>
                     <td>{{result.area}}</td>

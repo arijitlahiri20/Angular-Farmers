@@ -53,7 +53,7 @@ export class InsuranceClaimComponent implements OnInit {
         //this.message=data.message;
         alert(JSON.stringify(data));
         if(data.status=="SUCCESS")
-          this.router.navigate(['/insurance-homeApplyInsurance()']);
+          this.router.navigate(['/insurance-home']);
     })
   }
 

@@ -58,6 +58,7 @@ InsurancePolicyCheck(){
     }
 
     this.insurance.status="PENDING";
+  this.insurance.user_id= Number(sessionStorage.getItem("user_id"));
    console.log(this.insurance);
    this.service.calculateinsurance(this.insurance).subscribe(data=>{
         

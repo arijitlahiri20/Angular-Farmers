@@ -34,6 +34,11 @@ export class BidderMarketplaceComponent implements OnInit {
     localStorage.setItem('msp',msp);
     this.router.navigate(['/bidder-bidrequest']);
   }
+
+  goback(){
+    localStorage.clear();
+    this.router.navigate(['/bidder-home']);
+  }
   
   logout(){
     sessionStorage.clear();

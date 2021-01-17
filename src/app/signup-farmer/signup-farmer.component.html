@@ -188,7 +188,7 @@
 
     <div class="mb-3 form-group" >
         <label for="ifsccode" class="form-label">IFSC Code</label>
-        <input type="text" class="form-control" id="ifsccode" formControlName="ifsc_no"  [ngClass]="{ 'is-invalid': submitted && f.ifsc_no.errors } " name="ifsc_no"  [(ngModel)]=user.ifsc_no >
+        <input type="text" class="form-control" id="ifsccode" formControlName="ifsc_no"  [ngClass]="{ 'is-invalid': submitted && f.ifsc_no.errors } " name="ifsc_no"  [(ngModel)]=user.ifsc_code >
         <div *ngIf="submitted && f.ifsc_no.errors" class="invalid-feedback">
           <div *ngIf="f.ifsc_no.errors.required">IFSC Code is required</div>
           <div *ngIf="f.ifsc_no.errors.ifsc_no">You can enter only digits</div>
@@ -211,7 +211,7 @@
     
     <div class="mb-3 form-group">
         <label for="password2" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="password2" formControlName="password2" name="password2" [ngClass]="{ 'is-invalid': submitted && f.password2.errors }" [(ngModel)]=user.password>
+        <input type="password" class="form-control" id="password2" formControlName="password2" name="password2" [ngClass]="{ 'is-invalid': submitted && f.password2.errors }" [(ngModel)]=confirmpassword>
         <div *ngIf="submitted && f.password2.errors" class="invalid-feedback">
           <div *ngIf="f.password2.errors.required">Confirm Password is required</div>
           <div *ngIf="f.password2.errors.mustMatch">Passwords must match</div>
