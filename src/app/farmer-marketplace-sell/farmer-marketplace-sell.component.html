@@ -42,17 +42,17 @@
         <p>THERE ARE NO BIDS PLACED YET !</p>
     </div>
   
-    <div *ngIf="bids.length !== 0">
+    <div *ngIf="bids.length !== 0" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">
         <h3 class="mb-3 text-center">Current Active Bids</h3>
   
         <div class="col-md-12">
             <table class="table table-bordered">
-                
+              <thead class="thead-dark">
                     <tr>
                         <th scope="col">Bid Id</th>
                         <th scope="col">Bid Amount</th>
                     </tr>
-                
+              </thead>
              
                     <tr *ngFor="let item of bids">
                         <td>{{item.bid_id}}</td>

@@ -36,11 +36,11 @@
     <p>There are no crops in market yet ! Please wait.</p>
 </div>
 <div *ngIf="Sellrequests.length !== 0">
-    <h3 class="mb-3 text-center">Welcome To Marketplace</h3>
+    <h3 class="mb-3 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">Welcome To Marketplace</h3>
 
     <div class="col-md-12">
         <table class="table table-bordered">
-            
+          <thead class="thead-dark">
                 <tr>
                     <th scope="col">Sell Id</th>
                     <th scope="col">Crop Type</th>
@@ -50,7 +50,7 @@
                     <th scope="col">Mininum Price</th>
                     <th scope="col">Bids</th>
                 </tr>
-            
+            </thead>
          
                 <tr *ngFor="let item of Sellrequests">
                     <td>{{item.sell_id}}</td>

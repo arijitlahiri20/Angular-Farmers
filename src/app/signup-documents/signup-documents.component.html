@@ -42,7 +42,7 @@
         <h4>Upload Documents for Verfification :</h4>
     </div>
     <br>
-    <form (ngSubmit)="upload()">
+    <form (ngSubmit)="upload()" [formGroup]="form2">
         <div>
             Aadhar Card: <input type="file" name="aadhar" (change)="onAadharChange($event)" />
         </div>

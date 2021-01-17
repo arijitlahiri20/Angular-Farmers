@@ -31,37 +31,136 @@
       </nav>
     </header>
     <br><br>
-
-<form (ngSubmit)="placeRequest()">
+<!-- <div>
+<div class="col d-flex justify-content-center">
+      <h2>Crop Sell Request</h2>
+</div>
+<div class="col d-flex justify-content-center">
+      <form (ngSubmit)="placeRequest()">
       
-<div class="container">
-    <label for="croptype">Crop Type</label>
-    <input type="text" id="croptype" name="croptype"  [(ngModel)]="sellrequests.crop_type" required>
-  </div>
+      <div class="mb-3">
+          <label for="croptype" class="form-label">Crop Type</label>
+          <input type="text" class="form-control" id="croptype" name="croptype"  [(ngModel)]="sellrequests.crop_type" required>
+        </div>
 
-  <div class="container">
-    <label for="cropname">Crop Name</label>
-    <input type="text" id="cropname" name="cropname"  [(ngModel)]="sellrequests.crop_name" required>
-</div>
+      <div class="mb-3">
+          <label for="cropname" class="form-label">Crop Name</label>
+          <input type="text" class="form-control" id="cropname" name="cropname"  [(ngModel)]="sellrequests.crop_name" required>
+      </div>
 
-<div class="container">
-    <label for="fertilizer">Fertilizer Type</label>
-    <input type="text" id="fertilizer" name="fertilizer"  [(ngModel)]="sellrequests.fertilizer_type" required>
-</div>
+      <div class="mb-3">
+          <label for="fertilizer" class="form-label">Fertilizer Type</label>
+          <input type="text" class="form-control" id="fertilizer" name="fertilizer"  [(ngModel)]="sellrequests.fertilizer_type" required>
+      </div>
 
-<div class="container">
-    <label for="quantity">Quantity</label>
-    <input type="text" id="quantity" name="quantity"  [(ngModel)]="sellrequests.quantity" required>
-</div>
+      <div class="mb-3">
+          <label for="quantity"  class="form-label">Quantity</label>
+          <input type="text" class="form-control" id="quantity" name="quantity"  [(ngModel)]="sellrequests.quantity" required>
+      </div>
 
-<div class="container">
-    <label for="msp">MSP</label>
-    <input type="text" id="msp" name="msp"  [(ngModel)]="sellrequests.msp" required>
-</div>
+      <div class="mb-3">
+          <label for="msp" class="form-label">MSP</label>
+          <input type="text" class="form-control" id="msp" name="msp"  [(ngModel)]="sellrequests.msp" required>
+      </div>
 
-<div class="container">
-    <label for="soilph">Soil ph Certificate</label>
-    <input type="text" id="soilph" name="soilph"  [(ngModel)]="sellrequests.ph_certificate" required>
-</div>
-    <input type="submit" value="Place Request">
+      <div class="mb-3">
+          <label for="soilph" class="form-label">Soil ph Certificate</label>
+          <input type="text" class="form-control" id="soilph" name="soilph"  [(ngModel)]="sellrequests.ph_certificate" required>
+      </div>
+
+      <div class="col d-flex justify-content-center">
+        <button type="submit"  class="btn btn-primary">Place Request</button></div>
+      </form>
+    </div>
+  </div> -->
+
+<header>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script></header>
+  <!------ Include the above in your HEAD tag ---------->
+  
+  <div class="container register">
+                  <div class="row">
+                      <div class="col-md-3 register-left">
+                          <img src="/assets/logo.png" class="rounded-circle" width="50px" height="50px" alt=""/>
+                          <h3>Welcome</h3>
+                          <p>You are 30 seconds away from earning your own money!</p>
+                          
+                      </div>
+                      <div class="col-md-9 register-right">
+                          
+                          <div class="tab-content" id="myTabContent">
+                              <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                  <h3 class="register-heading">Crop Sell Request</h3>
+                                  <form [formGroup]="form1">
+                                  <div class="row register-form">
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label for="croptype" class="form-label">Crop Type</label>
+                                            <input type="text" class="form-control" id="croptype" name="croptype" required formControlName="croptype" [ngClass]="{ 'is-invalid': submitted && f.croptype.errors }" [(ngModel)]="sellrequests.crop_type" required minlength="1">
+                                            <div *ngIf="form1.get('croptype').touched && form1.get('croptype').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('croptype').hasError('required')">Crop Type is required</div>
+                                              <div *ngIf="form1.get('croptype').hasError('pattern')"> You can enter only Alphabets</div>
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="fertilizer" class="form-label">Fertilizer Type</label>
+                                            <input type="text" class="form-control" id="fertilizer" name="fertilizer" formControlName="fertilizer" [ngClass]="{ 'is-invalid': submitted && f.fertilizer.errors }" [(ngModel)]="sellrequests.fertilizer_type" required>
+                                            <div *ngIf="form1.get('fertilizer').touched && form1.get('fertilizer').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('fertilizer').hasError('required')">Fertilizer Type is required</div>
+                                              <div *ngIf="form1.get('fertilizer').hasError('pattern')"> You can enter only Alphabets</div>
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="msp" class="form-label">MSP</label>
+                                            <input type="text" class="form-control" id="msp" name="msp" formControlName="msp" [ngClass]="{ 'is-invalid': submitted && f.msp.errors }" [(ngModel)]="sellrequests.msp" required>
+                                            <div *ngIf="form1.get('msp').touched && form1.get('msp').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('msp').hasError('required')">MSP is required</div>
+                                              <div *ngIf="form1.get('msp').hasError('pattern')"> You can enter only numbers</div>
+                                              </div>
+                                          </div>
+                                          
+                                         
+                                      </div>
+                                      <div class="col-md-6">
+                                          <div class="form-group">
+                                            <label for="cropname" class="form-label">Crop Name</label>
+                                            <input type="text" class="form-control" id="cropname" name="cropname" formControlName="cropname" [ngClass]="{ 'is-invalid': submitted && f.cropname.errors }" [(ngModel)]="sellrequests.crop_name" required>
+                                            <div *ngIf="form1.get('cropname').touched && form1.get('cropname').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('cropname').hasError('required')">Crop Name is required</div>
+                                              <div *ngIf="form1.get('cropname').hasError('pattern')"> You can enter only Alphabets</div>
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="quantity"  class="form-label">Quantity</label>
+                                            <input type="text" class="form-control" id="quantity" name="quantity" formControlName="quantity" [ngClass]="{ 'is-invalid': submitted && f.quantity.errors }" [(ngModel)]="sellrequests.quantity" required>
+                                            <div *ngIf="form1.get('quantity').touched && form1.get('quantity').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('quantity').hasError('required')">Quantity is required</div>
+                                              <div *ngIf="form1.get('quantity').hasError('pattern')"> You can enter only numbers</div>
+                                              </div>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="soilph" class="form-label">Soil pH Certificate</label>
+                                            <input type="text" class="form-control" id="soilph" name="soilph" formControlName="soilph" [ngClass]="{ 'is-invalid': submitted && f.soilph.errors }" [(ngModel)]="sellrequests.ph_certificate" required>
+                                            <div *ngIf="form1.get('soilph').touched && form1.get('soilph').invalid" class="alert alert-danger">
+                                              <div *ngIf = "form1.get('soilph').hasError('required')">Soil pH Certificate is required</div>
+                                              <div *ngIf="form1.get('soilph').hasError('pattern')"> You can enter only numbers</div>
+                                              </div>
+                                          </div>
+                                          
+                                          
+                                      </div>
+                                      <div class="mx-auto">
+                                        <button type="submit"  class="btn btn-primary" (click)="placeRequest()">Place Request</button>
+                                      </div>
+                                  </div>
+                                </form>
+                              </div>
+                             
+                          </div>
+                      </div>
+                  </div>
+  
+              </div>
 

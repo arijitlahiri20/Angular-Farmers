@@ -26,4 +26,53 @@
       </nav>
     </header>
     <br><br>
-<p>admin-insurance works!</p>
+
+<div class="container custom-container-2">
+
+  <!-- Show it when there is no sell request -->
+  <div class="no-data text-center" *ngIf="insurance.length == 0">
+      <p>There are no pending Insurance Approvals ! Please wait.</p>
+  </div>
+
+  <div *ngIf="insurance.length !== 0">
+      <h3 class="mb-6 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">Pending Insurance Approvals</h3>
+      <br>
+      <br>
+
+      <div class="col-md-12">
+          <table class="table table-bordered">
+            <thead class="thead-dark">
+                  <tr>
+                      <!-- <th scope="col">Sell Id</th> -->
+                      <th scope="col">Insurance ID</th>
+                      <th scope="col">User ID</th>
+                      <th scope="col">Policy No.</th>
+                      <th scope="col">Ins. Company</th>
+                      <th scope="col">Season</th>
+                      <th scope="col">Year</th>
+                      <th scope="col">Sum Insured</th>
+                      <th scope="col">Area (in hec)</th>
+                      <th scope="col">Premium Amount</th>
+                      <th scope="col">Action</th>
+                  </tr>
+              </thead>
+           
+                  <tr *ngFor="let item of insurance">
+                      <!-- <td>{{item.sell_id}}</td> -->
+                      <td>{{item.insurance_id}}</td>
+                      <td>{{item.user_id}}</td>
+                      <td>{{item.policy_no}}</td>
+                      <td>{{item.insurance_company}}</td>
+                      <td>{{item.season}}</td>
+                      <td>{{item.year}}</td>
+                      <td>{{item.sum_insured}}</td>
+                      <td>{{item.area}}</td>
+                      <td>{{item.premium_amount}}</td>
+                      <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="approve(item.insurance_id , item.user_id)" routerLinkActive="active">Approve</a></button></td>
+                    
+                  </tr>
+              
+          </table>
+      </div>
+  </div>
+</div>

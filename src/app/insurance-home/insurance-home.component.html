@@ -31,34 +31,55 @@
       </nav>
     </header>
     <br><br>
-    <div class="container">
-        <div class="card-columns">
-            <div class="card">
-                <div class="card-body text-center">
-                <a routerLink="/insurance-policy" class="card-link" routerLinkActive="active">  
-                    Apply for Insurance</a>
-                </div>
-            </div>
 
-            <div class="card">
-                <div class="card-body text-center">
-                <a routerLink="/insurance-claim" class="card-link" routerLinkActive="active">  
-                    Apply for Claim</a>
+    <div class="container" >
+        <div class="card-deck" style="">
+            <div class="card" >
+              <img class="card-img-top" src="/assets/insurance-policy.jpg" alt="" style=" width: 100%;height: 15vw;object-fit: cover;">
+              <div class="card-body">
+                 <h4 class="card-title text-center">Apply for Insurance</h4>
+                    <p class="card-text"> Apply insurance policy for your crops. Natural calamities could make your hardwork waste! .</p>
+                    <button mdbBtn color="primary" routerLink='/insurance-policy'>Click to apply</button>
+                    <!-- <a routerLink="/insurance-policy" class="card-link" routerLinkActive="active">  
+                    Apply for Insurance</a> -->
                 </div>
-            </div>
+              </div>
 
-            <div class="card">
-                <div class="card-body text-center">
-                <a routerLink="/insurance-history" class="card-link" routerLinkActive="active">  
-                    Insurance History</a>
+                <div class="card">
+                  <img class="card-img-top" src="/assets/insurance-claim.jpg" alt="" style=" width: 100%;height: 15vw;object-fit: cover;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center">Apply to Claim Insurance</h4>
+                    <p class="card-text"> Claim your insurance policy here</p>
+                    <button mdbBtn color="primary" routerLink='/insurance-claim'>Click to apply</button>
+                    <!-- <a routerLink="/insurance-claim" class="card-link" routerLinkActive="active">  
+                    Apply for Claim</a> -->
+                 </div>
                 </div>
-            </div>
+            
 
-            <div class="card">
-                <div class="card-body text-center">
-                <a routerLink="/claim-history" class="card-link" routerLinkActive="active">  
-                    Claim History</a>
+                <div class="card">
+                  <img class="card-img-top" src="assets/insurance-history.jpg" alt="" style=" width: 100%;height: 15vw;object-fit: cover;">
+                    <div class="card-body">
+                    <h4 class="card-title text-center">Check your insurance history</h4>
+                    <p class="card-text"> See all the insurances you have applied for.</p>
+                    <button mdbBtn color="primary" routerLink='/insurance-history'>Check history</button>
+                     <!-- <a routerLink="/insurance-history" class="card-link" routerLinkActive="active">  
+                    Insurance History</a> -->
+                    </div>
+                 </div>
+          
+
+                <div class="card">
+                  <img class="card-img-top" src="assets/claim-history.jpg" alt=""  style=" width: 100%;height: 15vw;object-fit: cover;">
+                  <div class="card-body">
+                    <h4 class="card-title text-center">Check your claim history</h4>
+                    <p class="card-text"> See all the insurances you have applied for.</p>
+                    <button mdbBtn color="primary" routerLink='/claim-history'>Check history</button>
+                         <!-- <a routerLink="/claim-history" class="card-link" routerLinkActive="active">  
+                    Claim History</a> -->
+                    </div>
                 </div>
+           
             </div>
+    
         </div>
-</div>

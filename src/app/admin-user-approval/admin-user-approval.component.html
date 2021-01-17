@@ -26,40 +26,44 @@
       </nav>
     </header>
     <br><br>
-<!-- <div class="container custom-container-2">
+    <div class="container custom-container-2">
 
-    <div class="no-data text-center" *ngIf="userdetails.length == 0">
-        <p>There are no crops in market yet ! Please wait.</p>
+      <!-- Show it when there is no sell request -->
+      <div class="no-data text-center" *ngIf="users.length == 0">
+          <p>There are no Pending User Signup Approvals ! Please wait.</p>
+      </div>
+    
+      <div *ngIf="users.length !== 0">
+          <h3 class="mb-6 text-center" style="font-family: 'Times New Roman', Times, serif; font-weight: bold;">Pending User Signup Approvals</h3>
+          <br>
+          <br>
+    
+          <div class="col-md-12">
+              <table class="table table-bordered">
+                <thead class="thead-dark">
+                      <tr>
+                          <th scope="col">User ID</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Email</th>
+                          <th scope="col">Contact No.</th>
+                          <th scope="col">User Type</th>
+                          <th scope="col">Other Details</th>
+                          <th scope="col">Action</th>
+                      </tr>
+                  </thead>
+               
+                      <tr *ngFor="let item of users">
+                          <td>{{item.user_id}}</td>
+                          <td>{{item.full_name}}</td>
+                          <td>{{item.email}}</td>
+                          <td>{{item.contact_no}}</td>
+                          <td>{{item.user_type}}</td>
+                          <td><a [routerLink]="" (click)="viewDetails(item.user_id,item.user_type)">View</a></td>
+                          <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="approve(item.user_id)" routerLinkActive="active">Approve</a></button></td>
+                        
+                      </tr>
+                  
+              </table>
+          </div>
+      </div>
     </div>
-  
-    <div *ngIf="userdetails.length !== 0">
-        <h3 class="mb-3 text-center">Welcome To Marketplace</h3>
-  
-        <div class="col-md-12">
-            <table class="table table-bordered">
-                
-                    <tr>
-                        <th scope="col">Crop Type</th>
-                        <th scope="col">Crop Name</th>
-                        <th scope="col">Fertilizer Type</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Mininum Price</th>
-                        <th scope="col">Place</th>
-                    </tr>
-                
-             
-                    <tr *ngFor="let item of userdetails">
-                        <td>{{item.crop_type}}</td>
-                        <td>{{item.crop_name}}</td>
-                        <td>{{item.fertilizer_type}}</td>
-                        <td>{{item.quantity}}</td>
-                        <td>{{item.msp}}</td>
-                        <td><button type="button" class="btn btn-primary"><a (click)="placebid(item.sell_id)" routerLinkActive="active">Place Bid</a></button></td>
-                      
-                    </tr>
-                
-            </table>
-        </div>
-  
-    </div>
-  </div> -->

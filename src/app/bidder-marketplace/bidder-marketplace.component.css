@@ -1,0 +1,7 @@
+.bg-img{
+    min-height: 100vh;
+    width: 100%;
+    background: url('../../../src/assets/biddermarket.jpg') no-repeat center center fixed;
+ 
+    background-size:auto;
+    }

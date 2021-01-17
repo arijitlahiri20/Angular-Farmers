@@ -27,4 +27,46 @@
     </header>
     <br><br>
 
-<p>admin-markeplace-bids works!</p>
+
+    <div class="card" style="width:500px; margin:auto;"> 
+        <div class="card-header text-center">
+          <h4>Active Bids for Selected Sell Request</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="text-center">MSP : {{msp}}</h5>
+            <h6 class="text-center">Choose which bid to assign the sale to :-</h6>
+            <hr>
+            <div class="no-data text-center" *ngIf="bids.length == 0">
+              <p>There are no Active Bids yet ! Please wait.</p>
+            </div>
+        
+            <div *ngIf="bids.length !== 0">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                      <thead class="thead-dark">
+                            <tr>
+                                <!-- <th scope="col">Sell Id</th> -->
+                                <th scope="col">Bid ID</th>
+                                <th scope="col">Bid Amount</th>
+                                
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                    
+                            <tr *ngFor="let item of bids">
+                                <!-- <td>{{item.sell_id}}</td> -->
+                                <td>{{item.bid_id}}</td>
+                                <td>{{item.bid_amount}}</td>
+                                <td><button type="button" class="btn btn-success mx-auto" ><a (click)="closeAuction(item.bid_id, item.sell_id , item.user_id)" routerLinkActive="active">Choose</a></button></td>
+                              
+                            </tr>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="text-center">
+      <button type="button" class="btn btn-success mx-auto" ><a (click)="goback()" routerLinkActive="active">Go Back</a></button>
+    </div>

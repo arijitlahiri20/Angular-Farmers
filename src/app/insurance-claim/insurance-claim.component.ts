@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { InsuranceService } from '../services/insurance.service';
 import { Router } from '@angular/router';
 import { Claims } from '../models/claims.model';
+import { FormGroup, FormControl , Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-insurance-claim',
@@ -12,10 +14,23 @@ import { Claims } from '../models/claims.model';
 export class InsuranceClaimComponent implements OnInit {
 
   claims =new Claims();
+  form2 : FormGroup;
+
 
   constructor(private service:InsuranceService,private router: Router) { }
 
   ngOnInit() {
+
+    this.form2=new FormGroup({
+      insurance_company:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]) ,
+      full_name:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]) ,
+      loss_cause:new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]) ,
+      sum_insured:new FormControl('',[Validators.required, Validators.pattern('[0-9]')]),
+      policy_no:new FormControl('',[Validators.required, Validators.pattern('[0-9]')]),
+      loss_date:new FormControl('',[Validators.required])
+
+    })
+
   }
 
   InsuranceClaimCheck(){

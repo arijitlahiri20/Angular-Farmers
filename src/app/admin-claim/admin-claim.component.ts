@@ -10,6 +10,13 @@ import { AdminService } from '../services/admin.service';
 export class AdminClaimComponent implements OnInit {
 
   full_name = sessionStorage.getItem("full_name");  
+
+  claim: any = [];
+
+  clm :any = {
+    claim_id:0
+  };
+
   constructor(private adminService: AdminService, private router:Router) { }
   
   ngOnInit() {
@@ -17,6 +24,25 @@ export class AdminClaimComponent implements OnInit {
       alert("You are Logged Out, Login again!");
       this.router.navigate(['/login']);
     }
+
+    this.adminService.getClaimApprovals().subscribe(data => {
+      console.log(JSON.stringify(data));
+      this.claim=data.list;
+    })
+  }
+
+  approve(claim_id, insurance_id){
+    this.clm.claim_id=claim_id;
+    this.adminService.approveClaim(this.clm).subscribe(data => {
+      console.log(JSON.stringify(data));
+      if(data.status=="SUCCESS"){
+        alert(data.message);  
+      }
+      else{
+        alert("Error in approving Claim!")
+      }
+      this.ngOnInit();
+    })
   }
 
   logout(){
