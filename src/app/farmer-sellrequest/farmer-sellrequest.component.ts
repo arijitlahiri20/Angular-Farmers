@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Sellrequests } from '../models/sellrequests.model';
 import { FarmerService } from '../services/farmer.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-farmer-sellrequest',
@@ -10,43 +11,88 @@ import { FarmerService } from '../services/farmer.service';
   styleUrls: ['./farmer-sellrequest.component.css']
 })
 export class FarmerSellrequestComponent implements OnInit {
-  submitted:false;
+  submitted=false;
   sellrequests : Sellrequests=new Sellrequests();
   form1:FormGroup;
-  // form = new FormGroup({
-  //   croptype: new FormControl('',Validators.required)
-  // })
+  form2:FormGroup;
+  soilpH:any;
+  user: any={user_id:0};
+  userId:any;
+  sell_id:any;
+
   constructor(private farmerService: FarmerService, private router: Router) { }
 
   ngOnInit() {
     this.form1=new FormGroup({
       croptype: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       fertilizer: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
-      msp: new FormControl('',[Validators.required, Validators.pattern('[0-9]{10}')]),
+      msp: new FormControl('',[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
       cropname: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
-      quantity: new FormControl('',[Validators.required, Validators.pattern('[0-9]{10}')]),
-      soilph: new FormControl('',[Validators.required, Validators.pattern('[0-9]{10}')])
+      quantity: new FormControl('',[Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+      // soilph: new FormControl('',[Validators.required, Validators.pattern('[0-9]')])
       })
+      this.userId=sessionStorage.getItem('user_id');
+
+      this.form2=new FormGroup({
+      
+      })
+    
   }
 
   get f() { return this.form1.controls; }
 
+  onSoilPhCertificateChange(event){
+    this.soilpH=event.target.files[0];
+  }
+
+
   placeRequest(){
-    this.sellrequests.user_id=2;
+    
+    this.submitted = true;
+    if(this.form1.invalid){
+      console.log("inside function");
+      return;
+    }
+    console.log("inside function");
+
+    
+    this.user.user_id=sessionStorage.getItem('user_id');
+    this.sellrequests.user_id=this.user.user_id;
     alert(JSON.stringify(this.sellrequests));
     this.farmerService.placeRequest(this.sellrequests).subscribe(response => {
-    alert(JSON.stringify(response));
-    this.router.navigate(['/farmer-home']);
+    // alert(JSON.stringify(response));
+    this.sell_id=response.registeredCustomerId;
+    alert(this.sell_id);
+    // this.router.navigate(['/farmer-home']);
     })
   
   }
 
-//   getNewPassword() {
-//     this.submitted = true;
-//     if (this.form1.invalid) {
-//       return;
-//   }
-// }
+  upload(){
+    let formData:FormData = new FormData();
+    formData.append('sell_id',this.sell_id);
+    formData.append('user_id',this.userId);
+    formData.append('ph_certificate',this.soilpH);
+    console.log(formData);
+    console.log(this.userId);
+    console.log(this.soilpH);
+    this.farmerService.uploadpH(formData).subscribe(response =>{
+      alert(JSON.stringify(response));
+      if(response.status=="SUCCESS"){
+        alert("Registered successfully")
+      this.router.navigate(['/farmer-home']);
+    }
+    else{
+      alert("Error uploading document")
+    }
+       
+     })
+
+  }
+
+ 
+
+
 
   logout(){
     sessionStorage.clear();
