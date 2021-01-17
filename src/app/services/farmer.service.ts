@@ -19,6 +19,11 @@ export class FarmerService {
     return this.http.post(url, sellrequests);
   }
 
+  uploadpH(formData:FormData): Observable<any>{
+    let url = this.baseURL + "/farmer/upload-ph";
+    return this.http.post(url, formData);
+  }
+
   farmermarket(user: User) : Observable<any>{
   let url = this.baseURL + "/farmer/marketplace";
     return this.http.post(url, user);
@@ -33,5 +38,7 @@ export class FarmerService {
     let url = this.baseURL + "/farmer/marketplace/sellrequest";
     return this.http.post(url, sr);
   }
+
+  
 
 }
