@@ -10,6 +10,7 @@ import { User} from '../models/user.model';
   providedIn: 'root'
 })
 export class UserService {
+  
 
   baseURL: string = "http://localhost:8181";
 
@@ -39,6 +40,11 @@ export class UserService {
   getNewPassword(user):Observable<any>{
     let url = this.baseURL + "/send-email"
     return this.http.post(url,user);
+  }
+
+  sendContactUs(contact: any) :Observable<any>{
+    let url = this.baseURL + "/contact-us";
+    return this.http.post(url, contact);
   }
 
 }
