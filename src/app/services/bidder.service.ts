@@ -38,4 +38,10 @@ export class BidderService {
     let url = this.baseURL + "/bidder/active-bids";
     return this.http.post(url,bids);
   }
+
+  updatebid(bid: Bids) : Observable<any> {
+    let url = this.baseURL + "/bidder/update-bid";
+    return this.http.post(url, bid); 
+  }
+
 }
