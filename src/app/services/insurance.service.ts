@@ -9,7 +9,6 @@ import { Claims} from '../models/claims.model';
   providedIn: 'root'
 })
 export class InsuranceService {
-  
 
   baseURL="http://localhost:8181/";
 
@@ -28,6 +27,11 @@ export class InsuranceService {
   getInsuranceHistory(user: any) : Observable<any> {
     let url = this.baseURL+"/farmer/insurance/insurance-history";
    return this.http.post(url, user);
+  }
+
+  getInsuranceById(id: any) : Observable<any> {
+    let url = this.baseURL+"/farmer/insurance/getInsurance?insurance_id="+id;
+    return this.http.get(url);
   }
 
   signupclaim(claims: Claims) : Observable<any> {

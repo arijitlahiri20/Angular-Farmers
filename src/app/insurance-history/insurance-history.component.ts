@@ -33,6 +33,11 @@ export class InsuranceHistoryComponent implements OnInit {
     })
   }
 
+  applyClaim(insurance_id, user_id){
+    localStorage.setItem("insurance_id", insurance_id);
+    this.router.navigate(['/insurance-claim']);
+  }
+
   // renew(insurance_id, user_id){
   //   this.ins.insurance_id=insurance_id;
   //   this.insuranceService.renewInsurance(this.ins).subscribe(data => {

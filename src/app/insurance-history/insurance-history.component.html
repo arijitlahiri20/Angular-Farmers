@@ -56,7 +56,7 @@
                           <th scope="col">Sum Insured</th>
                           <th scope="col">Area (in hec)</th>
                           <th scope="col">Premium Amount</th>
-                          <!-- <th scope="col">Action</th> -->
+                          <th scope="col">Action</th>
                       </tr>
                   </thead>
                
@@ -68,7 +68,15 @@
                           <td>{{item.sum_insured}}</td>
                           <td>{{item.area}}</td>
                           <td>{{item.premium_amount}}</td>
-                          <!-- <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="renew(item.insurance_id , item.user_id)" routerLinkActive="active">Renew</a></button></td> -->
+                          <td>
+                            <button type="button" class="btn btn-success btn-lg mx-auto" >
+                              <a (click)="applyClaim(item.insurance_id , item.user_id)" routerLinkActive="active">Claim</a>
+                            </button>
+                            &nbsp;
+                            <!-- <button type="button" class="btn btn-success btn-lg mx-auto" >
+                              <a (click)="renew(item.insurance_id , item.user_id)" routerLinkActive="active">Renew</a>
+                            </button> -->
+                          </td>
                       </tr>
                   
               </table>
