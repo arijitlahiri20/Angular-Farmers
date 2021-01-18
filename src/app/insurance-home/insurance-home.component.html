@@ -1,50 +1,54 @@
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
-        <div class="container">
-          <a class="navbar-brand" >
-                <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
-          </a>
-          
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item ">
-                    <a class="nav-link" routerLink="/farmer-home">Home
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" routerLink="/insurance-home">Insurance
-                          <span class="sr-only">(current)</span>
-                        </a>
-                  </li>
-              <li class="nav-item ">
-                <a class="nav-link" (click)="logout()">Logout
-                    <span class="sr-only">(current)</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <br><br>
+  <nav class="navbar navbar-expand-lg navbar-light bg-success static-top">
+    <div class="container">
+      <a class="navbar-brand">
+        <img class="rounded-circle" width="50px" height="50px" src="/assets/logo.png" alt="">
+      </a>
 
-    <div class="container" >
-        <div class="card-deck" >
-            <div class="card" >
-              <img class="card-img-top" src="/assets/insurance-policy.jpg" alt="" style=" width: 100%;height: 15vw;object-fit: cover;">
-              <div class="card-body">
-                 <h4 class="card-title text-center">Apply for Insurance</h4>
-                    <p class="card-text"> Apply insurance policy for your crops. Natural calamities could make your hardwork waste! .</p>
-                    <button mdbBtn class="btn btn-primary" routerLink='/insurance-policy'>Click to apply</button>
-                   
-                </div>
-              </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item ">
+            <a class="nav-link" routerLink="/farmer-home">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/insurance-home">Insurance
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" (click)="logout()">Logout
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+<br><br>
 
-                <div class="card">
+<div class="container">
+  <div class="card-deck">
+    <div class="card">
+      <img class="card-img-top" src="/assets/insurance-policy.jpg" alt=""
+        style=" width: 100%;height: 15vw;object-fit: cover;">
+      <div class="card-body">
+        <h4 class="card-title text-center">Apply for Insurance</h4>
+        <p class="card-text"> Apply insurance policy for your crops. Natural calamities could make your hardwork waste!
+          .</p>
+      </div>
+      <div class="card-footer text-center">
+        <button mdbBtn class="btn btn-primary" routerLink='/insurance-policy'>Apply</button>
+      </div>
+    </div>
+
+    <!-- <div class="card">
                   <img class="card-img-top" src="/assets/insurance-claim.jpg" alt="" style=" width: 100%;height: 15vw;object-fit: cover;">
                   <div class="card-body">
                     <h4 class="card-title text-center">Apply to Claim Insurance</h4>
@@ -52,30 +56,34 @@
                     <button mdbBtn class="btn btn-primary" routerLink='/insurance-claim'>Click to apply</button>
                     
                  </div>
-                </div>
-            
+                </div> -->
 
-                <div class="card">
-                  <img class="card-img-top" src="assets/insurance-history.jpg" alt="" style=" width: 100%;height: 15vw;object-fit: cover;">
-                    <div class="card-body">
-                    <h4 class="card-title text-center">Check your insurance history</h4>
-                    <p class="card-text"> See all the insurances you have applied for.</p>
-                    <button mdbBtn class="btn btn-primary" routerLink='/insurance-history'>Check history</button>
-                    
-                    </div>
-                 </div>
-          
 
-                <div class="card">
-                  <img class="card-img-top" src="assets/claim-history.jpg" alt=""  style=" width: 100%;height: 15vw;object-fit: cover;">
-                  <div class="card-body">
-                    <h4 class="card-title text-center">Check your claim history</h4>
-                    <p class="card-text"> See all the insurances you have applied for.</p>
-                    <button mdbBtn class="btn btn-primary" routerLink='/claim-history'>Check history</button>
-                        
-                    </div>
-                </div>
-           
-            </div>
-    
-        </div>
+    <div class="card">
+      <img class="card-img-top" src="assets/insurance-history.jpg" alt=""
+        style=" width: 100%;height: 15vw;object-fit: cover;">
+      <div class="card-body">
+        <h4 class="card-title text-center">Check your insurance history</h4>
+        <p class="card-text"> See all the insurances you have applied for.</p>
+      </div>
+      <div class="card-footer text-center">
+        <button mdbBtn class="btn btn-primary" routerLink='/insurance-history'>Check history</button>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <img class="card-img-top" src="assets/claim-history.jpg" alt=""
+        style=" width: 100%;height: 15vw;object-fit: cover;">
+      <div class="card-body">
+        <h4 class="card-title text-center">Check your claim history</h4>
+        <p class="card-text"> See all the insurances you have applied for.</p>
+      </div>
+      <div class="card-footer text-center">
+        <button mdbBtn class="btn btn-primary" routerLink='/claim-history'>Check history</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

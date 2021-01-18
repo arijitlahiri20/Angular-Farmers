@@ -16,10 +16,28 @@ export class InsuranceClaimComponent implements OnInit {
   claims =new Claims();
   form2 : FormGroup;
   submitted = false;
+  id : any;
+
+  insurance : any = {};
 
   constructor(private service:InsuranceService,private router: Router,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.id = localStorage.getItem("insurance_id");
+    this.service.getInsuranceById(this.id).subscribe(data=>{
+      alert(JSON.stringify(data));
+      if(data.status=="SUCCESS"){
+        this.insurance = data.object;
+        this.claims.policy_no = data.object.policy_no;
+        this.claims.sum_insured = data.object.sum_insured;
+        this.claims.full_name = sessionStorage.getItem("full_name");
+        this.claims.insurance_company = data.object.insurance_company;
+      }
+      else{
+        alert("Error getting insurance details");
+      }
+        
+  })
 
     this.form2 = this.formBuilder.group({
       insurance_company:['',[Validators.required, Validators.pattern('[a-zA-Z ][a-zA-Z ]*$')]] ,

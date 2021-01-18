@@ -14,7 +14,8 @@ export class AdminSellrequestsComponent implements OnInit {
   sell: any = [];
 
   sl :any = {
-    sell_id:0
+    sell_id:0,
+    user_id:0
   };
 
   
@@ -53,6 +54,7 @@ export class AdminSellrequestsComponent implements OnInit {
 
   approve(sell_id, user_id){
     this.sl.sell_id=sell_id;
+    this.sl.user_id=user_id;
     this.adminService.approveSellRequest(this.sl).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
@@ -60,6 +62,21 @@ export class AdminSellrequestsComponent implements OnInit {
       }
       else{
         alert("Error in approving Sell Request!");
+      }
+      this.ngOnInit();
+    })
+  }
+
+  reject(sell_id, user_id){
+    this.sl.sell_id=sell_id;
+    this.sl.user_id=user_id;
+    this.adminService.rejectSellRequest(this.sl).subscribe(data => {
+      console.log(JSON.stringify(data));
+      if(data.status=="SUCCESS"){
+        alert(data.message);
+      }
+      else{
+        alert("Error in rejecting Sell Request!");
       }
       this.ngOnInit();
     })

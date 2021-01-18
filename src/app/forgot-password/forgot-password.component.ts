@@ -38,8 +38,14 @@ export class ForgotPasswordComponent implements OnInit {
 
     this.user.email = this.email;
     this.service.getNewPassword(this.user).subscribe(response => {
-    //  alert(JSON.stringify(response));
+    console.log(JSON.stringify(response));
+    if(response.status=='SUCCESS'){
+      alert("Email has been sent!");
       this.router.navigate(['/login']);
+    }
+    else{
+      alert("Email Id not registered. Please Sign Up First");
+    }
     })
 
   }
