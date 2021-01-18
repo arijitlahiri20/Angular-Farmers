@@ -121,7 +121,7 @@
           <div class="col-md-8 p-3 bg-success rounded">
             <div class="card">
               <!-- <div class="card-header text-center" ><h3>Farmer Registration</h3></div> -->
-              <div class="col-md-12">
+              <div class="card-body">
                 <table class="table table-bordered" style="width:100%">
                   <thead class="thead-dark">
                   <tr>
@@ -137,7 +137,7 @@
                   <tr>
 
                     <td>{{result.insurance_company}}</td>
-                    <td>{{result.sum_insured}}</td>
+                    <td>{{result.sum_insured/result.area}}</td>
                     <td>{{result.share_premium}}</td>
                     <td>{{result.premium_amount}}</td>
                     <td>{{result.crop}}</td>

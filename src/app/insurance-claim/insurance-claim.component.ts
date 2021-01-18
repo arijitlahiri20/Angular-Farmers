@@ -22,15 +22,15 @@ export class InsuranceClaimComponent implements OnInit {
   ngOnInit() {
 
     this.form2 = this.formBuilder.group({
-      insurance_company:['',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]] ,
-      full_name:['',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]] ,
-      loss_cause:['',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]] ,
-      sum_insured:['',[Validators.required, Validators.pattern('[0-9]')]],
-      policy_no:['',[Validators.required, Validators.pattern('[0-9]')]],
+      insurance_company:['',[Validators.required, Validators.pattern('[a-zA-Z ][a-zA-Z ]*$')]] ,
+      full_name:['',[Validators.required, Validators.pattern('[a-zA-Z ][a-zA-Z ]*$')]] ,
+      loss_cause:['',[Validators.required, Validators.pattern('[a-zA-Z ][a-zA-Z ]*$')]] ,
+      sum_insured:['',[Validators.required]],
+      policy_no:['',[Validators.required]],
       loss_date:['',[Validators.required]]
 
     })
-
+    
   }
 
   get f() { return this.form2.controls; }

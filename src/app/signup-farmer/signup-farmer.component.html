@@ -201,7 +201,7 @@
       <label for="password1" class="form-label">Password</label>
       <input type="password" class="form-control" id="password1" formControlName="password1" [ngClass]="{ 'is-invalid': submitted && f.password1.errors }"  name="password1"  [(ngModel)]=user.password>
       <div *ngIf="f.password1.touched && f.password1.invalid" class="alert alert-danger">
-        <div *ngIf="f.password1.errors.required">Password is required.</div>
+        <div *ngIf="f.password1.errors.required">Password requires at least 1 Uppercase,1 Lowercase,1 Number,1 Symbol,Min 8 chars and Max 12 chars.</div>
     </div>
     </div>
     
