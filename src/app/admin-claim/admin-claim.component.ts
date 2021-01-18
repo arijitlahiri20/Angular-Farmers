@@ -14,7 +14,8 @@ export class AdminClaimComponent implements OnInit {
   claim: any = [];
 
   clm :any = {
-    claim_id:0
+    claim_id:0,
+    insurance_id:0
   };
 
   constructor(private adminService: AdminService, private router:Router) { }
@@ -33,6 +34,7 @@ export class AdminClaimComponent implements OnInit {
 
   approve(claim_id, insurance_id){
     this.clm.claim_id=claim_id;
+    this.clm.insurance_id=insurance_id;
     this.adminService.approveClaim(this.clm).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
@@ -40,6 +42,21 @@ export class AdminClaimComponent implements OnInit {
       }
       else{
         alert("Error in approving Claim!")
+      }
+      this.ngOnInit();
+    })
+  }
+
+  reject(claim_id, insurance_id){
+    this.clm.claim_id=claim_id;
+    this.clm.insurance_id=insurance_id;
+    this.adminService.rejectClaim(this.clm).subscribe(data => {
+      console.log(JSON.stringify(data));
+      if(data.status=="SUCCESS"){
+        alert(data.message);  
+      }
+      else{
+        alert("Error in Rejecting Claim!")
       }
       this.ngOnInit();
     })

@@ -65,7 +65,11 @@
                           <td>{{item.quantity}}</td>
                           <td>{{item.msp}}</td>
                           <!-- <td>{{item.ph_certificate}}</td> -->
-                          <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="viewBids(item.sell_id , item.user_id, item.msp)" routerLinkActive="active">View Bids</a></button></td>
+                          <td>
+                            <button type="button" class="btn btn-success mx-auto" >
+                              <a (click)="viewBids(item.sell_id , item.user_id, item.msp)" routerLinkActive="active">View Bids</a>
+                            </button>
+                          </td>
                         
                       </tr>
                   

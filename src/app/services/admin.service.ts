@@ -26,6 +26,11 @@ export class AdminService {
    return this.http.post(url, user); 
   }
 
+  rejectUser(user: any) : Observable<any> {
+    let url = this.baseURL + "/admin/reject-user";
+   return this.http.post(url, user); 
+  }
+
   getSellRequestApprovals() : Observable<any> {
     let url = this.baseURL + "/admin/sell-approval-list";
    return this.http.get(url); 
@@ -41,6 +46,11 @@ export class AdminService {
    return this.http.post(url, sell); 
   }
 
+  rejectSellRequest(sell: any) : Observable<any> {
+    let url = this.baseURL + "/admin/reject-sell-request";
+   return this.http.post(url, sell); 
+  }
+
   getInsuranceApprovals() : Observable<any> {
     let url = this.baseURL + "/admin/insurance-approval-list";
    return this.http.get(url); 
@@ -51,6 +61,11 @@ export class AdminService {
    return this.http.post(url, insurance); 
   }
 
+  rejectInsurance(insurance: any) : Observable<any> {
+    let url = this.baseURL + "/admin/reject-insurance";
+   return this.http.post(url, insurance); 
+  }
+
   getClaimApprovals() : Observable<any> {
     let url = this.baseURL + "/admin/claim-approval-list";
    return this.http.get(url); 
@@ -58,6 +73,11 @@ export class AdminService {
 
   approveClaim(claim: any) : Observable<any> {
     let url = this.baseURL + "/admin/approve-claim";
+   return this.http.post(url, claim); 
+  }
+
+  rejectClaim(claim: any) : Observable<any> {
+    let url = this.baseURL + "/admin/reject-claim";
    return this.http.post(url, claim); 
   }
 

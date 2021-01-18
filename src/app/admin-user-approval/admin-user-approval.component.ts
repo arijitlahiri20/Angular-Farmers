@@ -51,6 +51,20 @@ export class AdminUserApprovalComponent implements OnInit {
     })
   }
 
+  reject(user_id){
+    this.user.user_id=user_id;
+    this.adminService.rejectUser(this.user).subscribe(data => {
+      console.log(JSON.stringify(data));
+      if(data.status=="SUCCESS"){
+        alert(data.message);
+      }
+      else{
+        alert("Error in Rejecteing User!");
+      }
+      this.ngOnInit();
+    })
+  }
+
   goback(){
     this.router.navigate(['/admin-home']);
   }

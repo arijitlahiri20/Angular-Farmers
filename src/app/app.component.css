@@ -1,0 +1,27 @@
+.parent:after{
+    
+    opacity:0.5;
+}
+
+.parent{
+    width:100%;
+    height:100%;
+    position:relative;
+}
+.parent:after{
+    content:'';
+    background:url('/assets/bg1.jpg')   ;     
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    opacity:0.2;
+}
+
+.child{
+    width:100%;
+    height:100%;
+    position:relative;
+    z-index:1;
+}

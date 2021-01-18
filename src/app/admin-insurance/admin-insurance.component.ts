@@ -15,7 +15,8 @@ export class AdminInsuranceComponent implements OnInit {
   insurance: any = [];
 
   ins :any = {
-    insurance_id:0
+    insurance_id:0,
+    user_id:0
   };
 
   constructor(private adminService: AdminService, private router:Router) { }
@@ -34,6 +35,7 @@ export class AdminInsuranceComponent implements OnInit {
 
   approve(insurance_id, user_id){
     this.ins.insurance_id=insurance_id;
+    this.ins.user_id=user_id;
     this.adminService.approveInsurance(this.ins).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
@@ -41,6 +43,21 @@ export class AdminInsuranceComponent implements OnInit {
       }
       else{
         alert("Error in approving insurance!")
+      }
+      this.ngOnInit();
+    })
+  }
+
+  reject(insurance_id, user_id){
+    this.ins.insurance_id=insurance_id;
+    this.ins.user_id=user_id;
+    this.adminService.rejectInsurance(this.ins).subscribe(data => {
+      console.log(JSON.stringify(data));
+      if(data.status=="SUCCESS"){
+        alert(data.message);
+      }
+      else{
+        alert("Error in Rejecting insurance!")
       }
       this.ngOnInit();
     })

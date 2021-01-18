@@ -68,7 +68,15 @@
                       <td>{{item.sum_insured}}</td>
                       <td>{{item.area}}</td>
                       <td>{{item.premium_amount}}</td>
-                      <td><button type="button" class="btn btn-success btn-lg mx-auto" ><a (click)="approve(item.insurance_id , item.user_id)" routerLinkActive="active">Approve</a></button></td>
+                      <td>
+                        <button type="button" class="btn btn-success  mx-auto" >
+                          <a (click)="approve(item.insurance_id , item.user_id)" routerLinkActive="active">Approve</a>
+                        </button>
+                        &nbsp;
+                        <button type="button" class="btn btn-danger  mx-auto" >
+                          <a (click)="reject(item.insurance_id , item.user_id)" routerLinkActive="active">Reject</a>
+                        </button>
+                      </td>
                     
                   </tr>
               

@@ -14,36 +14,36 @@ export class BidderBidrequestComponent implements OnInit {
   bid: Bids = new Bids();
   sell_id: any;
   Bids: any = [];
-  msp: any ;
+  msp: any;
   sells: any = {
     sell_id: 0
   };
 
-  bids: any={
-    sell_id:0,
-    user_id:0
+  bids: any = {
+    sell_id: 0,
+    user_id: 0
   };
 
-  update: any={
-    sell_id:0,
-    user_id:0,
-    bid_amount:0
+  update: any = {
+    sell_id: 0,
+    user_id: 0,
+    bid_amount: 0
   };
 
-  activeBids: any=[];
+  activeBids: any = [];
 
-  bidamount:any;
-  
-  constructor(private service: BidderService, private router: Router,private formBuilder: FormBuilder) { }
-  
-  
+  bidamount: any;
+
+  constructor(private service: BidderService, private router: Router, private formBuilder: FormBuilder) { }
+
+
   ngOnInit(): void {
     this.sell_id = localStorage.getItem('sell_id');
     this.msp = localStorage.getItem('msp');
     this.loadBid();
 
   }
-  
+
 
 
   placebid() {
@@ -52,11 +52,11 @@ export class BidderBidrequestComponent implements OnInit {
 
       this.bid.user_id = JSON.parse(sessionStorage.getItem('user_id'));
       this.bid.sell_id = JSON.parse(this.sell_id);
-      
+
       //  this.bidamount=this.bid.bid_amount;
       //  localStorage.setItem('bidamount',this.bidamount);
 
-     
+
       console.log(JSON.stringify(this.bid));
 
       this.service.placebid(this.bid).subscribe(response => {
@@ -80,28 +80,33 @@ export class BidderBidrequestComponent implements OnInit {
     })
 
 
-    this.bids.sell_id=localStorage.getItem('sell_id');
-    this.bids.user_id=sessionStorage.getItem('user_id');
-    this.service.getActiveBids(this.bids).subscribe(data =>{
+    this.bids.sell_id = localStorage.getItem('sell_id');
+    this.bids.user_id = sessionStorage.getItem('user_id');
+    this.service.getActiveBids(this.bids).subscribe(data => {
       console.log(JSON.stringify(data));
-      this.activeBids=data.list;
+      this.activeBids = data.list;
     })
   }
 
-  updatebids(){
-    this.update.sell_id=localStorage.getItem('sell_id');
-    this.update.user_id=sessionStorage.getItem('user_id');
-    this.update.bid_amount=this.bid.bid_amount;
+  updatebids() {
+    if (this.msp <= this.bid.bid_amount) {
+      this.update.sell_id = localStorage.getItem('sell_id');
+      this.update.user_id = sessionStorage.getItem('user_id');
+      this.update.bid_amount = this.bid.bid_amount;
 
-    this.service.updatebid(this.update).subscribe(data => {
-      console.log(JSON.stringify(data));
+      this.service.updatebid(this.update).subscribe(data => {
+        console.log(JSON.stringify(data));
 
-      if(data.status =='SUCCESS'){
-        console.log(data.message);
-        this.bid.bid_amount=null;
-        this.ngOnInit();
-      }
-    })
+        if (data.status == 'SUCCESS') {
+          console.log(data.message);
+          this.bid.bid_amount = null;
+          this.ngOnInit();
+        }
+      })
+    }
+    else {
+      alert("Please Enter an amount greater than or equal to minimum selling price");
+    }
 
 
   }
@@ -112,5 +117,5 @@ export class BidderBidrequestComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  
+
 }
