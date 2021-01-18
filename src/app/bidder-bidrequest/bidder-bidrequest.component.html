@@ -42,13 +42,13 @@
 
                 </div>
 
-                <div class="form-group" *ngIf="Bids.length == 0">
+                <div class="form-group" *ngIf="activeBids.length == 0">
                     <button type="submit" class="btn btn-success btn-lg mx-auto" (click)="placebid()"
                         style="width: 100px;" data-toggle="tooltip" data-placement="right"
                         title="Are you sure?">Bid</button>
                 </div>
 
-                <div class="form-group" *ngIf="Bids.length != 0">
+                <div class="form-group" *ngIf="activeBids.length != 0">
                     <button type="submit" class="btn btn-success btn-lg mx-auto" (click)="updatebids()"
                         style="width: 200px;" data-toggle="tooltip" data-placement="right" title="Are you sure?">Edit
                         Bid</button>
