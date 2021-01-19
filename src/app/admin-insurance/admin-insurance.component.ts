@@ -39,7 +39,7 @@ export class AdminInsuranceComponent implements OnInit {
     this.adminService.approveInsurance(this.ins).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);
+        console.log(data.message);
       }
       else{
         alert("Error in approving insurance!")
@@ -54,7 +54,7 @@ export class AdminInsuranceComponent implements OnInit {
     this.adminService.rejectInsurance(this.ins).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);
+        console.log(data.message);
       }
       else{
         alert("Error in Rejecting insurance!")

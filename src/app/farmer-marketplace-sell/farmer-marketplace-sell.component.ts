@@ -20,7 +20,12 @@ export class FarmerMarketplaceSellComponent implements OnInit {
   constructor(private service:FarmerService, private router: Router) { }
 
   ngOnInit() {
-    alert(this.sell_id);
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
+    
+    console.log(this.sell_id);
     this.getBids();
   }
 

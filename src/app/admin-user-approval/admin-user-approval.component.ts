@@ -42,7 +42,7 @@ export class AdminUserApprovalComponent implements OnInit {
     this.adminService.approveUser(this.user).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);
+        console.log(data.message);
       }
       else{
         alert("Error in approving User!");
@@ -56,7 +56,7 @@ export class AdminUserApprovalComponent implements OnInit {
     this.adminService.rejectUser(this.user).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);
+        console.log(data.message);
       }
       else{
         alert("Error in Rejecteing User!");

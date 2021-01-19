@@ -12,6 +12,10 @@ export class InsuranceHomeComponent implements OnInit {
   constructor(private service:InsuranceService,private router: Router) { }
 
   ngOnInit() {
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
   }
 
   logout(){

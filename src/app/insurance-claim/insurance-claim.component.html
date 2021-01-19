@@ -112,7 +112,7 @@
                 <div class="mb-3 form-group">
                   <label for="Date" class="form-label">Date of loss</label>
                   <input type="Date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.loss_date.errors } " formControlName="loss_date" id="Date" name="t3"
-                    [(ngModel)]=claims.loss_date>
+                    [(ngModel)]=claims.loss_date [max]="getToday()">
                     <div *ngIf="submitted && f.loss_date.errors" class="invalid-feedback">
                       <div *ngIf="f.loss_date.errors.required">Date of loss is required</div>
                       <div *ngIf="f.loss_date.errors.loss_date">You can enter only Alphabets</div>

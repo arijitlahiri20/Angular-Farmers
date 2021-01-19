@@ -32,7 +32,7 @@ export class SignupFarmerComponent implements OnInit {
       addr_2: ['', [Validators.required]],
       city: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]],
       state: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]],
-      pincode: ['', [Validators.required]],
+      pincode: ['', [Validators.required, Validators.pattern('[0-9]{6}')]],
       land_pincode: ['', [Validators.required]],
       land_addr: ['', [Validators.required]],
       land_area: ['', [Validators.required]],
@@ -57,6 +57,7 @@ export class SignupFarmerComponent implements OnInit {
       alert("Passwords don't match!");
     }
     else if (this.form2.invalid) {
+      alert("Invalid Data in input fields!");
       return;
     }
     else {
@@ -69,7 +70,7 @@ export class SignupFarmerComponent implements OnInit {
       this.service.signupfarmer(this.user).subscribe(data => {
 
         //this.message=data.message;
-        alert(JSON.stringify(data));
+        console.log(JSON.stringify(data));
         if (data.status == "SUCCESS") {
           localStorage.setItem('user_id', data.registeredCustomerId);
           this.router.navigate(['/signup-documents']);

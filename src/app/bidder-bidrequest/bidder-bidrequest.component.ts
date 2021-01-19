@@ -38,6 +38,11 @@ export class BidderBidrequestComponent implements OnInit {
 
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
+    
     this.sell_id = localStorage.getItem('sell_id');
     this.msp = localStorage.getItem('msp');
     this.loadBid();
@@ -60,7 +65,7 @@ export class BidderBidrequestComponent implements OnInit {
       console.log(JSON.stringify(this.bid));
 
       this.service.placebid(this.bid).subscribe(response => {
-        alert(JSON.stringify(response));
+        console.log(JSON.stringify(response));
         this.router.navigate(['/bidder-marketplace']);
       })
     }
@@ -109,6 +114,11 @@ export class BidderBidrequestComponent implements OnInit {
     }
 
 
+  }
+
+  goback(){
+    localStorage.clear();
+    this.router.navigate(['/bidder-marketplace']);
   }
 
   logout() {

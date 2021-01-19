@@ -31,7 +31,7 @@ export class SignupBidderComponent implements OnInit {
       addr_2: ['', [Validators.required]],
       city: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]],
       state: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]],
-      pincode: ['', [Validators.required]],
+      pincode: ['', [Validators.required, Validators.pattern('[0-9]{6}')]],
       account_no: ['', [Validators.required]],
       ifsc_no: ['', [Validators.required]],
       password1: ['', [Validators.required]],
@@ -67,10 +67,13 @@ export class SignupBidderComponent implements OnInit {
       this.service.signupfarmer(this.user).subscribe(data => {
 
         //this.message=data.message;
-        alert(JSON.stringify(data));
+        console.log(JSON.stringify(data));
         if (data.status == "SUCCESS") {
           localStorage.setItem('user_id', data.registeredCustomerId);
           this.router.navigate(['/signup-documents']);
+        }
+        else{
+          alert("Error in registering new user");
         }
       })
 

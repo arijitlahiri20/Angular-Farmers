@@ -32,7 +32,8 @@ export class ContactUsComponent implements OnInit {
     this.userServie.sendContactUs(this.contact).subscribe(data =>{
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);
+        console.log(data.message);
+        this.router.navigate(['/']);
       }
       else{
         alert("Error sending data! Try Again");
