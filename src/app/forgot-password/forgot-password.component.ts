@@ -22,6 +22,11 @@ export class ForgotPasswordComponent implements OnInit {
   };
 
   ngOnInit() {
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
+
     this.forgotpassword = this.formBuilder.group({
 
       email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]]
@@ -40,7 +45,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.service.getNewPassword(this.user).subscribe(response => {
     console.log(JSON.stringify(response));
     if(response.status=='SUCCESS'){
-      alert("Email has been sent!");
+      alert("Password has been sent to the registered Email Id!");
       this.router.navigate(['/login']);
     }
     else{

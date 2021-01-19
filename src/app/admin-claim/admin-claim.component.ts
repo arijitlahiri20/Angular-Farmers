@@ -38,7 +38,7 @@ export class AdminClaimComponent implements OnInit {
     this.adminService.approveClaim(this.clm).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);  
+        console.log(data.message);  
       }
       else{
         alert("Error in approving Claim!")
@@ -53,7 +53,7 @@ export class AdminClaimComponent implements OnInit {
     this.adminService.rejectClaim(this.clm).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);  
+        console.log(data.message);  
       }
       else{
         alert("Error in Rejecting Claim!")

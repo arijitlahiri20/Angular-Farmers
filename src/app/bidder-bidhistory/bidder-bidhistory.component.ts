@@ -19,6 +19,11 @@ export class BidderBidhistoryComponent implements OnInit {
   constructor(private service:BidderService, private router:Router) { }
 
   ngOnInit() {
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
+    
     this.loadhistory();
   }
 

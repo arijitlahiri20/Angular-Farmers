@@ -45,7 +45,7 @@ export class AdminMarkeplaceBidsComponent implements OnInit {
     this.adminService.closeAuction(this.bid).subscribe(data =>{
       console.log(JSON.stringify(data));
       if(data.status="SUCCESS"){
-        alert(data.message);
+        console.log(data.message);
         this.router.navigate(['/admin-marketplace']);
       }
       else{

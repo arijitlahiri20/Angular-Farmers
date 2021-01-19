@@ -58,7 +58,7 @@ export class AdminSellrequestsComponent implements OnInit {
     this.adminService.approveSellRequest(this.sl).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);
+        console.log(data.message);
       }
       else{
         alert("Error in approving Sell Request!");
@@ -73,7 +73,7 @@ export class AdminSellrequestsComponent implements OnInit {
     this.adminService.rejectSellRequest(this.sl).subscribe(data => {
       console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
-        alert(data.message);
+        console.log(data.message);
       }
       else{
         alert("Error in rejecting Sell Request!");

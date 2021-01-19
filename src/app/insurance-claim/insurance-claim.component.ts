@@ -23,9 +23,14 @@ export class InsuranceClaimComponent implements OnInit {
   constructor(private service:InsuranceService,private router: Router,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    if(sessionStorage.getItem("user_id") === null) {
+      alert("You are Logged Out, Login again!");
+      this.router.navigate(['/login']);
+    }
+
     this.id = localStorage.getItem("insurance_id");
     this.service.getInsuranceById(this.id).subscribe(data=>{
-      alert(JSON.stringify(data));
+      console.log(JSON.stringify(data));
       if(data.status=="SUCCESS"){
         this.insurance = data.object;
         this.claims.policy_no = data.object.policy_no;
@@ -50,6 +55,9 @@ export class InsuranceClaimComponent implements OnInit {
     })
     
   }
+  getToday(): string {
+    return new Date().toISOString().split('T')[0];
+ }
 
   get f() { return this.form2.controls; }
 
@@ -69,7 +77,7 @@ export class InsuranceClaimComponent implements OnInit {
    this.service.signupclaim(this.claims).subscribe(data=>{
         
         //this.message=data.message;
-        alert(JSON.stringify(data));
+        console.log(JSON.stringify(data));
         if(data.status=="SUCCESS")
           this.router.navigate(['/insurance-home']);
     })
